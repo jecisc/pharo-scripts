@@ -1,2 +1,9 @@
 images/
 SynSources/
+GitRepositories/
+epicea*
+package-cache/
+play-cache/
+play-stash/
+project-cache/
+templateCache/
