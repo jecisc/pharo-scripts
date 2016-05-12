@@ -33,5 +33,30 @@ StartupPreferencesLoader default executeAtomicItems: {
 		name: 'Desktop background image file name' 
 		code: [ PolymorphSystemSettings desktopImageFileName: ((StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'back2.jpg') fullName)] 
 		runOnce: true.
+		
+	StartupAction 
+		name: 'Class Template with Slots' 
+		code: [ Slot showSlotClassDefinition: true ]
+		runOnce: true.
+		
+	StartupAction 
+		name: 'Close welcolm window' 
+		code: [ (SystemWindow allInstances select:  [ :w | w labelString includesSubstring: 'Welcome' ]) do: #delete ]
+		runOnce: true.
+		
+	StartupAction
+		name: 'Local Playground cache directory'
+		code: [ GTPlayBook cacheDirectory: (StartupPreferencesLoader preferencesGeneralFolder / 'play-cache') ]
+		runOnce: true.
+		
+	StartupAction
+		name: 'Local Playground stash directory'
+		code: [ GTPlayBook stashDirectory: (StartupPreferencesLoader preferencesGeneralFolder / 'play-stash' ) ]
+		runOnce: true.
+		
+	StartupAction 
+		name: 'Local cache directory' 
+		code: [ MCCacheRepository cacheDirectory:  (StartupPreferencesLoader preferencesGeneralFolder / 'package-cache' ) ]
+		runOnce: true
 
 }
