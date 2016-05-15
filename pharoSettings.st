@@ -57,6 +57,14 @@ StartupPreferencesLoader default executeAtomicItems: {
 	StartupAction 
 		name: 'Local cache directory' 
 		code: [ MCCacheRepository cacheDirectory:  (StartupPreferencesLoader preferencesGeneralFolder / 'package-cache' ) ]
-		runOnce: true
+		runOnce: true.
+		
+	StartupAction
+		name: 'Set Monticello infos'
+		code: [ (Smalltalk globals includesKey: #STON) ifTrue: [ | creds |
+				creds := STON fromString: (StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'Creds') contents.
+				MCRepositoryGroup default repositories do: [ :rep | [rep user: (creds at: #username). rep password: (creds at: #password)] on: Error do: [  ] ] ]
+		]
+		runOnce: true.
 
 }
