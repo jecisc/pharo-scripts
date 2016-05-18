@@ -31,8 +31,10 @@ StartupPreferencesLoader default executeAtomicItems: {
 		
 	StartupAction 
 		name: 'Desktop background image file name' 
-		code: [ PolymorphSystemSettings desktopImageFileName: ((StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'back2.jpg') fullName)] 
-		runOnce: true.
+		code: [ | files |
+			files := (StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'backgrounds') allFiles.
+			PolymorphSystemSettings desktopImageFileName: (files at: (UUIDGenerator default makeSeed \\ files size) + 1) fullName. ] 
+		runOnce: false.
 		
 	StartupAction 
 		name: 'Class Template with Slots' 
