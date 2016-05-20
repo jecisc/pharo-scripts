@@ -1,7 +1,7 @@
 StartupPreferencesLoader default executeAtomicItems: {
 	StartupAction
 		name: 'Set the Author'
-		code: [ Author fullName: 'CyrilFerlciot' ]
+		code: [ Author fullName: 'CyrilFerlicot' ]
 		runOnce: true.
 
 	StartupAction
