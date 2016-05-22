@@ -10,7 +10,7 @@ StartupPreferencesLoader default executeAtomicItems: {
 	
 	StartupAction
 		name: 'Install ston if needed'
-		code: [
+		code: [ "This is mostly fos QuickAccess but also because I use a lot of stuff using STON"
 			(Smalltalk globals includesKey: #STON) ifFalse: [
 				Metacello new
 					configuration: 'Ston';
