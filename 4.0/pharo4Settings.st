@@ -6,6 +6,18 @@ StartupPreferencesLoader default executeAtomicItems: {
 			ThemeIcons current: #IdeaUIThemeIcons asClass new.
 			AbstractNautilusUI resetIconCaches
 		]
-		runOnce: true
+		runOnce: true.
+	
+	StartupAction
+		name: 'Install ston if needed'
+		code: [
+			(Smalltalk globals includesKey: #STON) ifFalse: [
+				Metacello new
+					configuration: 'Ston';
+					repository:  (StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'ProjectCache' / 'STON' / 'Pharo4' ) fullName;
+					load
+			]
+		]
+		runOnce: true.
 	
 }
