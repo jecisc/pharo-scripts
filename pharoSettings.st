@@ -71,5 +71,10 @@ StartupPreferencesLoader default executeAtomicItems: {
 				MCRepositoryGroup default repositories do: [ :rep | [ rep user: (creds at: #username). rep password: (creds at: #password) ] on: Error do: [  ] ] ]
 		]
 		runOnce: true.
-
+		
+	StartupAction
+		name: 'Set only dirty in MC'
+		code: [ MCWorkingCopyBrowser order: 4 ]
+		runOnce: true.
+		
 }
