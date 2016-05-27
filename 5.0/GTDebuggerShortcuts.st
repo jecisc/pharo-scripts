@@ -23,6 +23,9 @@ StartupPreferencesLoader default executeAtomicItems: {
 				^ ''Over'' asText addAttribute: TextEmphasis underlined from: 1 to: 1'.
 			StepThroughDebugAction compile: 'defaultLabel
 				^ ''Through'' asText addAttribute: TextEmphasis underlined from: 1 to: 1'.
+				
+			GTGenericStackDebugger compile: 'codeActionsPragmas
+			^ #(stackDebuggingAction codeDebuggingAction)' classified: 'building actions'
 		]
 		runOnce: true.
 }
