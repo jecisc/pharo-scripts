@@ -27,6 +27,11 @@ StartupPreferencesLoader default executeAtomicItems: {
 	StartupAction
 		name: 'Directly open the full Debugger'
 		code: [ Smalltalk tools debugger alwaysOpenFullDebugger: true ]
-		runOnce: true.		
+		runOnce: true.
+	
+	StartupAction 
+		name: 'Close welcome window' 
+		code: [ World submorphs select: [ :m | m isSystemWindow and: [ m label = PharoWelcomePage title ] ] thenDo: #delete. ]
+		runOnce: true.	
 		
 }

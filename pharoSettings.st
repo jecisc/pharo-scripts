@@ -52,11 +52,6 @@ StartupPreferencesLoader default executeAtomicItems: {
 		code: [ Slot showSlotClassDefinition: true ]
 		runOnce: true.
 		
-	StartupAction 
-		name: 'Close welcolm window' 
-		code: [ (SystemWindow allInstances select:  [ :w | w labelString includesSubstring: 'Welcome' ]) do: #delete ]
-		runOnce: true.
-		
 	StartupAction
 		name: 'Local Playground cache directory'
 		code: [ GTPlayBook cacheDirectory: (StartupPreferencesLoader preferencesGeneralFolder / 'play-cache') ]
@@ -86,6 +81,11 @@ StartupPreferencesLoader default executeAtomicItems: {
 	StartupAction
 		name: 'Set only dirty in MC'
 		code: [ MCWorkingCopyBrowser order: 4 ]
+		runOnce: true.
+		
+	StartupAction
+		name: 'Remove Pharo Repositories to avoid to lose time with Monticello'
+		code: [ MCRepositoryGroup default repositories select: [ :r | r location includesSubstring: 'Pharo/Pharo' ] thenDo: [ :r | MCRepositoryGroup default removeRepository: r ] ]
 		runOnce: true.
 		
 }

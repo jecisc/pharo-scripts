@@ -19,5 +19,10 @@ StartupPreferencesLoader default executeAtomicItems: {
 			]
 		]
 		runOnce: true.
+		
+	StartupAction 
+		name: 'Close welcolm window' 
+		code: [ (SystemWindow allInstances select:  [ :w | w labelString includesSubstring: 'Welcome' ]) do: #delete ]
+		runOnce: true.
 	
 }
