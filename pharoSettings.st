@@ -135,4 +135,17 @@ StartupPreferencesLoader default executeAtomicItems: {
 		ifTrue: [ aMessage sentTo: self ]
 		ifFalse: [ resumeValue ]' ]
 		runOnce: true.
+		
+	StartupAction
+		name: 'Set the default github-cache'
+		code: [ 
+			MCGitHubRepository cacheDirectory:
+				(((OSPlatform current isWindows
+					ifTrue: [ FileLocator C "This is a hack to shorten windows's paths because windows have a max path of 255 characters :(" ]
+					ifFalse: [ StartupPreferencesLoader preferencesGeneralFolder ]) / 'github-cache')
+					ensureCreateDirectory;
+					yourself)
+		]
+		runOnce: true.
+		
 }
