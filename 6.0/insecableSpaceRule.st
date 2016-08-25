@@ -25,6 +25,9 @@ StartupPreferencesLoader default executeAtomicItems: {
 			ReInsecableSpaceRule class compile: 'checksMethod
 	^ true' classified: 'testing-interest'.
 	
+			ReInsecableSpaceRule  compile: 'anchorFor: anEntity
+	^ ReSearchStringSourceAnchor entity: anEntity string: Character nbsp asString' classified: 'helpers'.
+	
 	ReRuleManager resetWithInform.
 		]
 		runOnce: true.
