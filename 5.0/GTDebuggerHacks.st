@@ -25,7 +25,7 @@ StartupPreferencesLoader default executeAtomicItems: {
 	^ ''Through'' asText addAttribute: TextEmphasis underlined from: 1 to: 1' classified: '*_UnpackagedPackage'.
 				
 			GTGenericStackDebugger compile: 'codeActionsPragmas
-	^ #(stackDebuggingAction codeDebuggingAction)' classified: '*_UnpackagedPackage'.
+	^ #(customDebuggingAction codeDebuggingAction)' classified: '*_UnpackagedPackage'.
 			
 			GTRunToSelectionDebugAction class compile: 'gtStackDebuggingActionFor: aDebugger
 	<gtStackDebuggingAction>
@@ -36,6 +36,19 @@ StartupPreferencesLoader default executeAtomicItems: {
 			GTRunToSelectionDebugAction compile: 'defaultOrder
 
 	^ 100' classified: '*_UnpackagedPackage'.
+			
+	{RestartDebugAction. ResumeDebugAction. StepIntoDebugAction. StepOverDebugAction. StepThroughDebugAction. GTRunToSelectionDebugAction}
+		do: [ :each | 
+			each class
+				compile:
+					(String
+						streamContents: [ :s | 
+							s
+								<< ((each class >> #gtStackDebuggingActionFor:) sourceCode copyUpThrough: $>);
+								cr;
+								<< '	<gtCustomDebuggingAction>';
+								<< ((each class >> #gtStackDebuggingActionFor:) sourceCode copyAfter: $>) ])
+				classified: '*_UnpackagedPackage' ]
 		]
 		runOnce: true.
 }
