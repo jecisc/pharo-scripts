@@ -176,7 +176,7 @@ StartupPreferencesLoader default executeAtomicItems: {
 		order: 1295;
 		help: ''Open a Komitter on the selected package(s)'';
 		icon: Komitter taskbarIcon'.
-	Komitter class compile: code classified: '*MyKomitter-menu'.
+	Komitter class compile: code classified: '*_UnpackagedPackage'.
 		]
 		runOnce: true.
 		
