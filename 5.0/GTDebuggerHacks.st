@@ -31,7 +31,7 @@ StartupPreferencesLoader default executeAtomicItems: {
 	<gtStackDebuggingAction>
 	
 	^ (self forDebugger: aDebugger)
-		icon: #bottom asIcon' classified: '*_UnpackagedPackage'.
+		icon: (Smalltalk ui icons iconNamed: #bottom)' classified: '*_UnpackagedPackage'.
 				
 			GTRunToSelectionDebugAction compile: 'defaultOrder
 
