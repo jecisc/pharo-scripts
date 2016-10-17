@@ -180,4 +180,31 @@ StartupPreferencesLoader default executeAtomicItems: {
 		]
 		runOnce: true.
 		
+	StartupAction
+		name: 'Add Metacello API'
+		code: [
+		Metacello compile: 'stHubConf: userName project: projectName
+			self smalltalkhubUser: userName project: projectName.
+			self configuration: projectName' classified: '*_UnpackagedPackage'.
+	
+		Metacello compile: 'githubBaseline: userName project: projectName commitish: commitish path: path
+			self githubUser: userName project: projectName commitish: commitish path: path.
+			self baseline: projectName' classified: '*_UnpackagedPackage'.
+	
+		Metacello class compile: 'githubUser: userName project: projectName commitish: commitish path: path
+			^ self new 
+				githubUser: userName project: projectName commitish: commitish path: path;
+				baseline: projectName;
+				onWarningLog;
+				load' classified: '*_UnpackagedPackage'.
+	
+		Metacello class compile: 'stHubUser: userName project: projectName
+			^ self new 
+				smalltalkhubUser: userName project: projectName;
+				configuration: projectName;
+				onWarningLog;
+				load' classified: '*_UnpackagedPackage'.
+		]
+		runOnce: true.
+		
 }
