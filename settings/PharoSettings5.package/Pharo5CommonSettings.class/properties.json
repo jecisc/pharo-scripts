@@ -1,0 +1,14 @@
+{
+	"category" : "PharoSettings5",
+	"classinstvars" : [
+		 ],
+	"classvars" : [
+		 ],
+	"commentStamp" : "",
+	"instvars" : [
+		 ],
+	"name" : "Pharo5CommonSettings",
+	"pools" : [
+		 ],
+	"super" : "Object",
+	"type" : "normal" }
