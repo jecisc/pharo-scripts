@@ -33,4 +33,13 @@ StartupPreferencesLoader default executeAtomicItems: {
 		name: 'Close welcome window' 
 		code: [ World submorphs select: [ :m | m isSystemWindow and: [ m label = PharoWelcomePage title ] ] thenDo: #delete. ]
 		runOnce: true.
+		
+	StartupAction
+		name: 'Load Settings'
+		code: [ Metacello new
+			filetreeDirectory: (StartupPreferencesLoader preferencesGeneralFolder / 'settings') fullName;
+			baseline: 'PharoSettings';
+			load 
+		]
+		runOnce: true
 }
