@@ -6,4 +6,5 @@ initialize
 	self setWindowsPreferences.
 	self setLocalFolders.
 	self setMonticelloInfos.
-	self someToolsOptions
+	self someToolsOptions.
+	self enableGTSpotterPreview

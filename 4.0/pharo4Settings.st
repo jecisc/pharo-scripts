@@ -237,5 +237,10 @@ StartupPreferencesLoader default executeAtomicItems: {
 		name: 'Close welcolm window' 
 		code: [ (SystemWindow allInstances select:  [ :w | w labelString includesSubstring: 'Welcome' ]) do: #delete ]
 		runOnce: true.
+		
+	StartupAction
+	name: 'GTSpotter preview'
+	code: [ GTSpotter showPreview ]
+	runOnce: true.
 	
 }
