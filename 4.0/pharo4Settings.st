@@ -292,4 +292,11 @@ Internal Representation and Key Implementation Points.
 		cr;
 		contents'  ]
 	runOnce: true.
+	
+	StartupAction
+		name: 'Shourt Halt'
+		code: [ Object compile: 'h
+	<debuggerCompleteToSender>
+	Halt now'  ]
+	runOnce: true.
 }
