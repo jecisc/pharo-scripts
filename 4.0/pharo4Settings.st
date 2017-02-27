@@ -340,5 +340,30 @@ Internal Representation and Key Implementation Points.
 				(handleToRelease = each handle) ifTrue: [ each beNull ] ] ]'
 	]
 	runOnce: true.
+	
+	StartupAction 
+		name: 'Instance creation' 
+		code: [  
+	CategoryWidget class compile: 'instanceCreationMenu: aBuilder
+		<nautilusGlobalProtocolMenu>
+		(aBuilder item: #''Add instance creation...'')
+			action: [ aBuilder model addInstanceCreation ];
+			order: 90'.
+		
+	NautilusUI compile:
+	 'addInstanceCreation
+		| newName |
+		self okToChange
+			ifFalse: [ ^ self ].
+		self selectedClass ifNil: [ ^ self ].
+		newName := #''instance creation''.
+		self selectedClass organization addCategory: newName before: self selectedCategory.
+		self resetCategoriesListSelection.
+		categoryWidget selectProtocol: newName.
+		self selectedCategory: newName.
+		self
+			updateCategoryAndMethodList;
+			giveFocusToSourceCode'] 
+		runOnce: true.
 
 }
