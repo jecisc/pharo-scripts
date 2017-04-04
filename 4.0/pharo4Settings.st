@@ -324,9 +324,19 @@ Internal Representation and Key Implementation Points.
 		
 	StartupAction
 		name: 'Backport FT2Handler correction'
-		code: [ FT2Handle class compile: 'register: aHandle
+		code: [ Object subclass: #FT2Handle
+	slots: { #handle }
+	classVariables: { #Registry. #Session. #DestroyMutex }
+	poolDictionaries: 'FT2Constants'
+	category: 'FreeType-Base'.
+	
+	FT2Handle class compile: 'register: aHandle
 	(self registry includes: aHandle) ifTrue: [ ^ self ]. 
 	self registry add: aHandle'.
+	
+	FT2Handle class compile: 'destroyMutex
+	^ DestroyMutex ifNil: [ DestroyMutex := Mutex new ]'.
+	
 	FT2Handle compile: 'pvtDestroyHandle
 		"This should only be sent from the finalizer. 
 		 It runs inside a mutex because in strange cases it can happen that this is executed twice, 
@@ -365,5 +375,12 @@ Internal Representation and Key Implementation Points.
 			updateCategoryAndMethodList;
 			giveFocusToSourceCode'] 
 		runOnce: true.
+		
+	StartupAction
+		name: 'Clean Monticello noise'
+		code: [ | packages |
+	packages := #('FreeType' 'Kernel' 'Komitter' 'NECompletion' 'Nautilus' 'Traits' '_UnpackagedPackage').
+	MCWorkingCopy allInstances select: [ :p | packages includes: p package name ] thenDo: [ :p | p modified: false ] ]
+	    runOnce: true.
 
 }
