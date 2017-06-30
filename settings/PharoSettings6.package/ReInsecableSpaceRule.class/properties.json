@@ -1,14 +1,11 @@
 {
-	"category" : "PharoSettings6",
-	"classinstvars" : [
-		 ],
-	"classvars" : [
-		 ],
 	"commentStamp" : "",
-	"instvars" : [
-		 ],
-	"name" : "ReInsecableSpaceRule",
-	"pools" : [
-		 ],
 	"super" : "ReAbstractRule",
-	"type" : "normal" }
+	"category" : "PharoSettings6",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ReInsecableSpaceRule",
+	"type" : "normal"
+}
