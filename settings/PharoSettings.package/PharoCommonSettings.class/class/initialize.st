@@ -7,4 +7,5 @@ initialize
 	self setLocalFolders.
 	self setMonticelloInfos.
 	self someToolsOptions.
-	self enableGTSpotterPreview
+	self enableGTSpotterPreview.
+	self removeTaskBarPreview

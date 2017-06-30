@@ -382,5 +382,10 @@ Internal Representation and Key Implementation Points.
 	packages := #('FreeType' 'Kernel' 'Komitter' 'NECompletion' 'Nautilus' 'Traits' '_UnpackagedPackage').
 	MCWorkingCopy allInstances select: [ :p | packages includes: p package name ] thenDo: [ :p | p modified: false ] ]
 	    runOnce: true.
+		
+	StartupAction
+		name: 'Remove taskbar preview'
+		code: [ TaskbarMorph showTaskbar: false ]
+	    runOnce: true.
 
 }
