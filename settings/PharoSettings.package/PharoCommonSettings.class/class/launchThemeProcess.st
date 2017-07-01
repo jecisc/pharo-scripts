@@ -8,7 +8,8 @@ launchThemeProcess
 		ifFalse: [ Pharo3Theme ].
 	theme = currentTheme
 		ifFalse: [ currentTheme := theme.
-			PolymorphSystemSettings uiThemeClass: currentTheme ] ].
+			PolymorphSystemSettings uiThemeClass: currentTheme.
+			self setThemeSetting ] ].
 	[ [ installThemeBlock value.
 	5 minutes asDelay wait ] repeat ] newProcess
 		priority: Processor systemBackgroundPriority;

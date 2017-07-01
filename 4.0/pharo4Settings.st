@@ -24,7 +24,7 @@ StartupPreferencesLoader default executeAtomicItems: {
  
           installThemeBlock := [ | theme | 
             theme := (Time now between: '7:00am' asTime and: '9:00pm' asTime) ifTrue: [ Pharo3DarkTheme ] ifFalse: [ Pharo3Theme ]. 
-            theme = currentTheme ifFalse: [ currentTheme := theme. PolymorphSystemSettings uiThemeClass: currentTheme ] ]. 
+            theme = currentTheme ifFalse: [ currentTheme := theme. PolymorphSystemSettings uiThemeClass: currentTheme.  UITheme currentSettings fastDragging: true ] ]. 
  
             [ [ installThemeBlock value. 5 minutes asDelay wait ] repeat ]  
               newProcess priority: Processor systemBackgroundPriority;  
@@ -385,7 +385,7 @@ Internal Representation and Key Implementation Points.
 		
 	StartupAction
 		name: 'Remove taskbar preview'
-		code: [ TaskbarMorph showTaskbar: false ]
+		code: [ TaskbarMorph showWindowPreview: false ]
 	    runOnce: true.
 
 }

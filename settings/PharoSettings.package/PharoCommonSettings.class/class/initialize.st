@@ -8,4 +8,5 @@ initialize
 	self setMonticelloInfos.
 	self someToolsOptions.
 	self enableGTSpotterPreview.
-	self removeTaskBarPreview
+	self removeTaskBarPreview.
+	self setThemeSetting
