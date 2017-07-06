@@ -6,5 +6,4 @@ initializeIcebergSettings
 			((StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories')
 				ensureCreateDirectory;
 				yourself).
-	OSPlatform current isWindows
-		ifTrue: [ IceCredentialsProvider useCustomSsh: true ]
+	IceCredentialsProvider useCustomSsh: true
