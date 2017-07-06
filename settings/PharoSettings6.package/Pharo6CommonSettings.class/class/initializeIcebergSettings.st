@@ -2,5 +2,9 @@ initialization
 initializeIcebergSettings
 	IceRepository
 		shareRepositoriesBetweenImages: true;
-		sharedRepositoriesLocationString: 'C:\Users\JeCisC\AppData\Roaming\Pharo\GitRepositories'.
-	IceCredentialsProvider useCustomSsh: true
+		sharedRepositoriesLocation:
+			((StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories')
+				ensureCreateDirectory;
+				yourself).
+	OSPlatform current isWindows
+		ifTrue: [ IceCredentialsProvider useCustomSsh: true ]
