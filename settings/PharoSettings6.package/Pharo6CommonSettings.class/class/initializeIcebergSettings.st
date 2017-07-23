@@ -6,4 +6,6 @@ initializeIcebergSettings
 			((StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories')
 				ensureCreateDirectory;
 				yourself).
-	IceCredentialsProvider useCustomSsh: true
+	IceCredentialsProvider useCustomSsh: true.
+	Iceberg showSystemRepositories: true.
+	IceRepository registry detect: [ :each | each name = 'pharo' ] ifFound: [ :each | each location: StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / 'pharo' ]
