@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ConfigurationOf",
+	"category" : "ConfigurationOfBlockStyler",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ConfigurationOfBlockStyler",
+	"type" : "normal"
+}

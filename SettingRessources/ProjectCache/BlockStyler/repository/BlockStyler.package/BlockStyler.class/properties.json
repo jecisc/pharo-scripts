@@ -1,0 +1,17 @@
+{
+	"commentStamp" : "",
+	"super" : "IconStyler",
+	"category" : "BlockStyler",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"DefaultThemes",
+		"Enabled"
+	],
+	"instvars" : [
+		"backgroundColor",
+		"nesting"
+	],
+	"name" : "BlockStyler",
+	"type" : "normal"
+}

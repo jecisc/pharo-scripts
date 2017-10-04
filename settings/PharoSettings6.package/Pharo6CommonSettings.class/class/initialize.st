@@ -1,3 +1,5 @@
 initialization
 initialize
-	self initializeIcebergSettings
+	self 
+		initializeIcebergSettings;
+		installBlockStyler
