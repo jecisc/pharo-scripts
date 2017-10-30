@@ -7,5 +7,6 @@ initializeIcebergSettings
 				ensureCreateDirectory;
 				yourself).
 	IceCredentialsProvider useCustomSsh: true.
+	Iceberg enableMetacelloIntegration: true.
 	Iceberg showSystemRepositories: true.
 	IceRepository registry detect: [ :each | each name = 'pharo' ] ifFound: [ :each | each location: StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / 'pharo' ]
