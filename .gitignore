@@ -13,3 +13,7 @@ startup.stold
 Old/
 **/.DS_Store
 SettingRessources/Creds*
+
+org\.pharo\.gt\.spotter\.event\.recorder\.fuel
+
+org\.pharo\.global-identifiers\.ston
