@@ -4,8 +4,12 @@ launchThemeProcess
 	| installThemeBlock currentTheme |
 	installThemeBlock := [ | theme |
 	theme := (Time now between: '7:00am' asTime and: '9:00pm' asTime)
-		ifTrue: [ Pharo3DarkTheme ]
-		ifFalse: [ Pharo3Theme ].
+		ifTrue: [ SystemVersion current major >= 7
+				ifTrue: [ PharoDarkTheme ]
+				ifFalse: [ Pharo3DarkTheme ] ]
+		ifFalse: [ SystemVersion current major >= 7
+				ifTrue: [ PharoLightTheme ]
+				ifFalse: [ Pharo3Theme ] ].
 	theme = currentTheme
 		ifFalse: [ currentTheme := theme.
 			PolymorphSystemSettings uiThemeClass: currentTheme.
