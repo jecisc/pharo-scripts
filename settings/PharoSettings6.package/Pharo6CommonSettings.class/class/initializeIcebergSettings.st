@@ -14,9 +14,11 @@ initializeIcebergSettings
 	"Make sur Metacello integration is on, even in Pharo 6"
 	Iceberg enableMetacelloIntegration: true.
 	
-	"Show Pharo repository because I contribute a lot"
-	Iceberg showSystemRepositories: true.
-	IceRepository registry detect: [ :each | each name = 'pharo' ] ifFound: [ :each | each location: StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / 'pharo' ].
+	"Add Pharo by default"
+	(IceRepositoryCreator new
+		location: StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / 'pharo';
+		subdirectory: 'src';
+		createRepository) register.
 	
 	"Add my preference folder by default"
 	(IceRepositoryCreator new
