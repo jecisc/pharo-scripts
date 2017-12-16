@@ -1,6 +1,7 @@
 *PharoSettings
-doesNotUnderstand: aMessage
-	| exception resumeValue message |
+altDNU: anArray
+	| exception resumeValue message aMessage |
+	aMessage := anArray anyOne.
 	message := aMessage selector asString.
 	message last = $:
 		ifTrue: [ self class instVarNames

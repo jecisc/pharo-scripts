@@ -1,5 +1,5 @@
 initialization
-addMetaLkinForKomitter
+addMetaLinkForKomitter
 	<script>
 	(KomitStagingArea >> #remotes) ast
 		link:
