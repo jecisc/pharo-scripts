@@ -7,9 +7,18 @@ addMetaLinksForDebugger
 	(StepOverDebugAction -> 'Over').
 	(StepThroughDebugAction -> 'Through')} asDictionary
 		keysAndValuesDo: [ :class :label | 
-			| node link |
-			node := (class >> #defaultLabel) ast.
-			link := MetaLink new
-				metaObject: [ label asText addAttribute: TextEmphasis underlined from: 1 to: 1 ];
-				control: #instead.
-			node link: link ]
+			(class >> #defaultLabel) ast
+				link:
+					(MetaLink new
+						metaObject: [ label asText addAttribute: TextEmphasis underlined from: 1 to: 1 ];
+						control: #instead) ].
+	(GTRunToSelectionDebugAction >> #defaultOrder) ast
+		link:
+			(MetaLink new
+				metaObject: [ 100 ];
+				control: #instead).
+	(GTGenericStackDebugger >> #codeActionsPragmas) ast
+		link:
+			(MetaLink new
+				metaObject: [ #(customDebuggingAction codeDebuggingAction) ];
+				control: #instead)
