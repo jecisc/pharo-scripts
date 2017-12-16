@@ -9,4 +9,5 @@ initialize
 	self someToolsOptions.
 	self enableGTSpotterPreview.
 	self removeTaskBarPreview.
-	self setThemeSetting
+	self setThemeSetting.
+	self addMetaLinkForClassDescription

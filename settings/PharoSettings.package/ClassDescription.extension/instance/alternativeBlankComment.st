@@ -1,5 +1,5 @@
 *PharoSettings
-classCommentBlank
+alternativeBlankComment
 	| existingComment stream |
 	(existingComment := self theNonMetaClass organization classComment) ifNotEmpty: [ ^ existingComment ].
 	(stream := (String new: 100) writeStream)
