@@ -10,4 +10,5 @@ initialize
 	self enableGTSpotterPreview.
 	self removeTaskBarPreview.
 	self setThemeSetting.
-	self addMetaLinkForClassDescription
+	self addMetaLinkForClassDescription.
+	self addMetaLkinForKomitter
