@@ -4,5 +4,4 @@ baseline: spec
 	spec for: #common do: [ spec package: 'PharoSettings' ].
 	spec for: #'pharo5.x' do: [ spec package: 'PharoSettings5-Specific' ].
 	spec for: #(#'pharo5.x' #'pharo6.x' #'pharo7.x') do: [ spec package: 'PharoSettings5' ].
-	spec for: #(#'pharo6.x' #'pharo7.x') do: [ spec package: 'PharoSettings6' ].
-	spec postLoadDoIt: #cleanMonticelloNoise
+	spec for: #(#'pharo6.x' #'pharo7.x') do: [ spec package: 'PharoSettings6' ]
