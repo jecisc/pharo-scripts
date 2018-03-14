@@ -1,9 +1,12 @@
 initialization
 setLocalFolders
 	<script>
+	| packageCache |
 	GTPlayBook cacheDirectory: StartupPreferencesLoader preferencesGeneralFolder / 'play-cache'.
 	GTPlayBook stashDirectory: StartupPreferencesLoader preferencesGeneralFolder / 'play-stash'.
-	MCCacheRepository cacheDirectory: StartupPreferencesLoader preferencesGeneralFolder / 'package-cache'.
+	packageCache := StartupPreferencesLoader preferencesGeneralFolder / 'package-cache'.
+	packageCache ensureCreateDirectory.
+	MCCacheRepository cacheDirectory: packageCache.
 	MCGitHubRepository
 		cacheDirectory:
 			(((OSPlatform current isWindows
