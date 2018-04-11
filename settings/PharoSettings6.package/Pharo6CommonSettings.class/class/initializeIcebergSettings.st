@@ -1,7 +1,8 @@
 initialization
 initializeIcebergSettings
 	"Add a shared repository"
-	IceRepository
+	self flag: #todo. "Remove hack when the Pharo 6 version will always have at least Iceberg v0.7"
+	((IceRepository respondsTo: #shareRepositoriesBetweenImages:) ifTrue: [ IceRepository ] ifFalse: [ IceLibgitRepository ])
 		shareRepositoriesBetweenImages: true;
 		sharedRepositoriesLocation:
 			((StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories')
@@ -13,12 +14,6 @@ initializeIcebergSettings
 	
 	"Make sur Metacello integration is on, even in Pharo 6"
 	Iceberg enableMetacelloIntegration: true.
-	
-	"Add Pharo by default"
-	(IceRepositoryCreator new
-		location: StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / 'pharo';
-		subdirectory: 'src';
-		createRepository) register.
 	
 	"Add my preference folder by default"
 	(IceRepositoryCreator new
