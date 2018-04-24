@@ -1,4 +1,4 @@
-*PharoSettings
+*PharoSettingsUpTo61
 remotesAlt
 	| result |
 	self packages ifEmpty: [ ^ #() ].

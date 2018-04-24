@@ -11,5 +11,4 @@ initialize
 	self removeTaskBarPreview.
 	self setThemeSetting.
 	self addMetaLinkForClassDescription.
-	self addMetaLinkForKomitter.
 	self addMetaLinkForDNUTrick

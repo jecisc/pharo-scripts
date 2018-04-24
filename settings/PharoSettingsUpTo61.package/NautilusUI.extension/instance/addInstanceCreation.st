@@ -1,4 +1,4 @@
-*PharoSettings
+*PharoSettingsUpTo61
 addInstanceCreation
 	| newName |
 	self okToChange

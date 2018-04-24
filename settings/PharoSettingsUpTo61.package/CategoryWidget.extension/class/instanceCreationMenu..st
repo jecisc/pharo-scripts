@@ -1,4 +1,4 @@
-*PharoSettings
+*PharoSettingsUpTo61
 instanceCreationMenu: aBuilder
 	<nautilusGlobalProtocolMenu>
 	(aBuilder item: #'Add instance creation...')

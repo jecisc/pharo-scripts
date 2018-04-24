@@ -1,4 +1,4 @@
-*PharoSettings
+*PharoSettingsUpTo61
 packagesMenu: aBuilder
 	<nautilusGlobalPackageMenu>
 	| packageNames target |

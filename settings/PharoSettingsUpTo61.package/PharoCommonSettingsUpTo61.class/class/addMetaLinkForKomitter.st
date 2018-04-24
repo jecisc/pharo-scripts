@@ -1,4 +1,4 @@
-initialization
+adding
 addMetaLinkForKomitter
 	<script>
 	(KomitStagingArea >> #remotes) ast
