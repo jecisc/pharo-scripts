@@ -10,4 +10,4 @@ installQuickAccess
 		repository: 'tonel://' , sourcesDir fullName;
 		load: #(#Tools).
 
-	(self environment classNamed: #QACActionManager) default import: StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'quickAccess.qac'
+	(self environment classNamed: #QACActionManager) importFile: StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'quickAccess.qac'
