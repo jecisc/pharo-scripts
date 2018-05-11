@@ -1,4 +1,4 @@
 initialization
 removeTaskBarPreview
 	<script>
-	TaskbarMorph showWindowPreview: true
+	TaskbarMorph showWindowPreview: false
