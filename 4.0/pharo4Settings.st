@@ -88,7 +88,7 @@ StartupPreferencesLoader default executeAtomicItems: {
      
     StartupAction 
       name: 'Remove Pharo Repositories to avoid to lose time with Monticello' 
-      code: [ MCRepositoryGroup default repositories select: [ :r | r location includesSubstring: 'Pharo/Pharo' ] thenDo: [ :r | MCRepositoryGroup default removeRepository: r ] ] 
+      code: [ MCRepositoryGroup default repositories select: [ :r | (r isKindOf: MCFileBasedRepository) and: [ r location includesSubstring: 'Pharo/Pharo' ] ] thenDo: [ :r | MCRepositoryGroup default removeRepository: r ] ] 
       runOnce: true. 
      
     StartupAction 
