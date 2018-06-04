@@ -1,3 +1,5 @@
 initialization
 initialize
-	self addMetaLinkForKomitter
+	self 
+		addMetaLinkForKomitter;
+		installQuickAccess
