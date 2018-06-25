@@ -1,5 +1,3 @@
 initialization
 initialize 
-	self 
-		initializePharoRepository;
-		installQuickAccess
+	self installQuickAccess

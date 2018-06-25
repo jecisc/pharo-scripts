@@ -3,6 +3,7 @@ initializePharoRepository
 	"Add Pharo by default"
 
 	self flag: #clean.	"When Iceberg will be more stable, update this."
+	1halt.
 	IceRepository registry
 		detect: [ :repo | repo name = 'pharo' and: [ repo location isNil ] ]
 		ifFound: [ :repo | 
