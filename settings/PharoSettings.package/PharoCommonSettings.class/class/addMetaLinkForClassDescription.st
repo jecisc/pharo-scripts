@@ -1,14 +1,10 @@
 initialization
 addMetaLinkForClassDescription
 	<script>
-	| traitClass |
-	traitClass := Smalltalk
-		at:
-			(SystemVersion current major >= 7
-				ifTrue: [ #TClassDescription ]
-				ifFalse: [ #TraitDescription ]).
-	{ClassDescription.
-	traitClass}
+	(SystemVersion current major >= 7
+		ifTrue: [ {ClassDescription} ]
+		ifFalse: [ {ClassDescription.
+			TraitDescription} ])
 		do: [ :class | 
 			(class >> #classCommentBlank) ast
 				link:
