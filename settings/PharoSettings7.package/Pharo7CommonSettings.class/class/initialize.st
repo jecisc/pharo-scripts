@@ -1,3 +1,5 @@
 initialization
-initialize 
-	self installQuickAccess
+initialize
+	self
+		installQuickAccess;
+		installSpecRepository
