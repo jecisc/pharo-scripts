@@ -1,7 +1,7 @@
 initialization
 installQuickAccess
 	| sourcesDir |
-	sourcesDir := (StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / 'jecisc' / 'QuickAccess' / 'src').
+	sourcesDir := (self sharedRepositoryFolder / 'jecisc' / 'QuickAccess' / 'src').
 
 	sourcesDir exists ifFalse: [ UIManager default alert: 'Clone QuickAccess for to ', sourcesDir parent parent fullName ].
 
@@ -10,4 +10,4 @@ installQuickAccess
 		repository: 'tonel://' , sourcesDir fullName;
 		load: #(#Tools).
 
-	(self environment classNamed: #QACActionManager) importFile: StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources' / 'quickAccess.qac'
+	(self environment classNamed: #QACActionManager) importFile: self resourcesFolder / 'quickAccess.qac'

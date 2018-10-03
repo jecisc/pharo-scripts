@@ -1,6 +1,6 @@
 {
 	"commentStamp" : "",
-	"super" : "Object",
+	"super" : "PharoAbstractSettings",
 	"category" : "PharoSettings7",
 	"classinstvars" : [ ],
 	"pools" : [ ],

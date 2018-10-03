@@ -2,7 +2,7 @@ initialization
 installBlockStyler
 	<script>
 	Metacello new
-		filetreeDirectory: (PharoCommonSettings resourcesFolder / 'ProjectCache' / 'BlockStyler') fullName , '/repository';
+		filetreeDirectory: (self projectCache / 'BlockStyler') fullName , '/repository';
 		baseline: 'BlockStyler';
 		load.
 	(self class environment at: #BlockStyler) defaultThemes
