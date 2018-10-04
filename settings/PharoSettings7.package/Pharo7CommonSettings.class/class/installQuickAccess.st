@@ -1,5 +1,6 @@
 initialization
 installQuickAccess
+	<script>
 	| sourcesDir |
 	sourcesDir := (self sharedRepositoryFolder / 'jecisc' / 'QuickAccess' / 'src').
 
