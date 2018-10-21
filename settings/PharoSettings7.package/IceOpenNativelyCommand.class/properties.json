@@ -1,0 +1,13 @@
+{
+	"commentStamp" : "",
+	"super" : "IceTipCommand",
+	"category" : "PharoSettings7",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"location"
+	],
+	"name" : "IceOpenNativelyCommand",
+	"type" : "normal"
+}
