@@ -1,0 +1,2 @@
+*PharoSettings
+haltIfTrue
