@@ -1,6 +1,6 @@
 initialization
 initializeIcebergSettings
-
+	<script>
 	"Add a shared repository"
 	self flag: #todo.	"Remove hack when the Pharo 6 version will always have at least Iceberg v0.7"
 	((IceRepository respondsTo: #shareRepositoriesBetweenImages:) ifTrue: [ IceRepository ] ifFalse: [ IceLibgitRepository ])
