@@ -1,6 +1,7 @@
 *PharoSettings
-altDNU: anArray
-	| exception resumeValue message aMessage |
+generatesPotentialSetterOrGetterWith: anArray
+	<debuggerCompleteToSender>
+	| message aMessage |
 	aMessage := anArray anyOne.
 	message := aMessage selector asString.
 	message last = $:
@@ -13,11 +14,4 @@ altDNU: anArray
 				detect: [ :var | var = message ]
 				ifFound: [ :var | 
 					self compileGetterNamed: var.
-					^ aMessage sentTo: self ] ].
-	(exception := MessageNotUnderstood new)
-		message: aMessage;
-		receiver: self.
-	resumeValue := exception signal.
-	^ exception reachedDefaultHandler
-		ifTrue: [ aMessage sentTo: self ]
-		ifFalse: [ resumeValue ]
+					^ aMessage sentTo: self ] ]

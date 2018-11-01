@@ -5,6 +5,6 @@ addMetaLinkForDNUTrick
 		link:
 			(MetaLink new
 				metaObject: #receiver;
-				selector: #altDNU:;
+				selector: #generatesPotentialSetterOrGetterWith:;
 				arguments: #(#arguments);
-				control: #instead)
+				control: #before)
