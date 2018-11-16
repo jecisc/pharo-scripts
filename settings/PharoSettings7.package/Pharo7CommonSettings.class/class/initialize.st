@@ -2,4 +2,5 @@ initialization
 initialize
 	self
 		installQuickAccess;
-		installSpecRepository
+		installSpecRepository;
+		addMooseRepositories
