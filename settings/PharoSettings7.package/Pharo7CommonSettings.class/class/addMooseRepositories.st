@@ -2,11 +2,15 @@ initialization
 addMooseRepositories
 	<script>
 	(self imageNameBeginsWithAny: #('MyMoose-' 'MooseNG-')) ifFalse: [ ^ self ].
-	
-	self registerIfPresentProjectOf: 'moosetechnology' named: 'Moose'.
-	self registerIfPresentProjectOf: 'jecisc' named: 'Hashtable'.
-	self registerIfPresentProjectOf: 'jecisc' named: 'Fame'.
-	self registerIfPresentProjectOf: 'jecisc' named: 'KGBTestResources'.
-	self registerIfPresentProjectOf: 'jecisc' named: 'PackageBlueprintTestResources'.
-	self registerIfPresentProjectOf: 'RMODINRIA' named: 'RoelTyper'.
-	self registerIfPresentProjectOf: 'jecisc' named: 'Famix'
+
+	self
+		registerIfPresentProjectOf: 'moosetechnology' named: 'Moose';
+		registerIfPresentProjectOf: 'moosetechnology' named: 'MooseAlgos';
+		registerIfPresentProjectOf: 'pharo-contributions' named: 'DeepTraverser';
+		registerIfPresentProjectOf: 'jecisc' named: 'Hashtable';
+		registerIfPresentProjectOf: 'jecisc' named: 'Fame';
+		registerIfPresentProjectOf: 'jecisc' named: 'KGBTestResources';
+		registerIfPresentProjectOf: 'jecisc' named: 'PackageBlueprintTestResources';
+		registerIfPresentProjectOf: 'RMODINRIA' named: 'RoelTyper';
+		registerIfPresentProjectOf: 'jecisc' named: 'MooseRing2';
+		registerIfPresentProjectOf: 'jecisc' named: 'Famix'
