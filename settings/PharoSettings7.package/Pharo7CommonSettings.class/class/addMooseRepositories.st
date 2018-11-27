@@ -13,4 +13,5 @@ addMooseRepositories
 		registerIfPresentProjectOf: 'jecisc' named: 'PackageBlueprintTestResources';
 		registerIfPresentProjectOf: 'RMODINRIA' named: 'RoelTyper';
 		registerIfPresentProjectOf: 'jecisc' named: 'MooseRing2';
-		registerIfPresentProjectOf: 'jecisc' named: 'Famix'
+		registerIfPresentProjectOf: 'jecisc' named: 'Famix';
+		registerIfPresentProjectOf: 'jecisc' named: 'MooseSpec'
