@@ -3,4 +3,5 @@ installSpecRepository
 	<script>
 	(self imageNameBeginsWith: 'Spec-') ifFalse: [ ^ self ].
 
-	self registerIfPresentProjectOf: 'pharo-spec' named: 'Spec'
+	self registerIfPresentProjectOf: 'pharo-spec' named: 'Spec'.
+	Deprecation raiseWarning: false
