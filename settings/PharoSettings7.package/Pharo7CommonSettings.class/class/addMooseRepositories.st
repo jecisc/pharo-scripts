@@ -11,6 +11,7 @@ addMooseRepositories
 		registerIfPresentProjectOf: 'jecisc' named: 'Fame';
 		registerIfPresentProjectOf: 'jecisc' named: 'KGBTestResources';
 		registerIfPresentProjectOf: 'jecisc' named: 'PackageBlueprintTestResources';
+		registerIfPresentProjectOf: 'jecisc' named: 'ReferenceTestResources';
 		registerIfPresentProjectOf: 'RMODINRIA' named: 'RoelTyper';
 		registerIfPresentProjectOf: 'jecisc' named: 'MooseRing2';
 		registerIfPresentProjectOf: 'jecisc' named: 'Famix';
