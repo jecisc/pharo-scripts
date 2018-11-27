@@ -1,7 +1,7 @@
 initialization
 addMooseRepositories
 	<script>
-	(self imageNameBeginsWithAny: #('MyMoose-' 'MooseNG-')) ifFalse: [ ^ self ].
+	(self imageNameBeginsWithAny: #('MyMoose-' 'MooseNG-' 'MooseSpec-')) ifFalse: [ ^ self ].
 
 	self
 		registerIfPresentProjectOf: 'moosetechnology' named: 'Moose';
