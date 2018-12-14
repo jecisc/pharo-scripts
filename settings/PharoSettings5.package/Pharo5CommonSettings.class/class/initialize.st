@@ -3,4 +3,5 @@ initialize
 	self shortcutReminderSettings.
 	self debuggerUpdate.
 	self closeWelcomeWindow.
-	self addMetaLinksForDebugger
+	self addMetaLinksForDebugger.
+	self formatingOptions
