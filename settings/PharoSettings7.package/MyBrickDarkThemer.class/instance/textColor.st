@@ -1,0 +1,3 @@
+brick
+textColor
+	^ Color white
