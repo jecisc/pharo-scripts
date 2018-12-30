@@ -1,3 +1,3 @@
 accessing
 lightBaseColor
-^ self baseColor lighter
+	^ self baseColor lighter
