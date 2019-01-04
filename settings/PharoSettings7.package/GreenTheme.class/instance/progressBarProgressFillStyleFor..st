@@ -1,3 +1,3 @@
 basic-colors
 progressBarProgressFillStyleFor: aProgressBar
-	^ Color green
+	^ Color fromHexString: '4CAF50'
