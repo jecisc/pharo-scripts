@@ -3,7 +3,8 @@ formatingOptions
 	<script>
 	BIConfigurableFormatter
 		multiLineMessages: '#(#on:do: #ensure: #ifCurtailed:)';
-		retainBlankLinesBetweenStatements: true.
+		retainBlankLinesBetweenStatements: true;
+		maxLineLength: 140.
 	(BIConfigurableFormatter >> #formatArray:) ast
 				link:
 					(MetaLink new
