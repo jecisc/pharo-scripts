@@ -2,5 +2,4 @@ initialization
 initialize
 	self 
 		addMetaLinkForKomitter;
-		codeCompletionPreferences;
-		installQuickAccess
+		codeCompletionPreferences
