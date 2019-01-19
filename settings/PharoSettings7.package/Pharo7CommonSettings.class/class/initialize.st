@@ -2,4 +2,6 @@ initialization
 initialize
 	self
 		installSpecRepository;
-		addMooseRepositories
+		addMooseRepositories.
+		
+	MenubarMorph reset
