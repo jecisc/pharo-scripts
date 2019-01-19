@@ -9,18 +9,24 @@ worldMenuSectionsOn: aBuilder
 
 	(aBuilder item: #Loading)
 		parent: #Scripts;
-		order: 1;
+		order: 5;
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Loading on: aBuilder ].
 
 	(aBuilder item: #Seaside)
 		parent: #Scripts;
-		order: 1;
+		order: 10;
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Seaside on: aBuilder ].
 
 	(aBuilder item: #Synectique)
 		parent: #Scripts;
-		order: 1;
+		order: 15;
 		iconName: #configNew;
-		with: [ self buildSubmenu: #Synectique on: aBuilder ]
+		with: [ self buildSubmenu: #Synectique on: aBuilder ].
+
+	(aBuilder item: #Browse)
+		parent: #Scripts;
+		order: 20;
+		iconName: #configNew;
+		with: [ self buildSubmenu: #Browse on: aBuilder ]
