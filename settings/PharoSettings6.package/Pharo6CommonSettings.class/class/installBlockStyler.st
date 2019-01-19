@@ -1,8 +1,13 @@
 initialization
 installBlockStyler
 	<script>
+	| sourcesDir |
+	sourcesDir := self sharedRepositoryFolder / 'jecisc' / 'BlockStyler' / 'repository'.
+
+	sourcesDir exists ifFalse: [ UIManager default alert: 'Clone BlockStyler to ' , sourcesDir parent parent fullName ].
+
 	Metacello new
-		filetreeDirectory: (self projectCache / 'BlockStyler') fullName , '/repository';
+		filetreeDirectory: sourcesDir fullName;
 		baseline: 'BlockStyler';
 		load.
 	(self class environment at: #BlockStyler) defaultThemes
