@@ -6,4 +6,5 @@ createAddToIcebergSubmenusFrom: aFolder on: aBuilder
 			[ (IceRepositoryCreator new
 				location: dir;
 				createRepository) register ] ]
+		prefix: ''
 		on: aBuilder

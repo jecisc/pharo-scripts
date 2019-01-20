@@ -1,3 +1,3 @@
 world menu
-buildOpenNativelyOn: aBuilder 
+buildOpenNativelyOn: aBuilder
 	self createOpenNativelySubmenusFrom: self sharedRepositoryFolder on: aBuilder
