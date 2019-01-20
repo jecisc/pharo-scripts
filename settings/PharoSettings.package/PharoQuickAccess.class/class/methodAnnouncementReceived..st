@@ -1,3 +1,3 @@
 instance creation
 methodAnnouncementReceived: anAnnouncement
-	anAnnouncement methodAffected methodClass = self ifTrue: [ MenubarMorph reset ]
+	({self . self class } anySatisfy: [ :class | anAnnouncement methodAffected methodClass = class ]) ifTrue: [ MenubarMorph reset ]

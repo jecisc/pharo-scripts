@@ -29,4 +29,10 @@ worldMenuSectionsOn: aBuilder
 		parent: #Scripts;
 		order: 20;
 		iconName: #configNew;
-		with: [ self buildSubmenu: #Browse on: aBuilder ]
+		with: [ self buildSubmenu: #Browse on: aBuilder ].
+
+	(aBuilder item: #'Open natively Iceberg repository')
+		parent: #Scripts;
+		order: 25;
+		iconName: #configNew;
+		with: [ self buildOpenNativelyOn: aBuilder ]
