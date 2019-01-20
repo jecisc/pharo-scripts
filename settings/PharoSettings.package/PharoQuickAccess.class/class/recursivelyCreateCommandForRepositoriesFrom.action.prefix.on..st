@@ -3,9 +3,9 @@ recursivelyCreateCommandForRepositoriesFrom: aFolder action: action prefix: aStr
 	aFolder directories
 		do: [ :dir | 
 			(dir directories anySatisfy: [ :e | e basename = '.git' ])
-				ifTrue: [ (aBuilder item: dir basename)
+				ifTrue: [ (aBuilder item: (aString , dir basename) asSymbol)
 						action: [ self executeBlock: [ action cull: dir ] ];
 						iconName: #smallDoIt ]
 				ifFalse: [ (aBuilder item: (aString , dir basename) asSymbol)
 						iconName: #configNew;
-						with: [ self createOpenNativelySubmenusFrom: dir on: aBuilder ] ] ]
+						with: [ self recursivelyCreateCommandForRepositoriesFrom: dir action: action prefix: aString on: aBuilder ] ] ]

@@ -3,8 +3,8 @@ createAddToIcebergSubmenusFrom: aFolder on: aBuilder
 	self
 		recursivelyCreateCommandForRepositoriesFrom: aFolder
 		action: [ :dir | 
-			[ (IceRepositoryCreator new
+			(IceRepositoryCreator new
 				location: dir;
-				createRepository) register ] ]
+				createRepository) register ]
 		prefix: ''
 		on: aBuilder
