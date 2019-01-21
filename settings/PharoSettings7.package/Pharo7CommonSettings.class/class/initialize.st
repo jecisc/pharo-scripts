@@ -2,6 +2,8 @@ initialization
 initialize
 	self
 		installSpecRepository;
-		addMooseRepositories.
+		addMooseRepositories;
+		resetMenuBar;
+		addIcebergHack.
 		
 	MenubarMorph reset
