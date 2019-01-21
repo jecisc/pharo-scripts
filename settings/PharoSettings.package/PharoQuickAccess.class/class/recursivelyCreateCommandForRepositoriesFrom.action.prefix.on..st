@@ -1,6 +1,7 @@
 world menu
 recursivelyCreateCommandForRepositoriesFrom: aFolder action: action prefix: aString on: aBuilder
-	aFolder directories
+	self flag: #pharo5.	"When support for P5 will be dropped, use a sort function."
+	(aFolder directories sort: [ :a :b | a basename asLowercase < b basename asLowercase ])
 		do: [ :dir | 
 			(dir directories anySatisfy: [ :e | e basename = '.git' ])
 				ifTrue: [ (aBuilder item: (aString , dir basename) asSymbol)
@@ -8,4 +9,8 @@ recursivelyCreateCommandForRepositoriesFrom: aFolder action: action prefix: aStr
 						iconName: #smallDoIt ]
 				ifFalse: [ (aBuilder item: (aString , dir basename) asSymbol)
 						iconName: #configNew;
-						with: [ self recursivelyCreateCommandForRepositoriesFrom: dir action: action prefix: aString on: aBuilder ] ] ]
+						with: [ self
+								recursivelyCreateCommandForRepositoriesFrom: dir
+								action: action
+								prefix: aString
+								on: aBuilder ] ] ]
