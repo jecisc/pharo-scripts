@@ -4,6 +4,7 @@ initialize
 		installSpecRepository;
 		addMooseRepositories;
 		resetMenuBar;
-		addIcebergHack.
+		addIcebergHack;
+		prepareForPharoContribution.
 		
 	MenubarMorph reset
