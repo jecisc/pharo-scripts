@@ -5,6 +5,7 @@ initialize
 		addMooseRepositories;
 		resetMenuBar;
 		addIcebergHack;
-		prepareForPharoContribution.
+		prepareForPharoContribution;
+		icebergSettingsForP7Plus.
 		
 	MenubarMorph reset
