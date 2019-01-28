@@ -13,11 +13,11 @@ worldMenuSectionsOn: aBuilder
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Loading on: aBuilder ].
 
-	(aBuilder item: #Seaside)
+	(aBuilder item: #'Seaside scripts')
 		parent: #Scripts;
 		order: 10;
 		iconName: #configNew;
-		with: [ self buildSubmenu: #Seaside on: aBuilder ].
+		with: [ self buildSubmenu: 'Seaside scripts' on: aBuilder ].
 
 	(aBuilder item: #Synectique)
 		parent: #Scripts;

@@ -1,5 +1,4 @@
 browse
 browseQuickAccess
-	<name: #'QuickAccess'>
-
+	<name: #QuickAccess>
 	self class browse

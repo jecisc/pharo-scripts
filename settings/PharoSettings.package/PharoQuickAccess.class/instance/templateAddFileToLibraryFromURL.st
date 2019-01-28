@@ -1,4 +1,4 @@
-seaside
+seaside scripts
 templateAddFileToLibraryFromURL
 	<name: #'_Template: URL to file library'>
 	GTPlayground openContents: 'library := SYNFileLibrary.

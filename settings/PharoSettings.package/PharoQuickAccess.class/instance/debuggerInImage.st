@@ -1,4 +1,4 @@
-seaside
+seaside scripts
 debuggerInImage
 	<name: #'Enable in image debugger'>
 	self class environment
