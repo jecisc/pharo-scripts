@@ -1,7 +1,7 @@
 initialization
 prepareForPharoContribution
 	<script>
-	(self imageNameBeginsWith: #('ContribPharo')) ifFalse: [ ^ self ].
+	(self imageNameBeginsWith: 'ContribPharo') ifFalse: [ ^ self ].
 
 	IceRepository registry
 		detect: [ :repo | repo workingCopy packages anySatisfy: [ :p | p name = 'BaselineOfPharo' ] ]
