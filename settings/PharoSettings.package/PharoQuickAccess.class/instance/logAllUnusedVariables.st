@@ -1,7 +1,7 @@
 conveniance
 logAllUnusedVariables
 	<name: #'Log all unused variables'>
-	Transcript open.
+	Transcript clear; open.
 	Object
 		allSubclassesDo: [ :class | 
 			class instVarNames
