@@ -1,0 +1,3 @@
+helpers
+rootFolder
+	^ StartupPreferencesLoader preferencesGeneralFolder

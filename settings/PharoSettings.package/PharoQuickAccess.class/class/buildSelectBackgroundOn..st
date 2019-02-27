@@ -1,4 +1,4 @@
-as yet unclassified
+world menu
 buildSelectBackgroundOn: aBuilder
 	self backgroundFolder allFiles
 		do: [ :background | 

@@ -1,7 +1,7 @@
 helpers
 sharedRepositoryFolder
 	| file |
-	file := PharoCommonSettings resourcesFolder / 'localisation'.
+	file := self resourcesFolder / 'localisation'.
 	file exists
 		ifFalse: [ | cred |
 			cred := Dictionary new.

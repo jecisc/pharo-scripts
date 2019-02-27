@@ -1,3 +1,3 @@
 helpers
 resourcesFolder
-	^ StartupPreferencesLoader preferencesGeneralFolder / 'SettingRessources'
+	^ self rootFolder / 'SettingRessources'
