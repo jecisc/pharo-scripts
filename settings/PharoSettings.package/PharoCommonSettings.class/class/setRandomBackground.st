@@ -2,7 +2,7 @@ initialization
 setRandomBackground
 	<script>
 	| files |
-	files := (self resourcesFolder / 'backgrounds') allFiles.
+	files := self backgroundFolder allFiles.
 	PolymorphSystemSettings
 		desktopImageFileName:
 			(files

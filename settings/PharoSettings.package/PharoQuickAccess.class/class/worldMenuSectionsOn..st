@@ -31,6 +31,12 @@ worldMenuSectionsOn: aBuilder
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Browse on: aBuilder ].
 
+	(aBuilder item: #'Select background')
+		parent: #Conveniance;
+		order: 1;
+		iconName: #configNew;
+		with: [ self buildSelectBackgroundOn: aBuilder ].
+
 	(aBuilder item: #'Add to Iceberg')
 		parent: #Scripts;
 		order: 25;
