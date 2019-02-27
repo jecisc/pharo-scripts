@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "CyrilFerlicot 2/27/2019 15:31",
+	"super" : "PharoDarkTheme",
+	"category" : "PharoSettings7",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "DarkBlueTheme",
+	"type" : "normal"
+}

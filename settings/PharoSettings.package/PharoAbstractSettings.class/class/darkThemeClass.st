@@ -1,5 +1,5 @@
 initialization
 darkThemeClass
 	^ SystemVersion current major >= 7
-		ifTrue: [ GreenTheme ]
+		ifTrue: [ DarkBlueTheme ]
 		ifFalse: [ Pharo3DarkTheme ]
