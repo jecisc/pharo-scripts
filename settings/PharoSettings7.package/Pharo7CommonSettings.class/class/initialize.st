@@ -8,4 +8,4 @@ initialize
 		
 	MenubarMorph reset.
 	
-	self installFurro
+	"self installFurro"
