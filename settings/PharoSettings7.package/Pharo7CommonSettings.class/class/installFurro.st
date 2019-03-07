@@ -9,4 +9,5 @@ installFurro
 			project: 'Furro'
 			commitish: 'master'
 			path: 'src';
-		load
+		load.
+	Furro initializeTheme.
