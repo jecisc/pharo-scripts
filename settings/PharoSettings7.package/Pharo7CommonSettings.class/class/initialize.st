@@ -4,8 +4,7 @@ initialize
 		resetMenuBar;
 		addIcebergHack;
 		prepareForPharoContribution;
-		icebergSettingsForP7Plus.
+		icebergSettingsForP7Plus;
+		installFurro.
 		
 	MenubarMorph reset.
-	
-	"self installFurro"
