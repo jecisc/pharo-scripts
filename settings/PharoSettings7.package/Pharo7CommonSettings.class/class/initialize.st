@@ -1,7 +1,7 @@
 initialization
 initialize
 	self
-		installSpecRepository;
+		installFurro;
 		addMooseRepositories;
 		resetMenuBar;
 		addIcebergHack;

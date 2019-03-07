@@ -1,4 +1,4 @@
 initialization
 setThemeSetting
 	<script>
-	UITheme currentSettings fastDragging: true
+	UITheme currentSettings fastDragging: false

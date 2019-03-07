@@ -1,4 +1,4 @@
 initialization
 setAuthorName
 	<script>
-	Author fullName: 'CyrilFerlicot'
+	Author fullName: 'BenoitVerhaeghe'

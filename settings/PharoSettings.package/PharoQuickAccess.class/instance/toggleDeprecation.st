@@ -1,4 +1,4 @@
 conveniance
 toggleDeprecation
-	<name: #'Togglee deprecations'>
+	<name: #'Toggle deprecations'>
 	Deprecation raiseWarning: Deprecation raiseWarning not
