@@ -2,7 +2,6 @@ initialization
 initialize
 	self
 		installFurro;
-		addMooseRepositories;
 		resetMenuBar;
 		addIcebergHack;
 		prepareForPharoContribution;
