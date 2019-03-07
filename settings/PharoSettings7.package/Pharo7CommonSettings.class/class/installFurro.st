@@ -10,4 +10,5 @@ installFurro
 			commitish: 'master'
 			path: 'src';
 		load.
-	"Furro initializeTheme."
+	Furro initializeTheme.
+	Furro initializeBackground.
