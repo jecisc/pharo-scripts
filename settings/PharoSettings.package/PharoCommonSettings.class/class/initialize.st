@@ -11,6 +11,5 @@ initialize
 		enableGTSpotterPreview;
 		removeTaskBarPreview;
 		setThemeSetting;
-		addMetaLinkForClassDescription;
 		addMetaLinkForDNUTrick;
 		disableSomeGTSpotterExtensions
