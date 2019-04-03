@@ -25,6 +25,12 @@ worldMenuSectionsOn: aBuilder
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Synectique on: aBuilder ].
 
+	(aBuilder item: #'Terminal commands')
+		parent: #Scripts;
+		order: 17;
+		iconName: #configNew;
+		with: [ self buildSubmenu: 'Terminal commands' on: aBuilder ].
+
 	(aBuilder item: #Browse)
 		parent: #Scripts;
 		order: 20;
