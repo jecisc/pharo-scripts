@@ -7,6 +7,7 @@ addMooseRepositories
 		registerIfPresentProjectOf: 'moosetechnology' named: 'Moose';
 		registerIfPresentProjectOf: 'moosetechnology' named: 'MooseAlgos';
 		registerIfPresentProjectOf: 'pharo-contributions' named: 'DeepTraverser';
+		registerIfPresentProjectOf: 'pharo-contributions' named: 'CollectionExtensions';
 		registerIfPresentProjectOf: 'jecisc' named: 'Hashtable';
 		registerIfPresentProjectOf: 'jecisc' named: 'Fame';
 		registerIfPresentProjectOf: 'jecisc' named: 'KGBTestResources';
