@@ -20,8 +20,8 @@ installBlockStyler
 				ifFalse: [ ^ self ] ].
 
 	(self class environment at: #BlockStyler) defaultThemes
-		at: (SystemVersion current major >= 7 ifTrue: [ PharoDarkTheme ] ifFalse: [ Pharo3DarkTheme ])
-		put: (Color green alpha: 0.07).
+		at: self darkThemeClass
+		put: (Color lightBlue alpha: 0.05).
 	(self class environment at: #BlockStyler) defaultThemes
-		at: (SystemVersion current major >= 7 ifTrue: [ PharoLightTheme ] ifFalse: [ Pharo3Theme ])
-		put: (Color blue alpha: 0.07)
+		at: self lightThemeClass
+		put: (Color blue alpha: 0.05)
