@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "Cursor",
+	"category" : "PharoSettings",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "PawCursor",
+	"type" : "normal"
+}

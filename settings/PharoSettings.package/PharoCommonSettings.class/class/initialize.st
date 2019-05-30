@@ -13,4 +13,5 @@ initialize
 		setThemeSetting;
 		addMetaLinkForClassDescription;
 		addMetaLinkForDNUTrick;
-		disableSomeGTSpotterExtensions
+		disableSomeGTSpotterExtensions;
+		updateCurrentCursor

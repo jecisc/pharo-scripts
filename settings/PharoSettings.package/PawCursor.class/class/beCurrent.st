@@ -1,0 +1,3 @@
+query
+beCurrent
+	self initNormalWithMask
