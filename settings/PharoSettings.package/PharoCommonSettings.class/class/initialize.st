@@ -14,4 +14,5 @@ initialize
 		addMetaLinkForClassDescription;
 		addMetaLinkForDNUTrick;
 		disableSomeGTSpotterExtensions;
-		updateCurrentCursor
+		updateCurrentCursor;
+		ensurePlayground
