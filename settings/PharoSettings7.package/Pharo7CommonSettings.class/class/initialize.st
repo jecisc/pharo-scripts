@@ -6,6 +6,6 @@ initialize
 		resetMenuBar;
 		addIcebergHack;
 		prepareForPharoContribution;
-		icebergSettingsForP7Plus.
-		
-	MenubarMorph reset
+		icebergSettingsForP7Plus;
+		disableSampleInstance;
+		resetMenuBar
