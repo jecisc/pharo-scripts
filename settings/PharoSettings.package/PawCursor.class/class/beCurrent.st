@@ -1,3 +1,0 @@
-query
-beCurrent
-	self initNormalWithMask
