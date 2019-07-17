@@ -5,7 +5,7 @@ generatesPotentialSetterOrGetterWith: anArray
 	
 	"In some cases I want to not generate the accessors."
 	selectorsToIgnore := #(
-	'buttonPresenter'	"This one is in a Spec Mock to test usage of the Interpreter when there is no getter. So I do not want to generate a getter for the test. Remove when I will not work on Spec anymore."
+	'buttonPresenter' 'subpresenter1' 'subpresenter2' 'subpresenter3' 'subpresenter4' 	"This one is in a Spec Mock to test usage of the Interpreter when there is no getter. So I do not want to generate a getter for the test. Remove when I will not work on Spec anymore."
 	).
 	
 	aMessage := anArray anyOne.
