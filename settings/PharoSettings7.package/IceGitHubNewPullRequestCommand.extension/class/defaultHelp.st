@@ -1,0 +1,3 @@
+*PharoSettings7
+defaultHelp
+	^ ''

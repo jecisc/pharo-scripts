@@ -12,4 +12,6 @@ initialize
 		removeTaskBarPreview;
 		setThemeSetting;
 		addMetaLinkForDNUTrick;
-		disableSomeGTSpotterExtensions
+		disableSomeGTSpotterExtensions;
+		updateCurrentCursor;
+		ensurePlayground

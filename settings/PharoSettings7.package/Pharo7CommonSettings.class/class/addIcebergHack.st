@@ -8,4 +8,12 @@ addIcebergHack
 			(MetaLink new
 				metaObject: #receiver;
 				selector: #projectAlt;
+				control: #instead).
+				
+	(IceTipCheckoutBranchCommand class>> #canBeExecutedInContext:) ast
+		link:
+			(MetaLink new
+				metaObject: #receiver;
+				selector: #altCanBeExecutedInContext:;
+				arguments: #(#arguments);
 				control: #instead)
