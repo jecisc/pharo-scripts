@@ -4,7 +4,7 @@ formatingOptions
 	BIConfigurableFormatter
 		multiLineMessages: '#(#on:do: #ensure: #ifCurtailed:)';
 		retainBlankLinesBetweenStatements: true;
-		maxLineLength: 200.
+		maxLineLength: 160.
 	(BIConfigurableFormatter >> #formatArray:) ast
 		link:
 			(MetaLink new
