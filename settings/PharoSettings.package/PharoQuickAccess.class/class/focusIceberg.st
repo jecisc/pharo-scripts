@@ -1,5 +1,7 @@
 actions
 focusIceberg
+	"This method will look for an open tip repository browser open (This is the entry point of Iceberg). If one is open, bring it to front. Else, open one."
+
 	(self currentWorld windowsSatisfying: [ :window | window label = 'Repositories' ])
 		ifEmpty: [ [ IceTipRepositoriesBrowser new openWithSpec ]
 				on: Error
