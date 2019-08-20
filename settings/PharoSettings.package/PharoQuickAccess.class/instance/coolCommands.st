@@ -1,4 +1,4 @@
-terminal commands
+templates
 coolCommands
 	<name: #'Git commands'>
 

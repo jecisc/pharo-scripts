@@ -1,6 +1,6 @@
-conveniance
-templateDependencies
-	<name: #'Template find dependencies'>
+templates
+dependencies
+	<name: #'Find dependencies'>
 	GTPlayground
 		openContents:
 			'report := DADependencyChecker new computeImageDependencies.

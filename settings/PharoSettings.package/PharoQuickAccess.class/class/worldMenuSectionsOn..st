@@ -6,6 +6,12 @@ worldMenuSectionsOn: aBuilder
 		order: 1;
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Conveniance on: aBuilder ].
+		
+	(aBuilder item: #Templates)
+		parent: #Scripts;
+		order: 3;
+		iconName: #configNew;
+		with: [ self buildSubmenu: #Templates on: aBuilder ].
 
 	(aBuilder item: #Loading)
 		parent: #Scripts;
@@ -24,12 +30,6 @@ worldMenuSectionsOn: aBuilder
 		order: 15;
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Synectique on: aBuilder ].
-
-	(aBuilder item: #'Terminal commands')
-		parent: #Scripts;
-		order: 17;
-		iconName: #configNew;
-		with: [ self buildSubmenu: 'Terminal commands' on: aBuilder ].
 
 	(aBuilder item: #Browse)
 		parent: #Scripts;
