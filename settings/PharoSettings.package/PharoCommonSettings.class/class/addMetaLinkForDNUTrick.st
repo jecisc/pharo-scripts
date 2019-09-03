@@ -5,6 +5,6 @@ addMetaLinkForDNUTrick
 		link:
 			(MetaLink new
 				metaObject: #receiver;
-				selector: #generatesPotentialSetterOrGetterWith:;
-				arguments: #(#arguments);
+				selector: #generatesPotentialSetterOrGetterWith:context:;
+				arguments: #(#arguments #context);
 				control: #before)
