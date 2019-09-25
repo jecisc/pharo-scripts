@@ -1,6 +1,6 @@
 templates
 profileTests
-	<name: #'Variable usage'>
+	<name: #'Profile tests'>
 	GTPlayground
 		openContents:
 			'packageSelectionBlock := [ :e | e name beginsWith: ''Traits'' ].
