@@ -1,5 +1,5 @@
 *PharoSettings
-generatesPotentialSetterOrGetterWith: anArray
+generatesPotentialSetterOrGetterWith: anArray context: context
 	<debuggerCompleteToSender>
 	| message aMessage selectorsToIgnore |
 	
@@ -16,9 +16,9 @@ generatesPotentialSetterOrGetterWith: anArray
 				detect: [ :var | var = message allButLast ]
 				ifFound: [ :var | 
 					self compileSetterNamed: message returning: var.
-					^ aMessage sentTo: self ] ]
+					context return: (aMessage sentTo: self) ] ]
 		ifFalse: [ self class instVarNames
 				detect: [ :var | var = message ]
 				ifFound: [ :var | 
 					self compileGetterNamed: var.
-					^ aMessage sentTo: self ] ]
+					context return: (aMessage sentTo: self) ] ]

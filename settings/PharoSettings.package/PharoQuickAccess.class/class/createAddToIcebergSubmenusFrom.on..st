@@ -5,6 +5,7 @@ createAddToIcebergSubmenusFrom: aFolder on: aBuilder
 		action: [ :dir | 
 			(IceRepositoryCreator new
 				location: dir;
-				createRepository) register ]
+				createRepository) register.
+				self focusIceberg ]
 		prefix: ' '
 		on: aBuilder

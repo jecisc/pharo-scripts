@@ -1,6 +1,6 @@
-conveniance
-templateVaribleUsage
-	<name: #'Template variable usage'>
+templates
+varibleUsage
+	<name: #'Variable usage'>
 	GTPlayground
 		openContents:
 			'origin := SpPresenter.
