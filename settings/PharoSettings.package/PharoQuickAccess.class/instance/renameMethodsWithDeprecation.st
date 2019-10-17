@@ -18,8 +18,8 @@ class methods
 	select: [ :method | method selector includesSubstring: from ]
 	thenDo: [ :method | 
 		| oldSelector newSelector |
-		oldSelector := method selector.
-		newSelector := (method selector copyReplaceAll: from with: to).
+		oldSelector := method selector asSymbol.
+		newSelector := (method selector copyReplaceAll: from with: to) asSymbol.
 
 		(RBRenameMethodRefactoring
 			renameMethod: oldSelector
