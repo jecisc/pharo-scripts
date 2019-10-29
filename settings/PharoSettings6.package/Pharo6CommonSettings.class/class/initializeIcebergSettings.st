@@ -1,7 +1,8 @@
 initialization
 initializeIcebergSettings
-	<script>
 	"Add a shared repository"
+
+	<script>
 	self flag: #todo.	"Remove hack when the Pharo 6 version will always have at least Iceberg v0.7"
 	((IceRepository respondsTo: #shareRepositoriesBetweenImages:) ifTrue: [ IceRepository ] ifFalse: [ IceLibgitRepository ])
 		shareRepositoriesBetweenImages: true;
@@ -20,4 +21,7 @@ initializeIcebergSettings
 	(IceRepositoryCreator new
 		location: StartupPreferencesLoader preferencesGeneralFolder;
 		subdirectory: 'settings';
-		createRepository) register
+		createRepository) register.
+
+	"Open Iceberg. I often need it."
+	IceTipRepositoriesBrowser new openWithSpec
