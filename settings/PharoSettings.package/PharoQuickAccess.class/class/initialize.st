@@ -1,3 +1,4 @@
 class initialization
 initialize 
-	self install
+	self install.
+	Smalltalk at: #OwO put: self instance
