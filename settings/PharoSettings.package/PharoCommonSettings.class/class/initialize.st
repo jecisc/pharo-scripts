@@ -15,4 +15,5 @@ initialize
 		addMetaLinkForDNUTrick;
 		disableSomeGTSpotterExtensions;
 		updateCurrentCursor;
-		ensurePlayground
+		ensurePlayground;
+		copyClassShouldCopyComment
