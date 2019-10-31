@@ -1,3 +1,3 @@
 *PharoSettings
 numberOfLinesOfCode
-	^ (self definedClasses sum: #numberOfLinesOfCode) + (self extensionMethods detectSum: #numberOfLinesOfCode)
+	^ (self definedClasses sum: #linesOfCode) + (self extensionMethods detectSum: #linesOfCode)
