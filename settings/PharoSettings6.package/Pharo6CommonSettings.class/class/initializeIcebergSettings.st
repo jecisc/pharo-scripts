@@ -21,7 +21,4 @@ initializeIcebergSettings
 	(IceRepositoryCreator new
 		location: StartupPreferencesLoader preferencesGeneralFolder;
 		subdirectory: 'settings';
-		createRepository) register.
-
-	"Open Iceberg. I often need it."
-	IceTipRepositoriesBrowser new openWithSpec
+		createRepository) register
