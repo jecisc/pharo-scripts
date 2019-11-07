@@ -1,7 +1,7 @@
 initialization
 setRandomBackground
 	<script>
-	| files |
+	[ | files |
 	files := self backgroundFolder allFiles.
 	PolymorphSystemSettings
 		desktopImageFileName:
@@ -9,4 +9,4 @@ setRandomBackground
 				at:
 					([ UUIDGenerator default makeSeed ]
 						on: MessageNotUnderstood
-						do: [ UUIDGenerator default next asInteger ]) \\ files size + 1) fullName
+						do: [ UUIDGenerator default next asInteger ]) \\ files size + 1) fullName ] fork
