@@ -6,7 +6,7 @@ installBlockStyler
 
 	sourcesDir exists
 		ifTrue: [ Metacello new
-				filetreeDirectory: sourcesDir fullName;
+				repository: 'tonel://' , sourcesDir fullName;
 				baseline: 'BlockStyler';
 				load ]
 		ifFalse: [ (UIManager default questionWithoutCancel: 'Clone BlockStyler?')
