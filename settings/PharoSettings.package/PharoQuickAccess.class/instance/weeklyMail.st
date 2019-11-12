@@ -1,4 +1,4 @@
-synectique
+codax
 weeklyMail
 	<name: #'Weekly mail'>
 	| files mailMessage from to creds file text |

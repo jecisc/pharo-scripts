@@ -1,4 +1,4 @@
-synectique
+codax
 cppDupDet
 	<name: #'CPP script duplication detection'>
 	| model |

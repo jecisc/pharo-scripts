@@ -25,7 +25,7 @@ worldMenuSectionsOn: aBuilder
 		iconName: #configNew;
 		with: [ self buildSubmenu: 'Seaside scripts' on: aBuilder ].
 
-	(aBuilder item: #Synectique)
+	(aBuilder item: #Codax)
 		parent: #Scripts;
 		order: 15;
 		iconName: #configNew;
