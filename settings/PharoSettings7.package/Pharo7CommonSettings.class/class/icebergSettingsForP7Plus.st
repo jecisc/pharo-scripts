@@ -14,4 +14,7 @@ icebergSettingsForP7Plus
 				username: (creds at: #username);
 				password: (creds at: #password);
 				yourself)
-		forHostname: 'github.com'
+		forHostname: 'github.com'.
+
+	"Open Iceberg. I often need it."
+	IceTipRepositoriesBrowser new openWithSpec
