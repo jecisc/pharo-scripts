@@ -13,6 +13,5 @@ initialize
 		setThemeSetting;
 		addMetaLinkForDNUTrick;
 		disableSomeGTSpotterExtensions;
-		updateCurrentCursor;
 		ensurePlayground;
 		copyClassShouldCopyComment
