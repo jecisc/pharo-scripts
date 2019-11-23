@@ -1,4 +1,4 @@
-synectique
+codax
 flushProperties
 	<name: #'Flush properties'>
 	(self class environment at: #MooseEntity) allSubInstances

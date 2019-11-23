@@ -1,4 +1,4 @@
-synectique
+codax
 cppDupDetInPlayground
 	<name: #'CPP script duplication detection in playground'>
 	GTPlayground openContents: 'model := CPPModel allInstances last.

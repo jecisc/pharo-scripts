@@ -1,4 +1,4 @@
-synectique
+codax
 addImportFromMSE
 	<name: #'Compile #importFromMSE'>
 	(self class environment at: #MooseModel)

@@ -1,4 +1,4 @@
-synectique
+codax
 flushGroups
 	<name: #'Flush groups'>
 	(self class environment at: #MooseEntity) allSubInstances
