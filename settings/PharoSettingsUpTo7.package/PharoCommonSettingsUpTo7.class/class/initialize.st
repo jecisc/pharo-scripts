@@ -1,3 +1,5 @@
 class initialization
 initialize
-	self setUsageData
+	self
+		setUsageData;
+		formatingOptions

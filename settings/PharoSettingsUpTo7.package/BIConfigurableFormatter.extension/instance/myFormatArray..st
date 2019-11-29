@@ -1,4 +1,4 @@
-*PharoSettings5
+*PharoSettingsUpTo7
 myFormatArray: args
 	| current anArrayNode |
 	anArrayNode := args anyOne.
