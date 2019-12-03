@@ -3,7 +3,6 @@ initialize
 	self
 		setAuthorName;
 		setAppearance;
-		setUsageData;
 		setWindowsPreferences;
 		setLocalFolders;
 		setMonticelloInfos;
