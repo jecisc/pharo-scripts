@@ -29,7 +29,7 @@ worldMenuSectionsOn: aBuilder
 		parent: #Scripts;
 		order: 15;
 		iconName: #configNew;
-		with: [ self buildSubmenu: #Synectique on: aBuilder ].
+		with: [ self buildSubmenu: #Codax on: aBuilder ].
 
 	(aBuilder item: #Browse)
 		parent: #Scripts;

@@ -1,7 +1,7 @@
 initialization
 formatingOptions
 	<script>
-	[ BIConfigurableFormatter
+	BIConfigurableFormatter
 		multiLineMessages: '#(#on:do: #ensure: #ifCurtailed:)';
 		retainBlankLinesBetweenStatements: true;
 		maxLineLength: 160.
@@ -11,4 +11,4 @@ formatingOptions
 				metaObject: #receiver;
 				selector: #myFormatArray:;
 				arguments: #(#arguments);
-				control: #instead) ] on: Error do: [ "Temporary hack because BlueInk was removed from Pharo 8 without any announce..." ]
+				control: #instead)
