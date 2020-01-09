@@ -4,4 +4,5 @@ initialize
 	self debuggerUpdate.
 	self closeWelcomeWindow.
 	self addMetaLinksForDebugger.
-	self formatingOptions
+	self formatingOptions.
+	self removeSomeRules
