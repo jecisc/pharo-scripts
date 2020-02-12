@@ -1,3 +1,6 @@
 *PharoSettings
 mapWith: aValuable
-	^ (self collect: [ :e | e -> (aValuable value: e) ]) asDictionary
+	^ OrderedDictionary new
+		in: [ :dic | 
+			self do: [ :e | dic at: e put: (aValuable value: e) ].
+			dic ]
