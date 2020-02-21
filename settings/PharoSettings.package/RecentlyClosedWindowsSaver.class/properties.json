@@ -1,0 +1,15 @@
+{
+	"commentStamp" : "CyrilFerlicot 2/21/2020 13:54",
+	"super" : "Object",
+	"category" : "PharoSettings",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"UniqueInstance"
+	],
+	"instvars" : [
+		"cache"
+	],
+	"name" : "RecentlyClosedWindowsSaver",
+	"type" : "normal"
+}

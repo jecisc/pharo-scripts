@@ -1,4 +1,4 @@
-conveniance
+recentwindows
 openCommonTools
 	<name: #'Open common tools'>
 	| group |
