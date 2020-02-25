@@ -1,5 +1,6 @@
 class initialization
 addMetalinkToCmdClickOnSymbols
+	<script>
 	(SHRBTextStyler >> #visitLiteralValueNode:) ast
 		link:
 			(MetaLink new
