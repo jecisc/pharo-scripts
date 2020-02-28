@@ -8,4 +8,5 @@ initialize
 		prepareForPharoContribution;
 		icebergSettingsForP7Plus;
 		disableSampleInstance;
-		resetMenuBar
+		resetMenuBar;
+		removeSomeRules

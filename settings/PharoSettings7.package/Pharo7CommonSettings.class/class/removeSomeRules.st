@@ -1,4 +1,4 @@
-initialization
+removing
 removeSomeRules
 	<script>
 	(ReRuleManager class >> #excludedRuleNames) ast

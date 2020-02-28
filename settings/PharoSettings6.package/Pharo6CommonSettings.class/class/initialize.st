@@ -4,5 +4,4 @@ initialize
 		initializeIcebergSettings;
 		initializePotentialIcebergRepos;
 		installBlockStyler;
-		installNativeBrowser;
-		removeSomeRules
+		installNativeBrowser
