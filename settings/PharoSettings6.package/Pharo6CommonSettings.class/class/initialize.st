@@ -1,7 +1,8 @@
 initialization
 initialize
-	self 
+	self
 		initializeIcebergSettings;
 		initializePotentialIcebergRepos;
 		installBlockStyler;
-		installNativeBrowser
+		installNativeBrowser;
+		removeSomeRules
