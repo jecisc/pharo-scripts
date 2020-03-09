@@ -7,5 +7,5 @@ removeSomeRules
 				metaObject: #receiver;
 				selector: #altExcludedRuleNames;
 				control: #instead).
-
+	RBShouldntRaiseErrorRule enabled: false.
 	ReRuleManager reset
