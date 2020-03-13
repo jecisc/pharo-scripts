@@ -1,4 +1,4 @@
-initialization
+removing
 removeSomeRules
 	<script>
 	(ReRuleManager class >> #excludedRuleNames) ast
@@ -7,5 +7,5 @@ removeSomeRules
 				metaObject: #receiver;
 				selector: #altExcludedRuleNames;
 				control: #instead).
-
+	RBShouldntRaiseErrorRule enabled: false.
 	ReRuleManager reset

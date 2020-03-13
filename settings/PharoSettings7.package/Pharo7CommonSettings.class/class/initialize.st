@@ -5,6 +5,7 @@ initialize
 		addIcebergHack;
 		prepareForPharoContribution;
 		icebergSettingsForP7Plus;
-		installFurro.
-		
-	MenubarMorph reset.
+		disableSampleInstance;
+		resetMenuBar;
+		removeSomeRules;
+		showProtocolsInSenderImplementors

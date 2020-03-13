@@ -1,6 +1,6 @@
 initialization
 initialize
-	self 
+	self
 		initializeIcebergSettings;
 		initializePotentialIcebergRepos;
 		installNativeBrowser

@@ -36,6 +36,12 @@ worldMenuSectionsOn: aBuilder
 		order: 20;
 		iconName: #configNew;
 		with: [ self buildSubmenu: #Browse on: aBuilder ].
+		
+	(aBuilder item: #RecentWindows)
+		parent: #Scripts;
+		order: 23;
+		iconName: #configNew;
+		with: [ self buildSubmenu: #RecentWindows on: aBuilder ].
 
 	(aBuilder item: #'Select background')
 		parent: #Conveniance;
