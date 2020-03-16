@@ -5,7 +5,7 @@ setFonts
 	provider := FreeTypeFontProvider current.
 
 	(provider platformAbsoluteDirectories flatCollect: #files)
-		detect: [ :e | e basenameWithoutExtension = 'Roboto-Medium' ]
+		detect: [ :e | e basenameWithoutExtension = 'Roboto-Regular' ]
 		ifFound: [ :file | 
 			provider updateFromFile: file.
 			StandardFonts defaultFont: (LogicalFont familyName: 'Roboto' pointSize: 10).
