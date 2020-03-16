@@ -14,4 +14,9 @@ altInitializeNavigationViews
 		displayItemPropertyBy: [ :item | self packageNameOf: item ].
 	(resultView addColumn: #protocol)
 		width: 200;
-		displayItemPropertyBy: [ :item | '(' , item actualObject protocol , ')' ]
+		displayItemPropertyBy: [ :item | 
+			'('
+				,
+					([ item actualObject protocol ]
+						on: Error
+						do: [ 'Comment' ]) , ')' ]
