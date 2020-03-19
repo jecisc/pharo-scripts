@@ -8,4 +8,5 @@ initialize
 		disableSampleInstance;
 		resetMenuBar;
 		removeSomeRules;
-		showProtocolsInSenderImplementors
+		showProtocolsInSenderImplementors;
+		installFurro
