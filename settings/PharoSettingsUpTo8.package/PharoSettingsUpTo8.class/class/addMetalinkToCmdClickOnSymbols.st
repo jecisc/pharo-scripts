@@ -3,7 +3,7 @@ addMetalinkToCmdClickOnSymbols
 	<script>
 	(SHRBTextStyler
 		>>
-			(SystemVersion current major > 6
+			(SystemVersion current major > 7
 				ifTrue: [ #visitLiteralValueNode: ]
 				ifFalse: [ #visitLiteralNode: ])) ast
 		link:

@@ -4,5 +4,5 @@ setRandomBackground
 	[ | files |
 	self shouldBeSFW traceCr.
 	files := (self shouldBeSFW ifTrue: [ self backgroundFolder / 'SFW' ] ifFalse: [ self backgroundFolder ]) allFiles.
-	files := files reject: [ :f | f beginsWith: '.' ].
+	files := files reject: [ :f | f basename beginsWith: '.' ].
 	PolymorphSystemSettings desktopImageFileName: (files at: UUID new asInteger \\ files size + 1) fullName ] fork
