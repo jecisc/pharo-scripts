@@ -3,7 +3,7 @@ executeOnAll: classes
 	classes
 		do: [ :class | 
 			class localMethods
-				select: [ :m | m selector beginsWith: 'test' ]
+				select: methodMatchBlock
 				thenDo: [ :m | 
 					| n |
 					n := m parseTree.
