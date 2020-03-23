@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "CyrilFerlicot 3/23/2020 19:48",
+	"super" : "Object",
+	"category" : "PharoSettings",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"rewriter",
+		"methodMatchBlock"
+	],
+	"name" : "CodeCleaner",
+	"type" : "normal"
+}

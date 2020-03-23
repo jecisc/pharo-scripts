@@ -1,3 +1,3 @@
 *PharoSettings
-includingWith: aString
+includingSubstring: aString
 	^ self default packages select: [ :p | p name includesSubstring: aString ]
