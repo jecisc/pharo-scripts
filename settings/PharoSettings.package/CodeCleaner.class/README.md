@@ -63,3 +63,8 @@ x isNil ifFalse: y ifTrue: z 			==> x ifNil: z ifNotNil: y
 x isNotNil ifTrue: y ifFalse: z 		==> x ifNil: z ifNotNil: y
 
 x isNotNil ifFalse: y ifTrue: z 		==> x ifNil: y ifNotNil: z
+
+4) Test case names
+================================
+
+Will rename each test case ending with "Tests" te end with "Test" since this is "a XXTestCase".

@@ -3,4 +3,5 @@ cleanPackages: aCollectionOfPackage
 	self
 		cleanEqualityTestOfPackages: aCollectionOfPackage;
 		simplifyConditionsOfPackages: aCollectionOfPackage;
-		cleanProtocolsOfPackages: aCollectionOfPackage
+		cleanProtocolsOfPackages: aCollectionOfPackage;
+		ensureTestCasesEndsWithTestInsteadOfTestsForPackages: aCollectionOfPackage
