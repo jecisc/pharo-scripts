@@ -1,7 +1,6 @@
 protocols
 ensureTestMethodsAreInRightProtocolForMethods: methods
-	methods
-		select: [ :method | method methodClass isTestCase ]
-		thenDo: [ :method | 
-			(#(#setUp #tearDown) includes: method selector) ifTrue: [ method protocol: 'running' ].
-			((method selector beginsWith: 'test') and: [ (method isExtension or: [ method protocol beginsWith: 'test' ]) not ]) ifTrue: [ method protocol: 'tests' ] ]
+	| testCasesMethods |
+	testCasesMethods := methods select: [ :method | method methodClass isTestCase and: [ method isExtension not ] ].
+	self ensureMatching: [ :method | #(#setUp #tearDown) includes: method selector ] areIn: #running for: testCasesMethods.
+	self ensureMatching: [ :method | (method selector beginsWith: 'test') and: [ (method protocol beginsWith: 'test') not ] ] areIn: #tests for: testCasesMethods
