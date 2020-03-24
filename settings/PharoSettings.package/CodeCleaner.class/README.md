@@ -66,3 +66,11 @@ x isNotNil ifFalse: y ifTrue: z 		==> x ifNil: y ifNotNil: z
 ================================
 
 Will rename each test case ending with "Tests" te end with "Test" since this is "a XXTestCase".
+
+5) Ensure right super are call
+================================
+
+- Ensure #setUp in TestCases always begins by `super setUp` (move it if not the first messand sent)
+- Ensure #tearDown in TestCases always ends by `super tearDown` (move it if not the last messand sent)
+- Ensure #initialize on instance side always has `super initialize`
+
