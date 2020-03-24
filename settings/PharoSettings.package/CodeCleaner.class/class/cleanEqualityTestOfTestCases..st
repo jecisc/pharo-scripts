@@ -1,4 +1,4 @@
-facade
+equality
 cleanEqualityTestOfTestCases: aCollection
 	self new
 		replace: '`@receiver assert: `@arg = `@arg2' with: '`@receiver assert: `@arg equals: `@arg2';
