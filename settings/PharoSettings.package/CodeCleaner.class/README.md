@@ -38,9 +38,7 @@ x deny: y equals: false 			==> x assert: y
 
 I do multiple cleanings in protocols. 
 
-* I'll ensure test methods are in a protocol starting by "test".
-* I'll ensure that setUp and tearDown are in the running protocol
-* I'll ensure that #initialize is in the initialization protocol
+* I'll ensure that some methods are in the right protocol. For example #initialize should be in #initialization. Find more in `self methodsInSpecificProtocolMap` and `self testMethodsInSpecificProtocolMap`.
 * I'll update some protocols to follow convensions. For example I'll update initialize-release to initialize. Find more in `self protocolsToCleanMap`.
 
 3) Conditional simplifications
