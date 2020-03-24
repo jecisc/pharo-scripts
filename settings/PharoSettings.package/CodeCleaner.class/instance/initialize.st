@@ -1,4 +1,5 @@
 initialization
 initialize
 	super initialize.
-	rewriter := RBParseTreeRewriter new
+	rewriter := RBParseTreeRewriter new.
+	methodMatchBlock := [ :m | true ]
