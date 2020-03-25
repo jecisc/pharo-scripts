@@ -74,3 +74,7 @@ Will rename each test case ending with "Tests" te end with "Test" since this is 
 - Ensure #tearDown in TestCases always ends by `super tearDown` (move it if not the last messand sent)
 - Ensure #initialize on instance side always has `super initialize`
 
+6) Remove nil assignments in initialization
+================================
+
+Will remove all nil assignations in initialize methods because most of the time they are not needed. Be careful, in some cases, they are. 

@@ -2,7 +2,7 @@ codax
 cppDupDet
 	<name: #'CPP script duplication detection'>
 	| model |
-	model := (self class environment at: #CPPModel) allInstances last.
+	model := (self class environment at: #CPPSModel) allInstances last.
 
 	model clearDuplicationSystem.
 	MessageTally

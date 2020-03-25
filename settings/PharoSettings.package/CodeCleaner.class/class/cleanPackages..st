@@ -5,4 +5,5 @@ cleanPackages: aCollectionOfPackage
 		simplifyConditionsOfPackages: aCollectionOfPackage;
 		cleanProtocolsOfPackages: aCollectionOfPackage;
 		ensureTestCasesEndsWithTestInsteadOfTestsForPackages: aCollectionOfPackage;
-		ensureRightSuperIsCallInPackages: aCollectionOfPackage
+		ensureRightSuperIsCallInPackages: aCollectionOfPackage;
+		removeNilAssignmentsInInitializeOfPackages: aCollectionOfPackage
