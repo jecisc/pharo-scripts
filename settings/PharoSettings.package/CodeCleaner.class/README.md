@@ -83,3 +83,8 @@ Will remove all nil assignations in initialize methods because most of the time 
 ================================
 
 Remove each methods only doing a super call. Does not remove methods with pragmas.
+
+8) Remove unread temporaries
+================================
+
+Remove all temporaries that are defined but not read.
