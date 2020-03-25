@@ -1,8 +1,6 @@
 simplification
-removeNilAssignmentsInInitializeOfPackages: aCollectionOfPackages
-	| methods |
-	methods := (aCollectionOfPackages flatCollect: #methods) select: [ :method | method selector = #initialize and: [ method isFromTrait not ] ].
-	methods
+removeNilAssignmentsInInitialize
+	(self localMethods select: [ :method | method selector = #initialize ])
 		do: [ :method | 
 			| ast |
 			ast := method ast.

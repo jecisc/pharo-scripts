@@ -6,8 +6,7 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [
-		"rewriter",
-		"methodMatchBlock"
+		"packages"
 	],
 	"name" : "CodeCleaner",
 	"type" : "normal"

@@ -1,7 +1,7 @@
 rightSuper
-ensureRightSuperIsCallInPackages: aCollectionOfPackages
+ensureRightSuperIsCall
 	| methods |
-	methods := (aCollectionOfPackages flatCollect: #methods) reject: #isFromTrait.
+	methods := self localMethods.
 	self
 		ensureSuperSetUpForMethods: methods;
 		ensureSuperTearDownForMethods: methods;

@@ -1,6 +1,7 @@
 equality
-cleanEqualityTestOfPackages: aCollection
-	self new
+cleanEqualityTest
+	| r |
+	r := RBParseTreeRewriter new
 		replace: '`@receiver assert: `@arg = `@arg2' with: '`@receiver assert: `@arg equals: `@arg2';
 		replace: '`@receiver deny: `@arg = `@arg2' with: '`@receiver deny: `@arg equals: `@arg2';
 		replace: '`@receiver assert: `@arg == `@arg2' with: '`@receiver assert: `@arg identicalTo: `@arg2';
@@ -13,5 +14,6 @@ cleanEqualityTestOfPackages: aCollection
 		replace: '`@receiver deny: `@arg equals: true' with: '`@receiver deny: `@arg';
 		replace: '`@receiver assert: `@arg equals: false' with: '`@receiver deny: `@arg';
 		replace: '`@receiver deny: `@arg equals: false' with: '`@receiver assert: `@arg';
-		methodMatchBlock: [ :m | m selector beginsWith: 'test' ];
-		executeOnAll: ((aCollection flatCollect: #definedClasses) select: #isTestCase)
+		yourself.
+
+	self rewriteMethodsOf: self definedTestCases matching: [ :m | m selector beginsWith: 'test' ] with: r

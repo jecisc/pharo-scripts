@@ -1,9 +1,5 @@
 cleaning
-cleanPackages: aCollectionOfPackage
-	self
-		cleanEqualityTestOfPackages: aCollectionOfPackage;
-		simplifyConditionsOfPackages: aCollectionOfPackage;
-		cleanProtocolsOfPackages: aCollectionOfPackage;
-		ensureTestCasesEndsWithTestInsteadOfTestsForPackages: aCollectionOfPackage;
-		ensureRightSuperIsCallInPackages: aCollectionOfPackage;
-		removeNilAssignmentsInInitializeOfPackages: aCollectionOfPackage
+cleanPackages: aCollectionOfPackages
+	^ self new
+		packages: aCollectionOfPackages;
+		clean

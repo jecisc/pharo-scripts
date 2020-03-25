@@ -1,9 +1,9 @@
 execution
-executeOnAll: classes
+rewriteMethodsOf: classes matching: aBlock with: rewriter
 	classes
 		do: [ :class | 
 			class localMethods
-				select: methodMatchBlock
+				select: aBlock
 				thenDo: [ :m | 
 					| n |
 					n := m parseTree.

@@ -1,0 +1,9 @@
+cleaning
+clean
+	self
+		cleanEqualityTest;
+		simplifyConditions;
+		cleanProtocols;
+		ensureTestCasesEndsWithTestInsteadOfTests;
+		ensureRightSuperIsCall;
+		removeNilAssignmentsInInitialize

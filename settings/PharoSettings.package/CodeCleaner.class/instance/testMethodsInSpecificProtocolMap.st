@@ -1,0 +1,3 @@
+accessing
+testMethodsInSpecificProtocolMap
+	^ self class testMethodsInSpecificProtocolMap
