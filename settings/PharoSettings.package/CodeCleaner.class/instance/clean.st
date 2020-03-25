@@ -6,4 +6,5 @@ clean
 		cleanProtocols;
 		ensureTestCasesEndsWithTestInsteadOfTests;
 		ensureRightSuperIsCall;
-		removeNilAssignmentsInInitialize
+		removeNilAssignmentsInInitialize;
+		removeMethodsOnlyCallingSuper

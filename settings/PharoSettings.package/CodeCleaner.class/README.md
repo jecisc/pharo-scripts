@@ -78,3 +78,8 @@ Will rename each test case ending with "Tests" te end with "Test" since this is 
 ================================
 
 Will remove all nil assignations in initialize methods because most of the time they are not needed. Be careful, in some cases, they are. 
+
+7) Remove methods only calling super
+================================
+
+Remove each methods only doing a super call. Does not remove methods with pragmas.
