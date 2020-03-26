@@ -1,3 +1,4 @@
 *PharoSettings
 isReadAtLeastOnce
-	^ self declaringScope allChildren noneSatisfy: [ :node | node isTemp and: [ node name = self name and: [ node isRead ] ] ]
+	self flag: #todo.	"https://github.com/pharo-project/pharo/issues/6001"
+	^ self declaringScope allChildren noneSatisfy: [ :node | (node isKindOf: RBTemporaryNode) and: [ node name = self name and: [ node isRead ] ] ]
