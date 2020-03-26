@@ -7,5 +7,5 @@ clean
 		ensureTestCasesEndsWithTestInsteadOfTests;
 		ensureRightSuperIsCall;
 		removeNilAssignmentsInInitialize;
-		removeOnlyAssignedTemporaries;
+		removeUnreadTemporaries;
 		removeMethodsOnlyCallingSuper
