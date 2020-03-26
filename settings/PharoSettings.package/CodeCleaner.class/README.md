@@ -88,3 +88,8 @@ Remove each methods only doing a super call. Does not remove methods with pragma
 ================================
 
 Remove all temporaries that are defined but not read.
+
+9) Remove duplicated methods from traits 
+================================
+
+If methods present on traits are duplicated on classes, we remove the duplicated version.

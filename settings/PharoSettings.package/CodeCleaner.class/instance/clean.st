@@ -8,4 +8,5 @@ clean
 		ensureRightSuperIsCall;
 		removeNilAssignmentsInInitialize;
 		removeUnreadTemporaries;
-		removeMethodsOnlyCallingSuper
+		removeMethodsOnlyCallingSuper;
+		removeDuplicatedMethodsFromTrait
