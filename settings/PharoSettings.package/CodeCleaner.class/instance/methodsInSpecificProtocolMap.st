@@ -1,0 +1,3 @@
+accessing
+methodsInSpecificProtocolMap
+	^ self class methodsInSpecificProtocolMap

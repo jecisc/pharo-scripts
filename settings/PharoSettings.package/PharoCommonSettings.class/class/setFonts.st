@@ -4,10 +4,10 @@ setFonts
 	| provider |
 	provider := FreeTypeFontProvider current.
 
-	(provider platformAbsoluteDirectories flatCollect: #files)
-		detect: [ :e | e basenameWithoutExtension = 'Roboto-Regular' ]
-		ifFound: [ :file | 
-			provider updateFromFile: file.
+	((provider platformAbsoluteDirectories flatCollect: #files) select: [ :e | e basenameWithoutExtension beginsWith: 'Roboto' ])
+		ifEmpty: [ self inform: 'Roboto is not installed' ]
+		ifNotEmpty: [ :fonts | 
+			fonts do: [ :file | provider updateFromFile: file ].
+			provider updateAvailableFontFamilies.
 			StandardFonts defaultFont: (LogicalFont familyName: 'Roboto' pointSize: 10).
 			GraphicFontSettings resetAllFontToDefaultButton ]
-		ifNone: [ self inform: 'Roboto is not installed' ]

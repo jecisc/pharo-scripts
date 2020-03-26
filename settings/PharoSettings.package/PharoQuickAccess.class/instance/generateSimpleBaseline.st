@@ -31,7 +31,7 @@ generateSimpleBaseline
 			"Groups"
 			spec
 				group: ''Core'' with: #(''{1}'');
-				group: ''Tests'' with: #(''{1}'') ].' format: {name})
+				group: ''Tests'' with: #(''{1}-Tests'') ].' format: {name})
 				classified: 'baseline'.
 
 			class

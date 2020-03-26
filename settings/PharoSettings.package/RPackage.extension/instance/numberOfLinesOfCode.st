@@ -1,3 +1,3 @@
 *PharoSettings
 numberOfLinesOfCode
-	^ (self definedClasses sum: #linesOfCode) + (self extensionMethods detectSum: #linesOfCode)
+	^ (self definedClasses ifEmpty: [ 0 ] ifNotEmpty: [ :cs | cs sum: #linesOfCode ]) + (self extensionMethods detectSum: #linesOfCode)
