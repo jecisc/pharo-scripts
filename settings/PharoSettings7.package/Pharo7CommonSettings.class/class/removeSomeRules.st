@@ -7,5 +7,5 @@ removeSomeRules
 				metaObject: #receiver;
 				selector: #altExcludedRuleNames;
 				control: #instead).
-	RBShouldntRaiseErrorRule enabled: false.
+	#(#RBShouldntRaiseErrorRule #ReShouldntRaiseErrorRule) do: [ :each | self environment at: each ifPresent: [ :class | class enabled: false ] ].
 	ReRuleManager reset
