@@ -1,3 +1,3 @@
 accessing colors
 selectionColor
-	^ self class baseSelectionColor
+	^ self class baseSelectionColor lighter
