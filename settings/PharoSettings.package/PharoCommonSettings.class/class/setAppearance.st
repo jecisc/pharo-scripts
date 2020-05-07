@@ -4,4 +4,4 @@ setAppearance
 	self removeLogo.
 	"self launchThemeProcess."
 	self setRandomBackground.
-	self setFonts
+	"self setFonts"
