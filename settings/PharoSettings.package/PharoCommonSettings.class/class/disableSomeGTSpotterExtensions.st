@@ -1,5 +1,8 @@
 initialization
 disableSomeGTSpotterExtensions
-	<script>
 	"World menu because it is too long with my scripts."
-	#('GTSpotter_spotterWorldMenuFor') do: [ :ext | GTSpotterExtensionSettings disabledExtensions add: ext ]
+
+	<script>
+	SystemVersion current major < 9
+		ifTrue: [ #('GTSpotter_spotterWorldMenuFor') do: [ :ext | GTSpotterExtensionSettings disabledExtensions add: ext ] ]
+		ifFalse: [ SptWorldMenuProcessor enabled: false ]
