@@ -1,4 +1,4 @@
 activation
-classCommentTabActivation
+traitsCommentTabActivation
 	<classAnnotation>
 	^ ClyTabActivationStrategy for: ClyClassComment asCalypsoItemContext

@@ -1,3 +1,3 @@
 accessing
 tabOrder
-	^ super tabOrder - 1
+	^ super tabOrder - 0.5
