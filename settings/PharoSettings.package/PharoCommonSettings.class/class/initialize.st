@@ -15,4 +15,5 @@ initialize
 		disableSomeGTSpotterExtensions;
 		updateCurrentCursor;
 		ensurePlayground;
-		copyClassShouldCopyComment
+		copyClassShouldCopyComment;
+		fixRenameRefactoringBug
