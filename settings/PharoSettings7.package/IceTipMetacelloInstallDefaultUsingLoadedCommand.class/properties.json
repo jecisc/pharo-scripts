@@ -1,11 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "IceTipMetacelloInstallBaselineGroupCommand",
+	"super" : "IceTipMetacelloInstallBaselineDefaultCommand",
 	"category" : "PharoSettings7",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "IceTipMetacelloInstallBaselineGroupUsingOutgoingCommand",
+	"name" : "IceTipMetacelloInstallDefaultUsingLoadedCommand",
 	"type" : "normal"
 }
