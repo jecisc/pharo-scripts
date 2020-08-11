@@ -1,0 +1,3 @@
+*PharoSettings
+altExcludedRuleNames
+	^ #(#GRNonPortableSourceFormatRule #GRTestAssertionsRule #GRUsesCurlyBraceArraysRule #GRAnsiStreamsRule #GRAnsiExceptionsRule #GREmptyStatementsRule #GRInvalidObjectInitializationRule #GRUsesLiteralByteArraysRule #GRAnsiStringsRule #GRAnsiConvertorRule #GRObjectInRule #GRNonPortableMessageRule #GRAnsiConditionalsRule #GRAnsiBooleansRule #GRBasicNewInitializeMissingRule #GRAnsiCollectionsRule #GRUsesClassForHashRule #GRUsesCanPerformOrUnderstandRule #GRUsesNotPortableClassRule #GRNotPortableCollectionsRule #GRUsesMethodAnnotationsRule #GRAnsiCharactersRule)

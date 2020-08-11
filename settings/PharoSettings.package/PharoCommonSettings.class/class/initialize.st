@@ -15,4 +15,9 @@ initialize
 		updateCurrentCursor;
 		ensurePlayground;
 		copyClassShouldCopyComment;
-		fixRenameRefactoringBug
+		fixRenameRefactoringBug;
+		shortcutReminderSettings;
+		debuggerUpdate;
+		closeWelcomeWindow;
+		addMetaLinksForDebugger;
+		formatingOptions

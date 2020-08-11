@@ -1,0 +1,3 @@
+*PharoSettings
+defaultKeyText
+	^ 'R'
