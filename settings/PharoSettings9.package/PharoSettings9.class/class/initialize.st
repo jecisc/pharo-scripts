@@ -1,3 +1,6 @@
 class initialization
 initialize
-	self disableSomeGTSpotterExtensions
+
+	self
+		disableSomeGTSpotterExtensions;
+		formatingOptions
