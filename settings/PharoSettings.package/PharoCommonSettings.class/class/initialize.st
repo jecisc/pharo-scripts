@@ -19,5 +19,4 @@ initialize
 		shortcutReminderSettings;
 		debuggerUpdate;
 		closeWelcomeWindow;
-		addMetaLinksForDebugger;
-		formatingOptions
+		addMetaLinksForDebugger
