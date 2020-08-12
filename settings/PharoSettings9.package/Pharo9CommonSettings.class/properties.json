@@ -6,6 +6,6 @@
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "PharoSettings9",
+	"name" : "Pharo9CommonSettings",
 	"type" : "normal"
 }
