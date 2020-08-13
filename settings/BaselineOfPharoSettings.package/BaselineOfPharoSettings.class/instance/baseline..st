@@ -1,7 +1,10 @@
 baselines
 baseline: spec
 	<baseline>
-	spec for: #common do: [ spec package: 'PharoSettings' ].
+	spec for: #common do: [
+		spec
+			package: 'PharoSettings';
+			package: 'PharoSettings-Scripts' ].
 	
 	spec for: (self pharoVersionsFrom: 6) do: [ spec package: 'PharoSettings6' with: [ spec requires: #('PharoSettings') ] ].
 	
