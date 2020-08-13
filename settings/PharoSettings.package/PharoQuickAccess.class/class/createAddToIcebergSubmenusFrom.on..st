@@ -1,7 +1,7 @@
 world menu
 createAddToIcebergSubmenusFrom: aFolder on: aBuilder
 	self
-		recursivelyCreateCommandForRepositoriesFrom: aFolder directories
+		recursivelyCreateCommandForRepositoriesFrom: aFolder
 		action: [ :dir | 
 			(IceRepositoryCreator new
 				location: dir;

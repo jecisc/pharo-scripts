@@ -1,6 +1,9 @@
 world menu
 worldMenuSectionsOn: aBuilder
 	<worldMenu>
+	"Cache to speedup menu creation"
+	directoriesMap := IdentityDictionary new.
+	
 	(aBuilder item: #Conveniance)
 		parent: #Scripts;
 		order: 1;
