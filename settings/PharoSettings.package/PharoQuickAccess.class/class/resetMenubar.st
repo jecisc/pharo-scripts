@@ -1,5 +1,5 @@
 instance creation
 resetMenubar
-	"Cache to speedup menu creation"
-	directoriesMap := Dictionary new.
+	"Invalidate cache to speedup menu creation"
+	directoriesMap := nil.
 	MenubarMorph reset
