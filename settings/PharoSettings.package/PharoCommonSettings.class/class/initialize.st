@@ -11,12 +11,9 @@ initialize
 		removeTaskBarPreview;
 		setThemeSetting;
 		addMetaLinkForDNUTrick;
-		disableSomeGTSpotterExtensions;
-		updateCurrentCursor;
 		ensurePlayground;
 		copyClassShouldCopyComment;
 		fixRenameRefactoringBug;
 		shortcutReminderSettings;
-		debuggerUpdate;
 		closeWelcomeWindow;
 		addMetaLinksForDebugger
