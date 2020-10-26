@@ -12,5 +12,11 @@ initialize
 		setThemeSetting;
 		addMetaLinkForDNUTrick;
 		disableSomeGTSpotterExtensions;
+		updateCurrentCursor;
 		ensurePlayground;
-		copyClassShouldCopyComment
+		copyClassShouldCopyComment;
+		fixRenameRefactoringBug;
+		shortcutReminderSettings;
+		debuggerUpdate;
+		closeWelcomeWindow;
+		addMetaLinksForDebugger

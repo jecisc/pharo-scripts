@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "CyrilFerlicot 6/2/2020 11:46",
+	"super" : "ClyClassEditorToolMorph",
+	"category" : "PharoSettings6",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ClyTraitsCommentEditorToolMorph",
+	"type" : "normal"
+}

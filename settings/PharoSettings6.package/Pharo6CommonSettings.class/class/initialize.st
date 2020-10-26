@@ -3,4 +3,6 @@ initialize
 	self
 		initializeIcebergSettings;
 		initializePotentialIcebergRepos;
-		installNativeBrowser
+		customizeBlockStyler;
+		installNativeBrowser;
+		registerBazard

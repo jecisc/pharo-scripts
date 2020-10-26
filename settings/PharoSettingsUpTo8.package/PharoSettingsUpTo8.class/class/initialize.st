@@ -1,3 +1,6 @@
 class initialization
 initialize
-	self addMetalinkToCmdClickOnSymbols
+	self
+		addMetalinkToCmdClickOnSymbols;
+		disableSomeGTSpotterExtensions;
+		formatingOptions

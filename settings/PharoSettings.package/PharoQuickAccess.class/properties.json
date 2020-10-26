@@ -2,7 +2,9 @@
 	"commentStamp" : "",
 	"super" : "PharoAbstractSettings",
 	"category" : "PharoSettings",
-	"classinstvars" : [ ],
+	"classinstvars" : [
+		"directoriesMap"
+	],
 	"pools" : [ ],
 	"classvars" : [
 		"UniqueInstance"
