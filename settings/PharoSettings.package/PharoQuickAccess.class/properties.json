@@ -9,7 +9,9 @@
 	"classvars" : [
 		"UniqueInstance"
 	],
-	"instvars" : [ ],
+	"instvars" : [
+		"counter"
+	],
 	"name" : "PharoQuickAccess",
 	"type" : "normal"
 }
