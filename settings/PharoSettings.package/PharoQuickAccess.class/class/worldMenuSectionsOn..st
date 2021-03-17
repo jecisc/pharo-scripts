@@ -7,11 +7,7 @@ worldMenuSectionsOn: aBuilder
 		with: [ (aBuilder item: #Conveniance)
 				order: 1;
 				iconName: #configNew;
-				with: [ self buildSubmenu: #Conveniance on: aBuilder.
-					(aBuilder item: #'Select background')
-						order: 1;
-						iconName: #configNew;
-						with: [ self buildSelectBackgroundOn: aBuilder ] ].
+				with: [ self buildSubmenu: #Conveniance on: aBuilder. ].
 
 			(aBuilder item: #Templates)
 				order: 3;
@@ -28,15 +24,10 @@ worldMenuSectionsOn: aBuilder
 				iconName: #configNew;
 				with: [ self buildSubmenu: 'Seaside scripts' on: aBuilder ].
 
-			(aBuilder item: #Codax)
-				order: 15;
-				iconName: #configNew;
-				with: [ self buildSubmenu: #Codax on: aBuilder ].
-
-			(aBuilder item: #Browse)
+			(aBuilder item: #'Browse-settings')
 				order: 20;
 				iconName: #configNew;
-				with: [ self buildSubmenu: #Browse on: aBuilder ].
+				with: [ self buildSubmenu: #'Browse-settings' on: aBuilder ].
 
 			(aBuilder item: #RecentWindows)
 				order: 23;
