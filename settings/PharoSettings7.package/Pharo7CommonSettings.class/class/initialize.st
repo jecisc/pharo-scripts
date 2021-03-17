@@ -2,7 +2,7 @@ initialization
 initialize
 	self
 		resetMenuBar;
-		addIcebergHack;
+		"addIcebergHack;"
 		prepareForPharoContribution;
 		icebergSettingsForP7Plus;
 		disableSampleInstance;
