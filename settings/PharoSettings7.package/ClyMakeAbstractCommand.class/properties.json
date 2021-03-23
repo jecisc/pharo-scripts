@@ -1,0 +1,14 @@
+{
+	"commentStamp" : "CyrilFerlicot 3/23/2021 04:09",
+	"super" : "SycSingleClassCommand",
+	"category" : "PharoSettings7",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [
+		"browser",
+		"systemEnvironment"
+	],
+	"name" : "ClyMakeAbstractCommand",
+	"type" : "normal"
+}
