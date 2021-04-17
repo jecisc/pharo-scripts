@@ -1,5 +1,6 @@
 class refactoring
 batchClassRename
+	<script>
 	| classes oldPrefix newPrefix |
 	classes := (RPackageOrganizer includingSubstring: 'Name') flatCollect: #definedClasses.
 	oldPrefix := 'old'.
