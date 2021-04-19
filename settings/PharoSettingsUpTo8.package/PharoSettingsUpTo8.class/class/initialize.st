@@ -3,4 +3,5 @@ initialize
 	self
 		addMetalinkToCmdClickOnSymbols;
 		disableSomeGTSpotterExtensions;
-		formatingOptions
+		formatingOptions;
+		enableSlotClassDefinition
