@@ -5,4 +5,6 @@ selectOrigin
 		ifFound: [ :remote | 
 			[ remotePanel remoteList selectedItem: remote ]
 				on: MessageNotUnderstood
-				do: [ remotePanel remoteList setSelectedItem: remote ] ]
+				do: [ SystemVersion current major < 9
+						ifTrue: [ remotePanel remoteList setSelectedItem: remote ]
+						ifFalse: [ remotePanel remoteList selectItem: remote ] ] ]
