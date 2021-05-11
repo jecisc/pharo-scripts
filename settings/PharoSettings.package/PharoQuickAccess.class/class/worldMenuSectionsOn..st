@@ -33,10 +33,10 @@ worldMenuSectionsOn: aBuilder
 				iconName: #configNew;
 				with: [ self buildSubmenu: #Codax on: aBuilder ].
 
-			(aBuilder item: #Browse)
+			(aBuilder item: #'Browse ')
 				order: 20;
 				iconName: #configNew;
-				with: [ self buildSubmenu: #Browse on: aBuilder ].
+				with: [ self buildSubmenu: #'Browse ' on: aBuilder ].
 
 			(aBuilder item: #RecentWindows)
 				order: 23;
