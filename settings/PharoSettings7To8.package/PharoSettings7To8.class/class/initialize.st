@@ -1,3 +1,5 @@
 initialization
 initialize
-	self showProtocolsInSenderImplementors
+	self 
+		icebergHack;
+		showProtocolsInSenderImplementors
