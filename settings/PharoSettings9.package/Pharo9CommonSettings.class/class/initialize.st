@@ -3,4 +3,5 @@ initialize
 
 	self
 		disableSomeGTSpotterExtensions;
-		formatingOptions
+		formatingOptions;
+		icebergOptions
