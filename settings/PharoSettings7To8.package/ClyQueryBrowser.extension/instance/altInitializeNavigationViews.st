@@ -1,4 +1,4 @@
-*PharoSettings7
+*PharoSettings7To8
 altInitializeNavigationViews
 	resultView := self newNavigationView.
 	resultView enableFilter: ClyQueryBrowserFilter.

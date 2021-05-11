@@ -8,5 +8,4 @@ initialize
 		icebergSettingsForP7Plus;
 		disableSampleInstance;
 		resetMenuBar;
-		removeSomeRules;
-		showProtocolsInSenderImplementors
+		removeSomeRules
