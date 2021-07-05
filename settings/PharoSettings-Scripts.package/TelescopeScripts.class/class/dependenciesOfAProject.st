@@ -1,6 +1,7 @@
 accessing
 dependenciesOfAProject
-	| baseline visu substringsToHighlight |
+	<script>
+	self open: '| baseline visu substringsToHighlight |
 	baseline := self class environment at: #BaselineOfTelescope.
 	substringsToHighlight := #(#Telescope #Cytoscape).
 	visu := TLVisualization new.
@@ -63,4 +64,4 @@ dependenciesOfAProject
 					self ]
 				target: [ :aDrawable | aDrawable outgoingConnections flatCollectAsSet: #withConnectedNodes ]) onMouseOver propagateToChildren}.
 
-	visu open
+	visu open'
