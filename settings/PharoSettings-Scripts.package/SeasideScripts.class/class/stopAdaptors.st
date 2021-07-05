@@ -1,4 +1,4 @@
-seaside scripts
+as yet unclassified
 stopAdaptors
-	<name: #'Stop adaptors'>
+	<script>
 	(self class environment at: #WAServerAdaptor) allSubInstances do: #stop

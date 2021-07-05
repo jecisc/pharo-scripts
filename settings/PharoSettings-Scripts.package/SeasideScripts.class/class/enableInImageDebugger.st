@@ -1,6 +1,6 @@
-seaside scripts
-debuggerInImage
-	<name: #'Enable in image debugger'>
+as yet unclassified
+enableInImageDebugger
+	<script>
 	self class environment
 		at: #WAApplication
 		ifPresent: [ :class | class allInstancesDo: [ :app | app exceptionHandler: (Smalltalk at: #WADebugErrorHandler) ] ]

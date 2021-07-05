@@ -23,11 +23,6 @@ worldMenuSectionsOn: aBuilder
 				iconName: #configNew;
 				with: [ self buildSubmenu: #Loading on: aBuilder ].
 
-			(aBuilder item: #'Seaside scripts')
-				order: 10;
-				iconName: #configNew;
-				with: [ self buildSubmenu: 'Seaside scripts' on: aBuilder ].
-
 			(aBuilder item: #'My scripts')
 				order: 15;
 				iconName: #configNew;
