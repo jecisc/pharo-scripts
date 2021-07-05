@@ -28,11 +28,6 @@ worldMenuSectionsOn: aBuilder
 				iconName: #configNew;
 				with: [ self buildSubmenu: 'Seaside scripts' on: aBuilder ].
 
-			(aBuilder item: #Codax)
-				order: 15;
-				iconName: #configNew;
-				with: [ self buildSubmenu: #Codax on: aBuilder ].
-
 			(aBuilder item: #'Browse ')
 				order: 20;
 				iconName: #configNew;
