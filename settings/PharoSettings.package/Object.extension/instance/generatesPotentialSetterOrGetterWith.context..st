@@ -11,6 +11,7 @@ generatesPotentialSetterOrGetterWith: anArray context: context
 	aMessage := anArray anyOne.
 	message := aMessage selector asString.
 	(selectorsToIgnore includes: message) ifTrue: [ ^ self ].
+	(self class allSuperclasses anySatisfy: [ :c | c name = #PP2CompositeNode ]) ifTrue: [ ^ self ].
 	message last = $:
 		ifTrue: [ self class instVarNames
 				detect: [ :var | var = message allButLast ]
