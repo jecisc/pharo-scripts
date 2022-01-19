@@ -4,4 +4,5 @@ initialize
 	self
 		disableSomeGTSpotterExtensions;
 		formatingOptions;
-		icebergOptions
+		icebergOptions;
+		setPlaygroundFolder
