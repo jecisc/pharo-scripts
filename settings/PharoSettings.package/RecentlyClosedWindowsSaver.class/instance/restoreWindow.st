@@ -9,4 +9,4 @@ restoreWindow
 			labels add: (self printYMDHMS: date) , ' ' , window label.
 			values add: window ].
 
-	(UIManager default chooseFrom: labels values: values) ifNotNil: [ :window | window openAsIs ]
+	(UIManager default chooseFrom: labels values: values) ifNotNil: [ :window | window openInWorld ]
