@@ -16,5 +16,5 @@ initialize
 		copyClassShouldCopyComment;
 		fixRenameRefactoringBug;
 		shortcutReminderSettings;
-		debuggerUpdate;
+		enableStackColoring;
 		closeWelcomeWindow
