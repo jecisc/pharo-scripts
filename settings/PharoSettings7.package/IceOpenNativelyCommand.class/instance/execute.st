@@ -1,3 +1,0 @@
-execution
-execute
-	location openInOSFileBrowser
