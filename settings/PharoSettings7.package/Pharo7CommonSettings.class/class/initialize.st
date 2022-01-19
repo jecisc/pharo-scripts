@@ -1,8 +1,6 @@
 initialization
 initialize
 	self
-		installSpecRepository;
-		addMooseRepositories;
 		addIcebergHack;
 		prepareForPharoContribution;
 		icebergSettingsForP7Plus;
