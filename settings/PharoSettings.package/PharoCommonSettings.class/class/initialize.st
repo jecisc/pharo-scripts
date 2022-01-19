@@ -12,7 +12,6 @@ initialize
 		addMetaLinkForClassDescription;
 		addMetaLinkForDNUTrick;
 		updateCurrentCursor;
-		ensurePlayground;
 		copyClassShouldCopyComment;
 		fixRenameRefactoringBug;
 		shortcutReminderSettings;
