@@ -2,7 +2,6 @@ initialization
 installNativeBrowser
 	<script>
 	| sourcesDir |
-	SystemVersion current major > 7 ifTrue: [ "Is already in the system." ^ self ].
 	sourcesDir := self sharedRepositoryFolder / 'jecisc' / 'Native-Browser' / 'src'.
 
 	sourcesDir exists

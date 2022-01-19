@@ -2,4 +2,5 @@ class initialization
 initialize
 	self
 		setUsageData;
-		debuggerUpdate
+		debuggerUpdate;
+		installNativeBrowser
