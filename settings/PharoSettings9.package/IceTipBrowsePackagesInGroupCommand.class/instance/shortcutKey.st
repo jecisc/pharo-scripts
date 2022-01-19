@@ -1,0 +1,3 @@
+accessing
+shortcutKey
+	^ $i meta
