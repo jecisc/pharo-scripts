@@ -1,3 +1,3 @@
 execution
 execute
-	location openInNativeBrowser
+	location openInOSFileBrowser
