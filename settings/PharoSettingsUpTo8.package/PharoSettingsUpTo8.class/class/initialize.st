@@ -6,4 +6,5 @@ initialize
 		disableSomeGTSpotterExtensions;
 		formatingOptions;
 		enableSlotClassDefinition;
-		enableGTSpotterPreview
+		enableGTSpotterPreview;
+		setLocalFolders
