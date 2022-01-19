@@ -2,8 +2,7 @@ templates
 coolCommands
 	<name: #'Git commands'>
 
-	GTPlayground
-		openContents:
+	self openOn:
 			'''Remove merged branches except master and dev:''.
 
 	''git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d''.

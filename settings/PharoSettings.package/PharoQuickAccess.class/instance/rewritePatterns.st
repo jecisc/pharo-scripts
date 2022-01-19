@@ -1,8 +1,7 @@
 templates
 rewritePatterns
 	<name: #'Rewrite patterns'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'r := RBParseTreeRewriter new.
 r replace: ''`@receiver assert: `@arg = `@arg2'' with: ''`@receiver assert: `@arg equals: `@arg2''.
 r replace: ''`@receiver deny: `@arg = `@arg2'' with: ''`@receiver deny: `@arg equals: `@arg2''.

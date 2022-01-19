@@ -1,8 +1,7 @@
 templates
 cleanProject
 	<name: #'Clean project'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'sourcesDir := PharoQuickAccess sharedRepositoryFolder / ''jecisc'' / ''Chanel'' / ''src''.
 sourcesDir exists
 	ifTrue: [ Metacello new

@@ -1,7 +1,6 @@
 templates
 dependencies
 	<name: #'Find dependencies'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'report := DADependencyChecker new computeImageDependencies.
 report knownDependantsOf: ''Glamour-Examples'''

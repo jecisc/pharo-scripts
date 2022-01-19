@@ -1,8 +1,7 @@
 templates
 batchRenameClasses
 	<name: #'Batch classes rename'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'classes := ''JenkinsBuilder'' asPackage definedClasses.
 oldPrefix := ''SB''.
 newPrefix := ''JB''.

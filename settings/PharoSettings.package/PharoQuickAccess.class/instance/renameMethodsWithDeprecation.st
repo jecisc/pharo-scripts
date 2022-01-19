@@ -1,8 +1,7 @@
 templates
 renameMethodsWithDeprecation
 	<name: #'Batch method rename with deprecations'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'class := FM3Class.
 from := ''attribute''.
 to := ''propertie''.

@@ -1,8 +1,7 @@
 templates
 profileTests
 	<name: #'Profile tests'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'packageSelectionBlock := [ :e | e name beginsWith: ''Traits'' ].
 testSuite := TestSuite new.
 	

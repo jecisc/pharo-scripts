@@ -1,8 +1,7 @@
 templates
 varibleUsage
 	<name: #'Variable usage'>
-	GTPlayground
-		openContents:
+	self openOn:
 			'origin := SpPresenter.
 variables := origin instVarNames.
 

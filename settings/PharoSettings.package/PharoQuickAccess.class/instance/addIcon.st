@@ -1,9 +1,8 @@
 templates
 addIcon
+
 	<name: #'Add icon'>
-	GTPlayground
-		openContents:
-			'iconName := ''myLogo''.
+	self openOn: 'iconName := ''myLogo''.
 icon := ''/Users/cyrilferlicot/Google Drive/Personnel/Furry/IMG_3509.JPG'' asFileReference.
 
 ThemeIcons compile:  iconName , ''Contents

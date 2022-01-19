@@ -1,3 +1,4 @@
-protocol
-open: aString
+initialization
+openOn: aString
+
 	Smalltalk tools workspace openContents: aString
