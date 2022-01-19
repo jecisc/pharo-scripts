@@ -1,4 +1,4 @@
-*PharoSettings6
+*PharoSettingsUpTo8
 cyrilMenuOn: aBuilder
 	"I add my own paste to escape strings"
 
