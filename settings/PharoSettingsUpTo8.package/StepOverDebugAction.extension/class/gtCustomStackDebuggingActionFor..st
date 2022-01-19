@@ -1,4 +1,4 @@
-*PharoSettings
+*PharoSettingsUpTo8
 gtCustomStackDebuggingActionFor: aDebugger
 	<gtCustomDebuggingAction>
 	

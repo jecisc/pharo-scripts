@@ -18,5 +18,4 @@ initialize
 		fixRenameRefactoringBug;
 		shortcutReminderSettings;
 		debuggerUpdate;
-		closeWelcomeWindow;
-		addMetaLinksForDebugger
+		closeWelcomeWindow

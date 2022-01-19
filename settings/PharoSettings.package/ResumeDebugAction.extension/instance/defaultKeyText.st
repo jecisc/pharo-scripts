@@ -1,3 +1,0 @@
-*PharoSettings
-defaultKeyText
-	^ 'P'
