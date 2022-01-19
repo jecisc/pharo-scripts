@@ -7,7 +7,6 @@ initialize
 		setLocalFolders;
 		setMonticelloInfos;
 		someToolsOptions;
-		enableGTSpotterPreview;
 		removeTaskBarPreview;
 		setThemeSetting;
 		addMetaLinkForClassDescription;

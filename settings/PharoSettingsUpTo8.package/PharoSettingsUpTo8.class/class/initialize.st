@@ -5,4 +5,5 @@ initialize
 		addMetaLinksForDebugger;
 		disableSomeGTSpotterExtensions;
 		formatingOptions;
-		enableSlotClassDefinition
+		enableSlotClassDefinition;
+		enableGTSpotterPreview
