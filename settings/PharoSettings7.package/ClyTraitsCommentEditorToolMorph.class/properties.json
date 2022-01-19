@@ -1,7 +1,7 @@
 {
-	"commentStamp" : "CyrilFerlicot 6/2/2020 11:46",
+	"commentStamp" : "",
 	"super" : "ClyClassEditorToolMorph",
-	"category" : "PharoSettings6",
+	"category" : "PharoSettings7",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
