@@ -3,10 +3,7 @@ initialize
 	self
 		setAuthorName;
 		setAppearance;
-		setWindowsPreferences;
-		setLocalFolders;
-		setMonticelloInfos;
-		someToolsOptions;
+		showBoundsInHalo;
 		removeTaskBarPreview;
 		setThemeSetting;
 		addMetaLinkForClassDescription;
@@ -16,4 +13,5 @@ initialize
 		fixRenameRefactoringBug;
 		shortcutReminderSettings;
 		enableStackColoring;
-		closeWelcomeWindow
+		closeWelcomeWindow;
+		monticelloOptions
