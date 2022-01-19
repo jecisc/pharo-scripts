@@ -1,4 +1,4 @@
 style
 style: textModel
-	^(super style: textModel)
-		backgroundColor: self defaultBackgroundColor 
+
+	^ (super style: textModel) backgroundColor: self defaultBackgroundColor

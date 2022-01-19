@@ -1,3 +1,3 @@
 accessing
 backgroundColor
-	^ backgroundColor
+	^ self class defaultBackgroundColor

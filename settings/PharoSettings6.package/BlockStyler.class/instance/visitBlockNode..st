@@ -4,9 +4,9 @@ visitBlockNode: aBlockNode
 		change := RubConfigurationChange new.
 		change configurationBlock: [ :t | | r |
 			r := RubTextSegmentMorph from: aBlockNode left + line key - 1 to: aBlockNode left + line value.
-			r color: backgroundColor.
+			r color: self backgroundColor.
 			t addSegment: r ].
 		textModel announce: change ] ].
 	nesting := nesting + 1.
-	super visitBlockNode: aBlockNode.
-	nesting := nesting - 1.
+	super visitBlockNode: aBlockNode. 
+	nesting := nesting - 1

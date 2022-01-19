@@ -9,7 +9,6 @@
 		"Enabled"
 	],
 	"instvars" : [
-		"backgroundColor",
 		"nesting"
 	],
 	"name" : "BlockStyler",
