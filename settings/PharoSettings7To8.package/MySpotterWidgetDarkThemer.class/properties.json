@@ -1,11 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "GTSpotterWidgetDarkThemer",
-	"category" : "PharoSettings7",
+	"super" : "GTSpotterWidgetThemer",
+	"category" : "PharoSettings7To8",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "MyGTSpotterWidgetDarkThemer",
+	"name" : "MySpotterWidgetDarkThemer",
 	"type" : "normal"
 }

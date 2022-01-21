@@ -27,4 +27,4 @@ baseline: spec
 	spec for: #(#'pharo5.x' #'pharo6.x' #'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettingsUpTo8' with: [ spec requires: #('PharoSettings') ] ].
 	
 	"This on is for some Calypso options"
-	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettings7To8' with: [ spec requires: #('PharoSettings') ] ].
+	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettings7To8' with: [ spec requires: #('PharoSettings' 'PharoSettings7') ] ].

@@ -1,11 +1,11 @@
 {
 	"commentStamp" : "",
-	"super" : "GLMBrickDarkThemer",
-	"category" : "PharoSettings7",
+	"super" : "GTSpotterWidgetDarkThemer",
+	"category" : "PharoSettings7To8",
 	"classinstvars" : [ ],
 	"pools" : [ ],
 	"classvars" : [ ],
 	"instvars" : [ ],
-	"name" : "MyBrickDarkThemer2",
+	"name" : "MyGTSpotterWidgetDarkThemer",
 	"type" : "normal"
 }
