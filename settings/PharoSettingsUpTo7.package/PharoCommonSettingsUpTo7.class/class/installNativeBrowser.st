@@ -2,6 +2,8 @@ initialization
 installNativeBrowser
 	<script>
 	| sourcesDir |
+	self flag: #pharo5.
+	SystemVersion current major < 6 ifTrue: [ ^ self ].
 	sourcesDir := self sharedRepositoryFolder / 'jecisc' / 'Native-Browser' / 'src'.
 
 	sourcesDir exists
