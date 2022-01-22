@@ -28,3 +28,6 @@ baseline: spec
 	
 	"This on is for some Calypso options"
 	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettings7To8' with: [ spec requires: #('PharoSettings' 'PharoSettings7') ] ].
+	
+	"This is to fix a bug in Pharo 9 that is fixed in Pharo 10"
+	spec for: #'pharo9.x' do: [ spec package: 'PharoSettings9-Specific' with: [ spec requires: #('PharoSettings') ] ].
