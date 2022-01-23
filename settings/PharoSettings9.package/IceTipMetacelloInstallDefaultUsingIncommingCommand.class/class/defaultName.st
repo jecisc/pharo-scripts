@@ -1,3 +1,3 @@
 accessing
-defaultMenuItemName
+defaultName
 	^ 'Install baseline (default) using incoming'
