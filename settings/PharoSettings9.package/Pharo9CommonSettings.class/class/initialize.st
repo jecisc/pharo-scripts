@@ -5,4 +5,5 @@ initialize
 		formatingOptions;
 		icebergOptions;
 		setPlaygroundFolder;
-		setMetaLinkForIcebergBrowseInGroupCommand
+		setMetaLinkForIcebergBrowseInGroupCommand;
+		enableFluidClassDefinition 
