@@ -1,3 +1,3 @@
-*PharoSettings7
+*PharoSettings7To8
 defaultToolbarItemName
 	^ 'PR'
