@@ -1,6 +1,7 @@
 as yet unclassified
 findDependenciesToAPackage
+
 	<script>
-	| report |
+	self open: '| report |
 	report := DADependencyChecker new computeImageDependencies.
-	(report knownDependantsOf: 'Garage') inspect
+	(report knownDependantsOf: ''Garage'') inspect'
