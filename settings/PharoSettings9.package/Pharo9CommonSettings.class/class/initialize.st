@@ -3,7 +3,6 @@ initialize
 	self
 		disableSomeGTSpotterExtensions;
 		formatingOptions;
-		icebergOptions;
 		setPlaygroundFolder;
 		setMetaLinkForIcebergBrowseInGroupCommand;
-		enableFluidClassDefinition 
+		enableFluidClassDefinition
