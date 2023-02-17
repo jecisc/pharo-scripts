@@ -5,7 +5,7 @@ restoreWindow
 	values := OrderedCollection new.
 
 	cache
-		keysAndValuesDo: [ :date :window | 
+		keysAndValuesDo: [ :date :window |
 			labels add: (self printYMDHMS: date) , ' ' , window label.
 			values add: window ].
 

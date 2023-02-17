@@ -3,7 +3,7 @@ compileSetterNamed: message returning: var
 	self class
 		compile:
 			(String
-				streamContents: [ :s | 
+				streamContents: [ :s |
 					s
 						<< message;
 						<< ' anObject';

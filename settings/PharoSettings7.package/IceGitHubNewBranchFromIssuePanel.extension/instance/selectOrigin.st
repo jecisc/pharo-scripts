@@ -2,7 +2,7 @@
 selectOrigin
 	remotePanel remoteList listItems
 		detect: [ :e | e name = 'origin' ]
-		ifFound: [ :remote | 
+		ifFound: [ :remote |
 			[ remotePanel remoteList selectedItem: remote ]
 				on: MessageNotUnderstood
 				do: [ SystemVersion current major < 9

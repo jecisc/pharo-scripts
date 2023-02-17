@@ -3,7 +3,7 @@ compileGetterNamed: var
 	self class
 		compile:
 			(String
-				streamContents: [ :s | 
+				streamContents: [ :s |
 					s
 						<< var;
 						cr;

@@ -1,9 +1,9 @@
 accessing
 editingText
 	^ String
-		streamContents: [ :s | 
+		streamContents: [ :s |
 			editingClass traitComposition allTraits
-				do: [ :trait | 
+				do: [ :trait |
 					trait hasComment
 						ifTrue: [ s
 								nextPutAll: '=== ';

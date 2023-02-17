@@ -6,7 +6,7 @@ focusIceberg
 		ifEmpty: [ [ IceTipRepositoriesBrowser new openWithSpec ]
 				on: Error
 				do: [ self inform: 'Opening Iceberg only works in Pharo >= 7' ] ]
-		ifNotEmpty: [ :repos | 
+		ifNotEmpty: [ :repos |
 			| window |
 			window := repos first.
 			window isMinimized ifTrue: [ window restore ] ifFalse: [ window activate ] ]

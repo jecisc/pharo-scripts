@@ -4,4 +4,4 @@ install
 	SystemAnnouncer uniqueInstance unsubscribe: self.
 	SystemAnnouncer uniqueInstance weak
 		when: MethodAnnouncement
-		send: #methodAnnouncementReceived: to: self.
+		send: #methodAnnouncementReceived: to: self

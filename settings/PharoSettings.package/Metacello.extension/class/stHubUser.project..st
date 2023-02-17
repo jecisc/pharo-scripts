@@ -1,6 +1,6 @@
 *PharoSettings
 stHubUser: userName project: projectName
-			^ self new 
+			^ self new
 				smalltalkhubUser: userName project: projectName;
 				configuration: projectName;
 				onWarningLog;

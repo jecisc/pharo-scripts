@@ -1,7 +1,7 @@
 *PharoSettings
 altConvertAllReferencesToUsing: arguments
 	(self model allReferencesTo: (arguments at: 1))
-		reject: [ :rbMethod | 
+		reject: [ :rbMethod |
 			"We reject methods from trait to not recompile them in the class and duplicate the code."
 			rbMethod method
 				ifNil: [ false ]

@@ -1,12 +1,12 @@
 class initialization
 setCalypsoMetaLink
-	"When a Calypso window is closing, it is removing its content making it impossible to open again the window. 
+	"When a Calypso window is closing, it is removing its content making it impossible to open again the window.
 	To work around the problem I use a metalink to not remove the content."
 
 	<script>
 	self environment
 		at: #ClyBrowserMorph
-		ifPresent: [ :class | 
+		ifPresent: [ :class |
 			(class >> #windowIsClosing) sourceCode
 				=
 					'windowIsClosing

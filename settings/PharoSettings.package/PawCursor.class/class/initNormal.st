@@ -1,6 +1,6 @@
 initialization - private
 initNormal
-	NormalCursor :=   
+	NormalCursor :=
 		(Cursor
 			extent: 16@16
 			fromArray: #(
@@ -20,7 +20,4 @@ initNormal
 		2r0000111000000
 		2r0000000000000
 		2r0000000000000)
-	offset: 0@0).
-
-	
-	
+	offset: 0@0)

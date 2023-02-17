@@ -9,16 +9,16 @@ dependenciesOfAProject
 		addNodesFromEntities:
 			((baseline project version withDeepCollect: [ :each | each projects collect: #version ])
 				inject: OrderedCollection new
-				into: [ :coll :vers | 
+				into: [ :coll :vers |
 					coll
 						detect: [ :each | each versionNumber = vers versionNumber and: [ each projectLabel = vers projectLabel ] ]
 						ifNone: [ coll add: vers ].
 					coll ]).
 
 	visu nodes
-		do: [ :each | 
+		do: [ :each |
 			(each entity projects
-				collect: [ :e | 
+				collect: [ :e |
 					visu nodes
 						detect: [ :n | n entity = e version and: [ n entity projectLabel = e version projectLabel ] ]
 						ifNone: [ nil ] ]) asSet do: [ :n | n ifNotNil: [ each connectToNode: n ] ] ].
@@ -26,7 +26,7 @@ dependenciesOfAProject
 	visu styleSheet
 		nodeLabel: [ :each | each projectLabel withoutPrefix: #BaselineOf ];
 		nodeLabelPosition: #bottom;
-		backgroundColor: [ :each | 
+		backgroundColor: [ :each |
 			(substringsToHighlight anySatisfy: [ :e | each projectLabel includesSubstring: e ])
 				ifTrue: [ MDLColor green ]
 				ifFalse: [ MDLColor orange ] ];
@@ -42,7 +42,7 @@ dependenciesOfAProject
 	visu
 		addInteractions:
 			{(TLStyleCustomizationAction
-				custom: [ :style :drawable | 
+				custom: [ :style :drawable |
 					drawable isConnection
 						ifTrue: [ style
 								color: MDLColor blue;
@@ -53,7 +53,7 @@ dependenciesOfAProject
 					self ]
 				target: [ :aDrawable | aDrawable incomingConnections flatCollectAsSet: #withConnectedNodes ]) onMouseOver propagateToChildren.
 			(TLStyleCustomizationAction
-				custom: [ :style :drawable | 
+				custom: [ :style :drawable |
 					drawable isConnection
 						ifTrue: [ style
 								color: MDLColor orange;

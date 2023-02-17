@@ -6,7 +6,7 @@ setFonts
 
 	((provider platformAbsoluteDirectories flatCollect: #files) select: [ :e | e basenameWithoutExtension beginsWith: 'Roboto' ])
 		ifEmpty: [ self inform: 'Roboto is not installed' ]
-		ifNotEmpty: [ :fonts | 
+		ifNotEmpty: [ :fonts |
 			fonts do: [ :file | provider updateFromFile: file ].
 			provider updateAvailableFontFamilies.
 			StandardFonts defaultFont: (LogicalFont familyName: 'Roboto' pointSize: 10).

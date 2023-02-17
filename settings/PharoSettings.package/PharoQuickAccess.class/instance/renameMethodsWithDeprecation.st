@@ -10,16 +10,16 @@ deprecatedProtocol := ''*Famix-Deprecated''.
 signatureBuilder := [ :selector |
 	selector isUnary ifTrue: [ selector ] ifFalse: [
 	| count |
-	count := 1. 
+	count := 1.
 	String streamContents: [ :s | selector keywords do: [ :key | s nextPutAll: key; space; nextPutAll: ''arg''; print: count; space. count := count + 1 ] ] ] ].
 
 class methods
 	select: [ :method | method selector includesSubstring: from ]
-	thenDo: [ :method | 
+	thenDo: [ :method |
 		| oldSelector newSelector |
 		oldSelector := method selector asSymbol.
 		newSelector := (method selector copyReplaceAll: from with: to) asSymbol.
-		
+
 		class
 			compiledMethodAt: newSelector
 			ifPresent: [ :m | self inform: newSelector , '' already exists'' ]
@@ -30,10 +30,10 @@ class methods
 				in: class
 				to: newSelector
 				permutation: (1 to: method numArgs) asArray) execute.
-			
+
 			class compile: (''{1}
 	{2}
 	^ self {3}'' format: {signatureBuilder value: oldSelector . ''self deprecated: ''''Use #'', newSelector , '' instead.'''' transformWith: ''''``@object '' , (RBParseTreeSearcher buildSelectorString: oldSelector),'''''' -> ''''``@object '' , (RBParseTreeSearcher buildSelectorString: newSelector) ,''''''.''. signatureBuilder value: newSelector }).
-	
-			deprecatedProtocol ifNotNil: [ :p | (class>>oldSelector) protocol: p ].	
+
+			deprecatedProtocol ifNotNil: [ :p | (class>>oldSelector) protocol: p ].
 			] ].'

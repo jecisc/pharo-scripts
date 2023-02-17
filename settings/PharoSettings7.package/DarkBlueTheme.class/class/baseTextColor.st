@@ -1,3 +1,3 @@
 accessing
 baseTextColor
-	^ Color white	
+	^ Color white

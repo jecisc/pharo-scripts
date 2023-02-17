@@ -8,5 +8,5 @@ visitBlockNode: aBlockNode
 			t addSegment: r ].
 		textModel announce: change ] ].
 	nesting := nesting + 1.
-	super visitBlockNode: aBlockNode. 
+	super visitBlockNode: aBlockNode.
 	nesting := nesting - 1

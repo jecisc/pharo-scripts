@@ -7,7 +7,7 @@ icon := ''/Users/cyrilferlicot/Google Drive/Personnel/Furry/IMG_3509.JPG'' asFil
 
 ThemeIcons compile:  iconName , ''Contents
 	^ '''''' , (Base64MimeConverter mimeEncode: icon binaryReadStream) contents , '''''''' classified: ''*Material-Design-Lite-Core''.
-	
+
 ThemeIcons compile: iconName, ''
 	^ icons
 			at: #'''''' , iconName , ''''''

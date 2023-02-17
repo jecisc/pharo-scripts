@@ -5,7 +5,7 @@ condenseCode
 	self open: 'cms := CompiledMethod allInstances select: [:each |
 each package ifNil: [ false ] ifNotNil: [:p |
 	p name beginsWith: ''Zinc'' ] ].
- 
+
 
 cms do: [:cm |
     ((RBRefactoryChangeFactory instance)

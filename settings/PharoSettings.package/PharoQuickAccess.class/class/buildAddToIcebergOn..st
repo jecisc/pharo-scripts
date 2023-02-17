@@ -1,3 +1,3 @@
 world menu
-buildAddToIcebergOn: aBuilder 
+buildAddToIcebergOn: aBuilder
 	self createAddToIcebergSubmenusFrom: self sharedRepositoryFolder on: aBuilder

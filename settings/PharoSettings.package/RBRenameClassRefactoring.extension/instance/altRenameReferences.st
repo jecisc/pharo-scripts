@@ -7,7 +7,7 @@ altRenameReferences
 		yourself.
 	self model
 		allReferencesToClass: class
-		do: [ :method | 
+		do: [ :method |
 			(method modelClass hierarchyDefinesVariable: newName)
 				ifTrue: [ self refactoringFailure: newName , ' is already defined in hierarchy of ' , method modelClass printString ].
 			(method method

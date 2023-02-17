@@ -2,7 +2,7 @@ conveniance
 generateSimpleBaseline
 	<name: #'Generate simple baseline'>
 	(UIManager default request: 'Name of the project')
-		ifNotNil: [ :name | 
+		ifNotNil: [ :name |
 			| baselineName class |
 			baselineName := 'BaselineOf' , name capitalized.
 			class := BaselineOf

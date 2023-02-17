@@ -1,3 +1,3 @@
 growl - specific
 growlFillColorFor: aGrowlMorph
-	^ self lightBackgroundColor alpha: 0.5 
+	^ self lightBackgroundColor alpha: 0.5

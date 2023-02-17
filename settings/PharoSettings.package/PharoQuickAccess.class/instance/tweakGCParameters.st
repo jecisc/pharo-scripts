@@ -12,4 +12,4 @@ tweakGCParameters
 	Smalltalk vm parameterAt: 24 put: 64 * 1024 * 1024.
 
 	"Change the full GC ratio to only GC when the heap grows by 70% instead of 33% before."
-	Smalltalk vm parameterAt: 55 put: 0.7.
+	Smalltalk vm parameterAt: 55 put: 0.7

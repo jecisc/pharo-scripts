@@ -9,8 +9,8 @@ r replace: ''`@receiver deny: `@arg = `@arg2'' with: ''`@receiver deny: `@arg eq
 
 classes := TestCase allSubclasses select: [ :e | e package name first = $c ].
 
-classes do: [ :class | 
-	
+classes do: [ :class |
+
 	class localMethods select: [ :m | m selector beginsWith: ''test'' ] thenDo: [ :m |
 		n := m parseTree.
 		(r executeTree: n) ifTrue: [ class compile: n formattedCode].

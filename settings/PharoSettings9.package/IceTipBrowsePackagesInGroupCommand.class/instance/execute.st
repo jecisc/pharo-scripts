@@ -3,12 +3,12 @@ execute
 
 	| group |
 	group := (self currentWorld windowsSatisfying: [ :w | w label = 'Iceberg Repositories' ])
-		         ifEmpty: [ 
+		         ifEmpty: [
 			         | g |
 			         g := GroupWindowMorph new.
 			         (g openInWindowLabeled: 'Iceberg Repositories') extent: 1200 @ 800.
 			         g ]
-		         ifNotEmpty: [ :ws | 
+		         ifNotEmpty: [ :ws |
 			         | window |
 			         window := ws first.
 			         window isMinimized

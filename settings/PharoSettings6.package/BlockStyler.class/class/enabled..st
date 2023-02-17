@@ -1,3 +1,3 @@
 accessing
-enabled: aBoolean 
+enabled: aBoolean
 	Enabled := aBoolean

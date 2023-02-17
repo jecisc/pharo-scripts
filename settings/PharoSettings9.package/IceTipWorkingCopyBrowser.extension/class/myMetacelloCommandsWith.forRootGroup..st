@@ -8,7 +8,7 @@ myMetacelloCommandsWith: presenter forRootGroup: aCommandGroup
 		            description: 'Metacello install operations';
 		            yourself.
 
-	{ 
+	{
 		IceTipMetacelloInstallBaselineGroupUsingIncomingCommand.
 		IceTipMetacelloInstallBaselineGroupUsingLoadedCommand.
 		IceTipMetacelloInstallDefaultUsingIncommingCommand.

@@ -1,3 +1,3 @@
 accessing colors
-lightBackgroundColor 
+lightBackgroundColor
 	^ self backgroundColor lighter

@@ -5,7 +5,7 @@ addMetaLinkForClassDescription
 		ifTrue: [ {ClassDescription} ]
 		ifFalse: [ {ClassDescription.
 			TraitDescription} ])
-		do: [ :class | 
+		do: [ :class |
 			(class >> #classCommentBlank) ast
 				link:
 					(MetaLink new

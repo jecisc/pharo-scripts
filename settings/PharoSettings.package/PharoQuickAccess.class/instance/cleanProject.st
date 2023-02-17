@@ -13,7 +13,7 @@ sourcesDir exists
 					githubUser: ''jecisc'' project: ''Chanel'' commitish: ''master'' path: ''repository'';
 					baseline: ''Chanel'';
 					load ] ].
-			
+
 packages := ((IceRepository registry select: [ :e | e name = ''Moose'' ]) flatCollect: [ :e | e workingCopy packageNames collect: [:s | s asPackageIfAbsent: [ nil ] ]]) reject: #isNil..
 
 Chanel perfum: packages'

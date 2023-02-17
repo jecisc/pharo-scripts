@@ -1,3 +1,3 @@
 growl - specific
 growlBorderColorFor: aGrowlMorph
-	^ self borderColor alpha: 0.5 
+	^ self borderColor alpha: 0.5
