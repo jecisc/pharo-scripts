@@ -1,4 +1,7 @@
 activation
 traitsCommentTabActivation
+
 	<classAnnotation>
-	^ ClyTabActivationStrategy for: ClyClassComment asCalypsoItemContext
+	^ (SystemVersion current major < 11
+		   ifTrue: [ ClyTabActivationStrategy ]
+		   ifFalse: [ ClyTabActivationStrategyAnnotation ]) for: ClyClassComment asCalypsoItemContext
