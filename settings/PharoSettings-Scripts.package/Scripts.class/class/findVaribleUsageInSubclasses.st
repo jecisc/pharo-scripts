@@ -1,8 +1,8 @@
-templates
-varibleUsage
-	<name: #'Variable usage'>
-	self openOn:
-			'origin := SpPresenter.
+as yet unclassified
+findVaribleUsageInSubclasses
+
+	<script>
+	self open: 'origin := SpPresenter.
 variables := origin instVarNames.
 
 variables

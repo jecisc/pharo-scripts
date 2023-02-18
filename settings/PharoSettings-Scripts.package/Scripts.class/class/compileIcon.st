@@ -1,8 +1,8 @@
-templates
-addIcon
+as yet unclassified
+compileIcon
 
-	<name: #'Add icon'>
-	self openOn: 'iconName := ''myLogo''.
+	<script>
+	self open: 'iconName := ''myLogo''.
 icon := ''/Users/cyrilferlicot/Google Drive/Personnel/Furry/IMG_3509.JPG'' asFileReference.
 
 ThemeIcons compile:  iconName , ''Contents

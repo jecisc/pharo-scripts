@@ -1,8 +1,8 @@
-templates
-cleanProject
-	<name: #'Clean project'>
-	self openOn:
-			'sourcesDir := PharoQuickAccess sharedRepositoryFolder / ''jecisc'' / ''Chanel'' / ''src''.
+class refactoring
+cleanProjectWithChanel
+
+	<script>
+	self open: 'sourcesDir := PharoQuickAccess sharedRepositoryFolder / ''jecisc'' / ''Chanel'' / ''src''.
 sourcesDir exists
 	ifTrue: [ Metacello new
 			repository: ''tonel://'' , sourcesDir fullName;

@@ -13,11 +13,6 @@ worldMenuSectionsOn: aBuilder
 						iconName: #configNew;
 						with: [ self buildSelectBackgroundOn: aBuilder ] ].
 
-			(aBuilder item: #Templates)
-				order: 3;
-				iconName: #configNew;
-				with: [ self buildSubmenu: #Templates on: aBuilder ].
-
 			(aBuilder item: #Loading)
 				order: 5;
 				iconName: #configNew;

@@ -1,8 +1,8 @@
-templates
-renameMethodsWithDeprecation
-	<name: #'Batch method rename with deprecations'>
-	self openOn:
-			'class := FM3Class.
+class refactoring
+batchRenameMethodsWithDeprecation
+
+	<script>
+	self open: 'class := FM3Class.
 from := ''attribute''.
 to := ''propertie''.
 deprecatedProtocol := ''*Famix-Deprecated''.

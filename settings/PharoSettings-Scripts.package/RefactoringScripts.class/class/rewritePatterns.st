@@ -1,8 +1,8 @@
-templates
+class refactoring
 rewritePatterns
-	<name: #'Rewrite patterns'>
-	self openOn:
-			'r := RBParseTreeRewriter new.
+
+	<script>
+	self open: 'r := RBParseTreeRewriter new.
 r replace: ''`@receiver assert: `@arg = `@arg2'' with: ''`@receiver assert: `@arg equals: `@arg2''.
 r replace: ''`@receiver deny: `@arg = `@arg2'' with: ''`@receiver deny: `@arg equals: `@arg2''.
 
