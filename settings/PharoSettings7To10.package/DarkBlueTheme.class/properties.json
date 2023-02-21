@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "PharoDarkTheme",
+	"category" : "PharoSettings7To10",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "DarkBlueTheme",
+	"type" : "normal"
+}
