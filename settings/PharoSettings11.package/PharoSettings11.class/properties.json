@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "PharoAbstractSettings",
+	"category" : "PharoSettings11",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "PharoSettings11",
+	"type" : "normal"
+}
