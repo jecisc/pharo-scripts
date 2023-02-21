@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "<historical>",
+	"super" : "ColoredBasedThemeConfigurator",
+	"category" : "PharoSettings11",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "PinkThemeConfigurator",
+	"type" : "normal"
+}

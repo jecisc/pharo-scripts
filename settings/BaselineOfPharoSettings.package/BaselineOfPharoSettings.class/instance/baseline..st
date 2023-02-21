@@ -13,6 +13,8 @@ baseline: spec
 	spec for: (self pharoVersionsFrom: 8) do: [ spec package: 'PharoSettings8' with: [ spec requires: #('PharoSettings') ] ].
 	
 	spec for: (self pharoVersionsFrom: 9) do: [ spec package: 'PharoSettings9' with: [ spec requires: #('PharoSettings') ] ].
+	
+	spec for: (self pharoVersionsFrom: 11) do: [ spec package: 'PharoSettings11' with: [ spec requires: #('PharoSettings') ] ].
 
 
 	spec for: #'pharo5.x' do: [ spec package: 'PharoSettings5-Specific' with: [ spec requires: #('PharoSettings') ] ].
