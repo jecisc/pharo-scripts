@@ -29,7 +29,7 @@ baseline: spec
 	spec for: #(#'pharo5.x' #'pharo6.x' #'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettingsUpTo8' with: [ spec requires: #('PharoSettings') ] ].
 	
 	"My theme without color palette"
-	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettings7To8' with: [ spec requires: #('PharoSettings' 'PharoSettings7') ] ].
+	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettings7To8' with: [ spec requires: #('PharoSettings' 'PharoSettings7' 'PharoSettings7To10') ] ].
 	
 	"This on is for some Calypso options"
 	spec for: #(#'pharo7.x' #'pharo8.x' #'pharo9.x' #'pharo10.x') do: [ spec package: 'PharoSettings7To10' with: [ spec requires: #('PharoSettings') ] ].
