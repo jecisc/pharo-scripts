@@ -1,5 +1,6 @@
 initialization
 initialize
+
 	self
 		setAuthorName;
 		setAppearance;
@@ -14,4 +15,8 @@ initialize
 		shortcutReminderSettings;
 		enableStackColoring;
 		closeWelcomeWindow;
-		monticelloOptions
+		monticelloOptions;
+		initializeIcebergSettings;
+		initializePotentialIcebergRepos;
+		customizeBlockStyler;
+		registerBazard

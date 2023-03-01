@@ -1,0 +1,16 @@
+{
+	"commentStamp" : "",
+	"super" : "IconStyler",
+	"category" : "PharoSettings",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [
+		"DefaultThemes",
+		"Enabled"
+	],
+	"instvars" : [
+		"nesting"
+	],
+	"name" : "BlockStyler",
+	"type" : "normal"
+}

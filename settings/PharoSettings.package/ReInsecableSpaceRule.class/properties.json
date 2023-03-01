@@ -1,0 +1,11 @@
+{
+	"commentStamp" : "",
+	"super" : "ReAbstractRule",
+	"category" : "PharoSettings",
+	"classinstvars" : [ ],
+	"pools" : [ ],
+	"classvars" : [ ],
+	"instvars" : [ ],
+	"name" : "ReInsecableSpaceRule",
+	"type" : "normal"
+}
