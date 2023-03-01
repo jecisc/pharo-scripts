@@ -1,4 +1,0 @@
-configuration
-colorConfiguratorClass
-
-	^ DarkBlueThemeConfigurator

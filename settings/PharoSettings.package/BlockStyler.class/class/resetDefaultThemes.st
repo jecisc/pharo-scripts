@@ -1,3 +1,0 @@
-defaults
-resetDefaultThemes
-	DefaultThemes := nil

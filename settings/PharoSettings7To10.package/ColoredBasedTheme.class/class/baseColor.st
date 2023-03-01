@@ -1,3 +1,0 @@
-accessing
-baseColor
-	^ self subclassResponsibility

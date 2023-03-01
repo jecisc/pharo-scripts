@@ -1,9 +1,0 @@
-initialization
-initialize
-	self
-		addIcebergHack;
-		prepareForPharoContribution;
-		icebergSettingsForP7Plus;
-		disableSampleInstance;
-		resetMenuBar;
-		removeSomeRules

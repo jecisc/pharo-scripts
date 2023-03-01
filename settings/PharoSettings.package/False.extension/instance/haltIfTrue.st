@@ -1,2 +1,0 @@
-*PharoSettings
-haltIfTrue

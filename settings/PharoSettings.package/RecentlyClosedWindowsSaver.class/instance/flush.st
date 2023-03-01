@@ -1,3 +1,0 @@
-actions
-flush
-	cache removeAll

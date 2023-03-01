@@ -1,3 +1,0 @@
-brick
-textColor
-	^ Color white

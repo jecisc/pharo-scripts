@@ -1,4 +1,0 @@
-initialization
-enableFluidClassDefinition
-	<script>
-	ClassDefinitionPrinter showFluidClassDefinition: true

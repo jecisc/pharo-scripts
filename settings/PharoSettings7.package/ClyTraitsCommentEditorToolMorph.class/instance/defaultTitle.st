@@ -1,3 +1,0 @@
-initialization
-defaultTitle
-	^ 'Traits Comments'
