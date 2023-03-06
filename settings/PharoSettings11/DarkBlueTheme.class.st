@@ -1,11 +1,13 @@
 Class {
 	#name : #DarkBlueTheme,
 	#superclass : #PharoDarkTheme,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #query }
 DarkBlueTheme class >> beCurrent [
+
+	<script>
 	super beCurrent.
 	PharoCommonSettings setThemeSetting
 ]
@@ -34,6 +36,12 @@ DarkBlueTheme >> buttonNormalBorderStyleFor: aButton [
 	^ SimpleBorderStyle new
 		width: 1;
 		baseColor: self buttonColor darker
+]
+
+{ #category : #accessing }
+DarkBlueTheme >> shStyleTableName [
+
+	^ #darkBlueStyleTable
 ]
 
 { #category : #'fill-styles' }
