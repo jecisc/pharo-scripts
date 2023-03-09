@@ -1,7 +1,7 @@
 Class {
 	#name : #PharoCommonSettings,
 	#superclass : #PharoAbstractSettings,
-	#category : 'PharoSettings'
+	#category : #PharoSettings
 }
 
 { #category : #initialization }
@@ -130,7 +130,7 @@ PharoCommonSettings class >> initializeIcebergSettings [
 	"Use wy SSH key"
 	IceCredentialsProvider useCustomSsh: true.
 
-	(FileLocator home / '.ssh' / 'id_rsa') exists ifFalse: [
+	(FileLocator home / '.ssh' / 'id_ed25519') exists ifTrue: [
 		IceCredentialStore current defaultSSHCredential
 			publicKey: '/Users/cyril/.ssh/id_ed25519.pub';
 			privateKey: '/Users/cyril/.ssh/id_ed25519' ].
