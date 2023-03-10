@@ -5,22 +5,6 @@ Class {
 }
 
 { #category : #initialization }
-PharoCommonSettings class >> addMetaLinkForClassDescription [
-	<script>
-	(SystemVersion current major >= 7
-		ifTrue: [ {ClassDescription} ]
-		ifFalse: [ {ClassDescription.
-			TraitDescription} ])
-		do: [ :class |
-			(class >> #classCommentBlank) ast
-				link:
-					(MetaLink new
-						metaObject: #receiver;
-						selector: #alternativeBlankComment;
-						control: #instead) ]
-]
-
-{ #category : #initialization }
 PharoCommonSettings class >> addMetaLinkForDNUTrick [
 	<script>
 	(Object >> #doesNotUnderstand:) ast
@@ -98,7 +82,6 @@ PharoCommonSettings class >> initialize [
 		showBoundsInHalo;
 		removeTaskBarPreview;
 		setThemeSetting;
-		addMetaLinkForClassDescription;
 		addMetaLinkForDNUTrick;
 		updateCurrentCursor;
 		copyClassShouldCopyComment;
