@@ -27,17 +27,19 @@ SHRBTextStyler class >> darkBlueStyleTable [
 			(#thisContext 						'00CC6E')
 			(#return 								'00CC6E' bold)
 
-			(patternArg 							'0091ea')
+			(patternArg 							'03a9f4' bold)
+			(argument 							'03a9f4')
+										
+			(instVar 								'ffa000')										
+
+			(patternTempVar 					'00acc1')
+			(tempVar 								'00acc1')
+																					
 			(blockPatternArg 					'0091ea' italic)
 			(blockArg 							'0091ea' italic)
-			(argument 							'0091ea')
-			(blockTempVar 						'00acc1')
-			(blockPatternTempVar 				'00acc1')
 
-			(instVar 								'ffa000')
-
-			(tempVar 								'A7E2ED')
-			(patternTempVar 					'A7E2ED')
+			(blockPatternTempVar 				'00838f' italic)
+			(blockTempVar 						'00838f' italic)
 
 			(poolConstant 						'A7E2ED' bold)
 			(classVar 							'A7E2ED' bold)
