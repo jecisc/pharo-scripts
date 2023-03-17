@@ -77,6 +77,7 @@ PharoCommonSettings class >> fixRenameRefactoringBug [
 PharoCommonSettings class >> initialize [
 
 	self
+		setTheme;
 		setAuthorName;
 		setAppearance;
 		showBoundsInHalo;
@@ -147,23 +148,6 @@ PharoCommonSettings class >> installGitFileTree [
 ]
 
 { #category : #initialization }
-PharoCommonSettings class >> launchThemeProcess [
-	<script>
-	| installThemeBlock currentTheme |
-	installThemeBlock := [ | theme |
-	theme := (Time now between: '7:00am' asTime and: '9:00pm' asTime) ifTrue: [ self darkThemeClass ] ifFalse: [ self lightThemeClass ].
-	theme = currentTheme
-		ifFalse: [ currentTheme := theme.
-			PolymorphSystemSettings uiThemeClass: currentTheme.
-			self setThemeSetting ] ].
-	[ [ installThemeBlock value.
-	5 minutes asDelay wait ] repeat ] newProcess
-		priority: Processor systemBackgroundPriority;
-		name: 'changeTheme';
-		resume
-]
-
-{ #category : #initialization }
 PharoCommonSettings class >> monticelloOptions [
 
 	<script>
@@ -218,7 +202,6 @@ PharoCommonSettings class >> removeTaskBarPreview [
 PharoCommonSettings class >> setAppearance [
 	<script>
 	self removeLogo.
-	self launchThemeProcess.
 	self setRandomBackground.
 	self setFonts
 ]
@@ -252,6 +235,13 @@ PharoCommonSettings class >> setRandomBackground [
 	files := (self shouldBeSFW ifTrue: [ self backgroundFolder / 'SFW' ] ifFalse: [ self backgroundFolder ]) allFiles.
 	files := files reject: [ :f | f basename beginsWith: '.' ].
 	PolymorphSystemSettings desktopImageFileName: (files at: UUID new asInteger \\ files size + 1) fullName ] fork
+]
+
+{ #category : #initialization }
+PharoCommonSettings class >> setTheme [
+
+	<script>
+	self darkThemeClass beCurrent
 ]
 
 { #category : #initialization }
