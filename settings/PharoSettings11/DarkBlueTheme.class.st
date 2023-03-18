@@ -18,6 +18,12 @@ DarkBlueTheme class >> colorConfiguratorClass [
 	^ DarkBlueThemeConfigurator
 ]
 
+{ #category : #initialization }
+DarkBlueTheme class >> initialize [
+
+	self beCurrent
+]
+
 { #category : #accessing }
 DarkBlueTheme class >> themeName [
 	^ 'DarkBlue'

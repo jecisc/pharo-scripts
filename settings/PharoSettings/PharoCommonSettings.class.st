@@ -77,7 +77,6 @@ PharoCommonSettings class >> fixRenameRefactoringBug [
 PharoCommonSettings class >> initialize [
 
 	self
-		setTheme;
 		setAuthorName;
 		setAppearance;
 		showBoundsInHalo;
@@ -235,13 +234,6 @@ PharoCommonSettings class >> setRandomBackground [
 	files := (self shouldBeSFW ifTrue: [ self backgroundFolder / 'SFW' ] ifFalse: [ self backgroundFolder ]) allFiles.
 	files := files reject: [ :f | f basename beginsWith: '.' ].
 	PolymorphSystemSettings desktopImageFileName: (files at: UUID new asInteger \\ files size + 1) fullName ] fork
-]
-
-{ #category : #initialization }
-PharoCommonSettings class >> setTheme [
-
-	<script>
-	self darkThemeClass beCurrent
 ]
 
 { #category : #initialization }
