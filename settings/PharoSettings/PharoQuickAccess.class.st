@@ -10,7 +10,7 @@ Class {
 	#classInstVars : [
 		'directoriesMap'
 	],
-	#category : 'PharoSettings'
+	#category : #PharoSettings
 }
 
 { #category : #'world menu' }
@@ -352,7 +352,7 @@ PharoQuickAccess >> generateSimpleBaseline [
 			spec
 				group: ''Core'' with: #(''{1}'');
 				group: ''Tests'' with: #(''{1}-Tests'') ].' format: {name})
-				classified: 'baseline'.
+				classified: 'baselines'.
 
 			class
 				compile:
