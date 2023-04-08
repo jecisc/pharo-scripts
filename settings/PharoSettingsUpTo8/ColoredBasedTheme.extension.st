@@ -1,6 +1,6 @@
 Extension { #name : #ColoredBasedTheme }
 
-{ #category : #'*PharoSettings7To8' }
+{ #category : #'*PharoSettingsUpTo8' }
 ColoredBasedTheme >> brickThemer [
 	^ MyBrickDarkThemer new
 ]

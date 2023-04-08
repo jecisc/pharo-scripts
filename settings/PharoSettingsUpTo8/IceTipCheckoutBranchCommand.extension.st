@@ -1,6 +1,6 @@
 Extension { #name : #IceTipCheckoutBranchCommand }
 
-{ #category : #'*PharoSettings7To8' }
+{ #category : #'*PharoSettingsUpTo8' }
 IceTipCheckoutBranchCommand class >> altCanBeExecutedInContext: args [
 	^ args first isRepositoryMissing not
 ]

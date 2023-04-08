@@ -1,7 +1,7 @@
 Class {
 	#name : #MyGTSpotterWidgetDarkThemer,
 	#superclass : #GTSpotterWidgetDarkThemer,
-	#category : 'PharoSettings7To8'
+	#category : #PharoSettingsUpTo8
 }
 
 { #category : #values }

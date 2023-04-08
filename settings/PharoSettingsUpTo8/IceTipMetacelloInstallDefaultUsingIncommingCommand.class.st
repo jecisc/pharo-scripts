@@ -1,7 +1,7 @@
 Class {
 	#name : #IceTipMetacelloInstallDefaultUsingIncommingCommand,
 	#superclass : #IceTipMetacelloInstallBaselineDefaultCommand,
-	#category : 'PharoSettings7To8'
+	#category : #PharoSettingsUpTo8
 }
 
 { #category : #accessing }

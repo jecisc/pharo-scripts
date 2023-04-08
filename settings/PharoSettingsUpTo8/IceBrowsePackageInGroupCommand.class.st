@@ -1,7 +1,7 @@
 Class {
 	#name : #IceBrowsePackageInGroupCommand,
 	#superclass : #IceTipRepositoryCommand,
-	#category : 'PharoSettings7To8'
+	#category : #PharoSettingsUpTo8
 }
 
 { #category : #activation }

@@ -24,9 +24,6 @@ BaselineOfPharoSettings >> baseline: spec [
 	"This one is for the cmd + (shift +) click on symbols."
 	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettingsUpTo8' with: [ spec requires: #('PharoSettings') ] ].
 	
-	"My theme without color palette"
-	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettings7To8' with: [ spec requires: #('PharoSettings' 'PharoSettingsUpTo10') ] ].
-	
 	"This on is for some Calypso options"
 	spec for: #(#'pharo7.x' #'pharo8.x' #'pharo9.x' #'pharo10.x') do: [ spec package: 'PharoSettingsUpTo10' with: [ spec requires: #('PharoSettings') ] ].
 	

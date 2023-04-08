@@ -1,7 +1,7 @@
 Extension { #name : #StepOverDebugAction }
 
 { #category : #'*PharoSettingsUpTo8' }
-StepOverDebugAction classSide >> gtCustomStackDebuggingActionFor: aDebugger [
+StepOverDebugAction class >> gtCustomStackDebuggingActionFor: aDebugger [
 	<gtCustomDebuggingAction>
 	
 	^ self gtStackDebuggingActionFor: aDebugger

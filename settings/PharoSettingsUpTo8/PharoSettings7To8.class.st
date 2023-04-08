@@ -1,7 +1,7 @@
 Class {
 	#name : #PharoSettings7To8,
 	#superclass : #PharoAbstractSettings,
-	#category : 'PharoSettings7To8'
+	#category : #PharoSettingsUpTo8
 }
 
 { #category : #initialization }

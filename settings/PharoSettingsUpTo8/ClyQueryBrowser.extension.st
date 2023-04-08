@@ -1,6 +1,6 @@
 Extension { #name : #ClyQueryBrowser }
 
-{ #category : #'*PharoSettings7To8' }
+{ #category : #'*PharoSettingsUpTo8' }
 ClyQueryBrowser >> altInitializeNavigationViews [
 	resultView := self newNavigationView.
 	resultView enableFilter: ClyQueryBrowserFilter.
@@ -24,7 +24,7 @@ ClyQueryBrowser >> altInitializeNavigationViews [
 						do: [ 'Comment' ]) , ')' ]
 ]
 
-{ #category : #'*PharoSettings7To8' }
+{ #category : #'*PharoSettingsUpTo8' }
 ClyQueryBrowser >> initialExtent [
 	"Because it fits even on my smallest screen"
 

@@ -1,7 +1,7 @@
 Extension { #name : #GTRunToSelectionDebugAction }
 
 { #category : #'*PharoSettingsUpTo8' }
-GTRunToSelectionDebugAction classSide >> gtStackDebuggingActionFor: aDebugger [
+GTRunToSelectionDebugAction class >> gtStackDebuggingActionFor: aDebugger [
 	<gtStackDebuggingAction>
 	<gtCustomDebuggingAction>
 	

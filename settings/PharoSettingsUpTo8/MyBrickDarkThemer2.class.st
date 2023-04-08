@@ -1,7 +1,7 @@
 Class {
 	#name : #MyBrickDarkThemer2,
 	#superclass : #GLMBrickDarkThemer,
-	#category : 'PharoSettings7To8'
+	#category : #PharoSettingsUpTo8
 }
 
 { #category : #'as yet unclassified' }

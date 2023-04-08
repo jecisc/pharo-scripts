@@ -1,7 +1,7 @@
 Class {
 	#name : #MyGTSpotterBrickDarkThemer,
 	#superclass : #GTSpotterBrickDarkThemer,
-	#category : 'PharoSettings7To8'
+	#category : #PharoSettingsUpTo8
 }
 
 { #category : #'brick-rubric' }
