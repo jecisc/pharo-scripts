@@ -40,7 +40,7 @@ Class {
 	#classVars : [
 		'UniqueInstance'
 	],
-	#category : 'PharoSettings'
+	#category : #PharoSettings
 }
 
 { #category : #accessing }

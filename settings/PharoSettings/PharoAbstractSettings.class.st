@@ -1,26 +1,12 @@
 Class {
 	#name : #PharoAbstractSettings,
 	#superclass : #Object,
-	#category : 'PharoSettings'
+	#category : #PharoSettings
 }
 
 { #category : #initialization }
 PharoAbstractSettings class >> backgroundFolder [
 	^ self resourcesFolder / 'backgrounds'
-]
-
-{ #category : #initialization }
-PharoAbstractSettings class >> darkThemeClass [
-	^ SystemVersion current major >= 7
-		ifTrue: [ DarkBlueTheme ]
-		ifFalse: [ Pharo3DarkTheme ]
-]
-
-{ #category : #initialization }
-PharoAbstractSettings class >> lightThemeClass [
-	^ SystemVersion current major >= 7
-		ifTrue: [ PharoLightTheme ]
-		ifFalse: [ Pharo3Theme ]
 ]
 
 { #category : #helpers }

@@ -504,12 +504,13 @@ PharoQuickAccess >> toggleDeprecation [
 { #category : #conveniance }
 PharoQuickAccess >> toggleTheme [
 	<name: #'Toggle theme'>
-
 	| light dark |
-	dark := PharoAbstractSettings darkThemeClass.
-	light := PharoAbstractSettings lightThemeClass.
+	dark := DarkBlueTheme.
+	light := PharoLightTheme.
 
-	(dark isCurrent ifTrue: [ light ] ifFalse: [ dark ]) beCurrent.
+	(dark isCurrent
+		ifTrue: [ light ]
+		ifFalse: [ dark ]) beCurrent.
 
 	PharoCommonSettings setThemeSetting
 ]

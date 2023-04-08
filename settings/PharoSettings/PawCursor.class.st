@@ -1,7 +1,7 @@
 Class {
 	#name : #PawCursor,
 	#superclass : #Cursor,
-	#category : 'PharoSettings'
+	#category : #PharoSettings
 }
 
 { #category : #query }

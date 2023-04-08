@@ -1,7 +1,7 @@
 Class {
 	#name : #ReInsecableSpaceRule,
 	#superclass : #ReAbstractRule,
-	#category : 'PharoSettings'
+	#category : #PharoSettings
 }
 
 { #category : #'testing-interest' }
