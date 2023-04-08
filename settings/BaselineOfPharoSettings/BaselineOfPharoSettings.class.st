@@ -19,7 +19,7 @@ BaselineOfPharoSettings >> baseline: spec [
 	spec for: (self pharoVersionsFrom: 11) do: [ spec package: 'PharoSettings11' with: [ spec requires: #('PharoSettings') ] ].
 
 	"This one is from the removal of BlueInk and GTEventRecorder."
-	spec for: #(#'pharo7.x') do: [ spec package: 'PharoSettingsUpTo7' with: [ spec requires: #('PharoSettings') ] ].
+	spec for: #(#'pharo7.x') do: [ spec package: 'PharoSettings7-Specific' with: [ spec requires: #('PharoSettings') ] ].
 	
 	"This one is for the cmd + (shift +) click on symbols."
 	spec for: #(#'pharo7.x' #'pharo8.x') do: [ spec package: 'PharoSettingsUpTo8' with: [ spec requires: #('PharoSettings') ] ].

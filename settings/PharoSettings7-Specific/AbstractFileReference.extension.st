@@ -1,6 +1,6 @@
 Extension { #name : #AbstractFileReference }
 
-{ #category : #'*PharoSettingsUpTo7' }
+{ #category : #'*PharoSettings7-Specific' }
 AbstractFileReference >> openInOSFileBrowser [
 	^ self openInNativeBrowser
 ]
