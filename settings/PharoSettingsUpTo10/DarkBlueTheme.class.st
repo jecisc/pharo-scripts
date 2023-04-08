@@ -29,6 +29,12 @@ DarkBlueTheme class >> darkBaseColor [
 	^ self baseColor
 ]
 
+{ #category : #'initialize-release' }
+DarkBlueTheme class >> initialize [
+	BlockStyler defaultThemes at: self put: (Color lightBlue alpha: 0.05).
+	self beCurrent
+]
+
 { #category : #accessing }
 DarkBlueTheme class >> lightBaseColor [
 	^ self baseColor lighter
