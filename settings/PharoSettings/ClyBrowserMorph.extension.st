@@ -1,6 +1,6 @@
 Extension { #name : #ClyBrowserMorph }
 
-{ #category : #'*PharoSettings7' }
+{ #category : #'*PharoSettings' }
 ClyBrowserMorph >> altWindowIsClosing [
 	navigationViews do: [ :each | each windowIsClosing ].
 	tabManager windowIsClosing

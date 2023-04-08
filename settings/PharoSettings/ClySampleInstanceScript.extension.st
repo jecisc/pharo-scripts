@@ -1,6 +1,6 @@
 Extension { #name : #ClySampleInstanceScript }
 
-{ #category : #'*PharoSettings7' }
+{ #category : #'*PharoSettings' }
 ClySampleInstanceScript >> executeOnAlt: args [
 	"NOTHING I HATE THIS FEATURE"
 

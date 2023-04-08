@@ -17,16 +17,6 @@ PharoAbstractSettings class >> darkThemeClass [
 ]
 
 { #category : #initialization }
-PharoAbstractSettings class >> imageNameBeginsWith: aString [
-	^ self imageNameBeginsWithAny: {aString}
-]
-
-{ #category : #initialization }
-PharoAbstractSettings class >> imageNameBeginsWithAny: aCollection [
-	^ aCollection anySatisfy: [ :each | Smalltalk shortImageName beginsWith: each ]
-]
-
-{ #category : #initialization }
 PharoAbstractSettings class >> lightThemeClass [
 	^ SystemVersion current major >= 7
 		ifTrue: [ PharoLightTheme ]

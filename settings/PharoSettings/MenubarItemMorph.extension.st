@@ -1,6 +1,6 @@
 Extension { #name : #MenubarItemMorph }
 
-{ #category : #'*PharoSettings7' }
+{ #category : #'*PharoSettings' }
 MenubarItemMorph >> minHeight [
 	"I do not like small bar"
 

@@ -1,6 +1,6 @@
 Extension { #name : #IceGitHubNewBranchFromIssuePanel }
 
-{ #category : #'*PharoSettings7' }
+{ #category : #'*PharoSettings' }
 IceGitHubNewBranchFromIssuePanel >> selectOrigin [
 	remotePanel remoteList listItems
 		detect: [ :e | e name = 'origin' ]

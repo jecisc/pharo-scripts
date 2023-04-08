@@ -242,15 +242,21 @@ PharoQuickAccess >> browseCommonSettings [
 ]
 
 { #category : #browse }
-PharoQuickAccess >> browseCommonSettings5 [
-	<name: #'Pharo common settings 5'>
-	self class environment at: #Pharo5CommonSettings ifPresent: [ :class | class class browse ]
+PharoQuickAccess >> browseCommonSettings10 [
+	<name: #'Pharo common settings 10'>
+	self class environment at: #Pharo10CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
 { #category : #browse }
-PharoQuickAccess >> browseCommonSettings7 [
-	<name: #'Pharo common settings 7'>
-	self class environment at: #Pharo7CommonSettings ifPresent: [ :class | class class browse ]
+PharoQuickAccess >> browseCommonSettings11 [
+	<name: #'Pharo common settings 11'>
+	self class environment at: #Pharo11CommonSettings ifPresent: [ :class | class class browse ]
+]
+
+{ #category : #browse }
+PharoQuickAccess >> browseCommonSettings5 [
+	<name: #'Pharo common settings 5'>
+	self class environment at: #Pharo5CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
 { #category : #browse }

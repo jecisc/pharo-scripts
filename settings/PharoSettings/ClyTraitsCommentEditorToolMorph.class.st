@@ -1,7 +1,7 @@
 Class {
 	#name : #ClyTraitsCommentEditorToolMorph,
 	#superclass : #ClyClassEditorToolMorph,
-	#category : 'PharoSettings7'
+	#category : #PharoSettings
 }
 
 { #category : #testing }

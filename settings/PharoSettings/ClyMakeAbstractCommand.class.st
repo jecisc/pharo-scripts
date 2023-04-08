@@ -5,7 +5,7 @@ Class {
 		'browser',
 		'systemEnvironment'
 	],
-	#category : 'PharoSettings7'
+	#category : #PharoSettings
 }
 
 { #category : #activation }

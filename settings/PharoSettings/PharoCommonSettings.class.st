@@ -5,6 +5,32 @@ Class {
 }
 
 { #category : #initialization }
+PharoCommonSettings class >> addIcebergHack [
+	"Add a hack to fetch a project if a commit is not found."
+
+	<script>
+	(IceGitCommit >> #project) ast
+		link:
+			(MetaLink new
+				metaObject: #receiver;
+				selector: #projectAlt;
+				control: #instead).
+
+	"In the «New branch from issue» panel of Iceberg, select origin as remote all the time and not mine or another remote.
+	In P9 the method was renamed."
+	(IceGitHubNewBranchFromIssuePanel
+		>>
+			(SystemVersion current major < 9
+				ifTrue: [ #initializeWidgetsContents ]
+				ifFalse: [ #initializePresenters ])) ast
+		link:
+			(MetaLink new
+				metaObject: #receiver;
+				selector: #selectOrigin;
+				control: #after)
+]
+
+{ #category : #initialization }
 PharoCommonSettings class >> addMetaLinkForDNUTrick [
 	<script>
 	(Object >> #doesNotUnderstand:) ast
@@ -48,6 +74,18 @@ PharoCommonSettings class >> customizeBlockStyler [
 ]
 
 { #category : #initialization }
+PharoCommonSettings class >> disableSampleInstance [
+	<script>
+	(ClySampleInstanceScript >> #executeOn:) ast
+		link:
+			(MetaLink new
+				metaObject: #receiver;
+				selector: #executeOnAlt:;
+				arguments: #(#arguments);
+				control: #instead)
+]
+
+{ #category : #initialization }
 PharoCommonSettings class >> enableStackColoring [
 	<script>
 	SystemVersion current major < 9 ifTrue: [ Smalltalk tools debugger enableStackColoring: true. ] ifFalse: [ self inform: 'Stack coloring is not yet in the debugger. Ask for it later.' ]
@@ -56,6 +94,7 @@ PharoCommonSettings class >> enableStackColoring [
 { #category : #initialization }
 PharoCommonSettings class >> fixRenameRefactoringBug [
 	<script>
+	self flag: #todo.	"This is fix in P11 and should be move to a UpToP11 package"
 	(RBRefactoring >> #convertAllReferencesTo:using:) ast
 		link:
 			(MetaLink new
@@ -75,7 +114,6 @@ PharoCommonSettings class >> fixRenameRefactoringBug [
 
 { #category : #initialization }
 PharoCommonSettings class >> initialize [
-
 	self
 		setAuthorName;
 		setAppearance;
@@ -92,8 +130,12 @@ PharoCommonSettings class >> initialize [
 		monticelloOptions;
 		initializeIcebergSettings;
 		initializePotentialIcebergRepos;
+		addIcebergHack;
 		customizeBlockStyler;
-		registerBazard
+		registerBazard;
+		disableSampleInstance;
+		removeSomeRules;
+		resetMenuBar
 ]
 
 { #category : #initialization }
@@ -101,6 +143,7 @@ PharoCommonSettings class >> initializeIcebergSettings [
 	"Add a shared repository"
 
 	<script>
+	| file creds |
 	self flag: #todo. "Remove hack when the Pharo 6 version will always have at least Iceberg v0.7"
 	((IceRepository respondsTo: #shareRepositoriesBetweenImages:)
 		 ifTrue: [ IceRepository ]
@@ -125,7 +168,26 @@ PharoCommonSettings class >> initializeIcebergSettings [
 	(IceRepositoryCreator new
 		 location: StartupPreferencesLoader preferencesGeneralFolder;
 		 subdirectory: 'settings';
-		 createRepository) register
+		 createRepository) register.
+		
+	file := self resourcesFolder / 'CredsIceberg'.
+	file exists ifFalse: [
+		file writeStreamDo: [ :s |
+			s nextPutAll: (STON toStringPretty:
+					 (Dictionary with: #username -> (UIManager default textEntry: 'Username') with: #password -> (UIManager default requestPassword: 'Password'))) ] ].
+	creds := STON fromString: file contents.
+
+	IceCredentialStore current
+		storeCredential: (IcePlaintextCredentials new
+				 username: (creds at: #username);
+				 password: (creds at: #password);
+				 yourself)
+		forHostname: 'github.com'.
+
+	"Open Iceberg. I often need it."
+	SystemVersion current major < 10
+		ifTrue: [ IceTipRepositoriesBrowser new openWithSpec ]
+		ifFalse: [ IceTipRepositoriesBrowser new open ]
 ]
 
 { #category : #initialization }
@@ -191,10 +253,30 @@ PharoCommonSettings class >> removeLogo [
 	PolymorphSystemSettings showDesktopLogo: false
 ]
 
+{ #category : #removing }
+PharoCommonSettings class >> removeSomeRules [
+	<script>
+	self flag: #todo. "Add a way to disable those if they are loaded *after* startup. Maybe register to the class added announcement?"
+	#(#GRNonPortableSourceFormatRule #GRTestAssertionsRule #GRUsesCurlyBraceArraysRule #GRAnsiStreamsRule #GRAnsiExceptionsRule #GREmptyStatementsRule #GRInvalidObjectInitializationRule #GRUsesLiteralByteArraysRule #GRAnsiStringsRule #GRAnsiConvertorRule #GRObjectInRule #GRNonPortableMessageRule #GRAnsiConditionalsRule #GRAnsiBooleansRule #GRBasicNewInitializeMissingRule #GRAnsiCollectionsRule #GRUsesClassForHashRule #GRUsesCanPerformOrUnderstandRule #GRUsesNotPortableClassRule #GRNotPortableCollectionsRule #GRUsesMethodAnnotationsRule #GRAnsiCharactersRule)
+		do: [ :each | self environment at: each ifPresent: [ :class | class enabled: false ] ].
+
+	#(#RBShouldntRaiseErrorRule #ReShouldntRaiseErrorRule) do: [ :each | self environment at: each ifPresent: [ :class | class enabled: false ] ].
+
+	ReRuleManager reset
+]
+
 { #category : #initialization }
 PharoCommonSettings class >> removeTaskBarPreview [
 	<script>
 	TaskbarMorph showWindowPreview: false
+]
+
+{ #category : #initialization }
+PharoCommonSettings class >> resetMenuBar [
+	<script>
+	"Needed to make scripts work."
+
+	PharoQuickAccess resetMenubar
 ]
 
 { #category : #initialization }
