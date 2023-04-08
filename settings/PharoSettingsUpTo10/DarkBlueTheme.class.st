@@ -1,7 +1,7 @@
 Class {
 	#name : #DarkBlueTheme,
 	#superclass : #PharoDarkTheme,
-	#category : 'PharoSettings7To10'
+	#category : #PharoSettingsUpTo10
 }
 
 { #category : #accessing }

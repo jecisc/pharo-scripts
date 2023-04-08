@@ -1,7 +1,7 @@
 Class {
 	#name : #ColoredBasedTheme,
 	#superclass : #PharoDarkTheme,
-	#category : 'PharoSettings7To10'
+	#category : #PharoSettingsUpTo10
 }
 
 { #category : #accessing }
