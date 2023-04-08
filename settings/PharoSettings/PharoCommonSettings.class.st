@@ -68,9 +68,11 @@ PharoCommonSettings class >> copyClassShouldCopyComment [
 
 { #category : #initialization }
 PharoCommonSettings class >> customizeBlockStyler [
+
 	<script>
-	BlockStyler defaultThemes at: DarkBlueTheme put: (Color lightBlue alpha: 0.05).
-	BlockStyler defaultThemes at: PharoLightTheme put: (Color blue alpha: 0.05)
+	BlockStyler defaultThemes
+		at: PharoLightTheme
+		put: (Color blue alpha: 0.05)
 ]
 
 { #category : #initialization }
