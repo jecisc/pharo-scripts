@@ -1,7 +1,7 @@
 Class {
 	#name : #Scripts,
 	#superclass : #Object,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #'as yet unclassified' }
@@ -49,9 +49,10 @@ Scripts class >> downloadBooks [
 Scripts class >> findDependenciesToAPackage [
 
 	<script>
-	self open: '| report |
-	report := DADependencyChecker new computeImageDependencies.
-	(report knownDependantsOf: ''Garage'') inspect'
+	self open: 'report := DADependencyChecker new computeImageDependencies.
+
+
+(report knownDependantsOf: ''Garage'') inspect'
 ]
 
 { #category : #'as yet unclassified' }
