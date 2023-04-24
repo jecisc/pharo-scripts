@@ -20,21 +20,25 @@ PharoQuickAccess class >> buildAddToIcebergOn: aBuilder [
 
 { #category : #'world menu' }
 PharoQuickAccess class >> buildOpenNativelyOn: aBuilder [
+
 	(aBuilder item: #'Pharo scripts root')
 		action: [ self rootFolder openInOSFileBrowser ];
 		order: 1;
+		help: 'Open root in finder';
 		iconName: #smallDoIt.
 	self createOpenNativelySubmenusFrom: self sharedRepositoryFolder on: aBuilder
 ]
 
 { #category : #'world menu' }
 PharoQuickAccess class >> buildScriptsOf: aClass on: aBuilder [
+
 	(aBuilder item: ('From: ' , aClass name) asSymbol)
 		iconName: #configNew;
-		with: [ (Pragma allNamed: #script in: aClass class)
-				do: [ :pragma |
+		with: [
+			(Pragma allNamed: #script in: aClass class) do: [ :pragma |
 					(aBuilder item: (' ' join: pragma method selector capitalized mySplitCamelCase))
 						action: [ aClass perform: pragma method selector ];
+						help: 'Launch script.';
 						iconName: #smallDoIt ] ].
 
 	aClass subclassesDo: [ :subClass | self buildScriptsOf: subClass on: aBuilder ]
@@ -42,25 +46,25 @@ PharoQuickAccess class >> buildScriptsOf: aClass on: aBuilder [
 
 { #category : #'world menu' }
 PharoQuickAccess class >> buildSelectBackgroundOn: aBuilder [
-	((self backgroundFolder allFiles reject: [ :f | f basename beginsWith: '.' ]) sorted: #basename ascending)
-		do: [ :background |
-			(aBuilder item: background basename asSymbol)
-				action: [ PolymorphSystemSettings desktopImageFileName: background fullName ];
-				iconName: #smallDoIt ]
+
+	((self backgroundFolder allFiles reject: [ :f | f basename beginsWith: '.' ]) sorted: #basename ascending) do: [ :background |
+		(aBuilder item: background basename asSymbol)
+			action: [ PolymorphSystemSettings desktopImageFileName: background fullName ];
+			help: 'background';
+			iconName: #smallDoIt ]
 ]
 
 { #category : #'world menu' }
 PharoQuickAccess class >> buildSubmenu: cat on: aBuilder [
 	"Sometimes I add insecable spaces to separate different menus with the same name."
 
-	(self methodsIn: (cat asLowercase copyWithout: $ ))
-		do: [ :method |
-			(method pragmaAt: #name:)
-				ifNotNil: [ :p |
-					(aBuilder item: (p argumentAt: 1))
-						parent: cat;
-						action: [ self execute: method selector ];
-						iconName: #smallDoIt ] ]
+	(self methodsIn: (cat asLowercase copyWithout: $ )) do: [ :method |
+		(method pragmaAt: #name:) ifNotNil: [ :p |
+			(aBuilder item: (p argumentAt: 1))
+				parent: cat;
+				action: [ self execute: method selector ];
+				help: 'Todo';
+				iconName: #smallDoIt ] ]
 ]
 
 { #category : #'world menu' }
@@ -160,20 +164,23 @@ PharoQuickAccess class >> methodsIn: aProtocol [
 
 { #category : #'world menu' }
 PharoQuickAccess class >> recursivelyCreateCommandForRepositoriesFrom: aFolder action: action prefix: aString on: aBuilder [
-	self flag: #pharo5.	"When support for P5 will be dropped, use a sort function."
-	((self subDirectoriesOf: aFolder) sort: [ :a :b | a basename asLowercase < b basename asLowercase ])
-		do: [ :dir |
-			(((self subDirectoriesOf: dir)) anySatisfy: [ :e | e basename = '.git' ])
-				ifTrue: [ (aBuilder item: (aString , dir basename) asSymbol)
-						action: [ self executeBlock: [ action cull: dir ] ];
-						iconName: #smallDoIt ]
-				ifFalse: [ (aBuilder item: (aString , dir basename) asSymbol)
-						iconName: #configNew;
-						with: [ self
-								recursivelyCreateCommandForRepositoriesFrom: dir
-								action: action
-								prefix: aString
-								on: aBuilder ] ] ]
+
+	((self subDirectoriesOf: aFolder) sort: [ :a | a basename asLowercase ] ascending) do: [ :dir |
+		((self subDirectoriesOf: dir) anySatisfy: [ :e | e basename = '.git' ])
+			ifTrue: [
+				(aBuilder item: (aString , dir basename) asSymbol)
+					action: [ self executeBlock: [ action cull: dir ] ];
+					help: 'TODO';
+					iconName: #smallDoIt ]
+			ifFalse: [
+				(aBuilder item: (aString , dir basename) asSymbol)
+					iconName: #configNew;
+					with: [
+						self
+							recursivelyCreateCommandForRepositoriesFrom: dir
+							action: action
+							prefix: aString
+							on: aBuilder ] ] ]
 ]
 
 { #category : #'instance creation' }
