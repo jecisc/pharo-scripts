@@ -37,6 +37,12 @@ BlockStyler class >> enabled: aBoolean [
 	Enabled := aBoolean
 ]
 
+{ #category : #testing }
+BlockStyler class >> isStaticStyler [
+
+	^ true
+]
+
 { #category : #defaults }
 BlockStyler class >> resetDefaultThemes [
 	DefaultThemes := nil
