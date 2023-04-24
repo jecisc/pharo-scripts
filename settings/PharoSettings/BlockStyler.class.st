@@ -1,3 +1,6 @@
+"
+A class to highlight block and visualize better imbricated blocks.
+"
 Class {
 	#name : #BlockStyler,
 	#superclass : #IconStyler,

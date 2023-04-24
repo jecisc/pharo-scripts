@@ -1,3 +1,6 @@
+"
+A cursor looking like a paw.
+"
 Class {
 	#name : #PawCursor,
 	#superclass : #Cursor,

@@ -1,7 +1,10 @@
+"
+A bunch on scripts refactorings.
+"
 Class {
 	#name : #RefactoringScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #'class refactoring' }

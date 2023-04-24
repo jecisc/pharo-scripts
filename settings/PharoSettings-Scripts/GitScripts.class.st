@@ -1,7 +1,10 @@
+"
+A bunch on scripts about git.
+"
 Class {
 	#name : #GitScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #removing }

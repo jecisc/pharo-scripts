@@ -1,7 +1,10 @@
+"
+DarkBlue theme configurator
+"
 Class {
 	#name : #DarkBlueThemeConfigurator,
 	#superclass : #DarkThemeColorConfigurator,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #'accessing colors' }

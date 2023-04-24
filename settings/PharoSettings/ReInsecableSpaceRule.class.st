@@ -1,3 +1,6 @@
+"
+A rule to highlight insecable spaces.
+"
 Class {
 	#name : #ReInsecableSpaceRule,
 	#superclass : #ReAbstractRule,

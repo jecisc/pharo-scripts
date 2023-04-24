@@ -1,3 +1,6 @@
+"
+A simple command to generate the #isAbstract method.
+"
 Class {
 	#name : #ClyMakeAbstractCommand,
 	#superclass : #SycSingleClassCommand,
@@ -6,16 +9,16 @@ Class {
 
 { #category : #activation }
 ClyMakeAbstractCommand class >> fullBrowserMenuActivation [
-	<classAnnotation>
 
-	^ CmdContextMenuActivation for: ClyClassContextOfFullBrowser
+	<classAnnotation>
+	^ CmdContextMenuActivation for: (Smalltalk at: #ClyClassContextOfFullBrowser ifAbsent: [ Smalltalk at: #ClyFullBrowserClassContext ])
 ]
 
 { #category : #activation }
 ClyMakeAbstractCommand class >> fullBrowserShortcutActivation [
-	<classAnnotation>
 
-	^ CmdShortcutActivation by: $m meta, $a meta for: ClyClassContextOfFullBrowser
+	<classAnnotation>
+	^ CmdShortcutActivation by: $m meta , $a meta for: (Smalltalk at: #ClyClassContextOfFullBrowser ifAbsent: [ Smalltalk at: #ClyFullBrowserClassContext ])
 ]
 
 { #category : #accessing }

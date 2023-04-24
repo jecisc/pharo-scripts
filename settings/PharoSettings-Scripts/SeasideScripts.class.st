@@ -1,7 +1,10 @@
+"
+A bunch on scripts seaside.
+"
 Class {
 	#name : #SeasideScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #'as yet unclassified' }

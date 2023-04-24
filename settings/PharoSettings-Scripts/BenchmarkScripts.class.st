@@ -1,7 +1,10 @@
+"
+A bunch on scripts about benchmarking.
+"
 Class {
 	#name : #BenchmarkScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #benchmarking }

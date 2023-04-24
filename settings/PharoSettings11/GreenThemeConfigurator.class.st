@@ -1,7 +1,10 @@
+"
+Green theme configurator.
+"
 Class {
 	#name : #GreenThemeConfigurator,
 	#superclass : #ColoredBasedThemeConfigurator,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #accessing }

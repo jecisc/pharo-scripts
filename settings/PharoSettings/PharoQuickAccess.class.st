@@ -1,3 +1,6 @@
+"
+A class to generate my toolbar menu and add some utilities.
+"
 Class {
 	#name : #PharoQuickAccess,
 	#superclass : #PharoAbstractSettings,

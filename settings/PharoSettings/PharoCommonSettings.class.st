@@ -1,3 +1,6 @@
+"
+Settings to load in all supported Pharo versions.
+"
 Class {
 	#name : #PharoCommonSettings,
 	#superclass : #PharoAbstractSettings,

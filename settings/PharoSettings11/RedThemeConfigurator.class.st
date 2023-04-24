@@ -1,7 +1,10 @@
+"
+Red theme configurator
+"
 Class {
 	#name : #RedThemeConfigurator,
 	#superclass : #ColoredBasedThemeConfigurator,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #accessing }

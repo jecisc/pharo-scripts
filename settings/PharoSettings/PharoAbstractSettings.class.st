@@ -1,3 +1,6 @@
+"
+Abstract class to define my settings.
+"
 Class {
 	#name : #PharoAbstractSettings,
 	#superclass : #Object,

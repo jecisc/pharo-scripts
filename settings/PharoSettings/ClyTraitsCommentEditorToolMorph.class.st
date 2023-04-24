@@ -1,3 +1,6 @@
+"
+A tab of Calypso to display the comments of used traits.
+"
 Class {
 	#name : #ClyTraitsCommentEditorToolMorph,
 	#superclass : #ClyClassEditorToolMorph,

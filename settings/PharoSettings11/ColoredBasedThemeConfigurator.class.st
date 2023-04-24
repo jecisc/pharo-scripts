@@ -1,7 +1,10 @@
+"
+configurator of colored themes
+"
 Class {
 	#name : #ColoredBasedThemeConfigurator,
 	#superclass : #DarkThemeColorConfigurator,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #testing }

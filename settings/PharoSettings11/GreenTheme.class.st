@@ -1,7 +1,10 @@
+"
+A green theme.
+"
 Class {
 	#name : #GreenTheme,
 	#superclass : #ColoredBasedTheme,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #query }

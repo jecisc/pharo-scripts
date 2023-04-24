@@ -1,7 +1,10 @@
+"
+Settings for Pharo 8+
+"
 Class {
 	#name : #Pharo8CommonSettings,
 	#superclass : #PharoAbstractSettings,
-	#category : 'PharoSettings8'
+	#category : #PharoSettings8
 }
 
 { #category : #'class initialization' }

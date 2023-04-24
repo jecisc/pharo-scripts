@@ -1,7 +1,10 @@
+"
+A bunch on scripts Iceberg
+"
 Class {
 	#name : #IcebergScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #removing }

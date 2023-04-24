@@ -1,7 +1,10 @@
+"
+A bunch on scripts about code generation.
+"
 Class {
 	#name : #CodeGenerationScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #generation }

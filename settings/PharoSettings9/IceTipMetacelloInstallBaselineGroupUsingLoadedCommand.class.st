@@ -1,7 +1,10 @@
+"
+Command to load baseline group using loaded.
+"
 Class {
 	#name : #IceTipMetacelloInstallBaselineGroupUsingLoadedCommand,
 	#superclass : #IceTipMetacelloInstallBaselineGroupCommand,
-	#category : 'PharoSettings9'
+	#category : #PharoSettings9
 }
 
 { #category : #accessing }

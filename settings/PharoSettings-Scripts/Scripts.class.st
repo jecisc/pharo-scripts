@@ -1,3 +1,6 @@
+"
+A bunch on scripts.
+"
 Class {
 	#name : #Scripts,
 	#superclass : #Object,

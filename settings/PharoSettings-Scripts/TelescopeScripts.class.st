@@ -1,7 +1,10 @@
+"
+A bunch on scripts Telescope
+"
 Class {
 	#name : #TelescopeScripts,
 	#superclass : #Scripts,
-	#category : 'PharoSettings-Scripts'
+	#category : #'PharoSettings-Scripts'
 }
 
 { #category : #accessing }

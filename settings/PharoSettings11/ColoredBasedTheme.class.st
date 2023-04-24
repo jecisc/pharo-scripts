@@ -1,7 +1,10 @@
+"
+An abstract class to define some themes based on a color.
+"
 Class {
 	#name : #ColoredBasedTheme,
 	#superclass : #PharoDarkTheme,
-	#category : 'PharoSettings11'
+	#category : #PharoSettings11
 }
 
 { #category : #query }

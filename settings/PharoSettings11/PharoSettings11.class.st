@@ -1,3 +1,6 @@
+"
+Settings for Pharo 11+
+"
 Class {
 	#name : #PharoSettings11,
 	#superclass : #PharoAbstractSettings,

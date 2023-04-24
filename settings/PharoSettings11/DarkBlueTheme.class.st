@@ -1,3 +1,6 @@
+"
+Dark blue theme for Pharo.
+"
 Class {
 	#name : #DarkBlueTheme,
 	#superclass : #PharoDarkTheme,
