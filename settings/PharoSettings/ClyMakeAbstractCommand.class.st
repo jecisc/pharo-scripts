@@ -1,10 +1,6 @@
 Class {
 	#name : #ClyMakeAbstractCommand,
 	#superclass : #SycSingleClassCommand,
-	#instVars : [
-		'browser',
-		'systemEnvironment'
-	],
 	#category : #PharoSettings
 }
 
