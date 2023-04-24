@@ -12,7 +12,7 @@ ReInsecableSpaceRule class >> checksMethod [
 	^ true
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 ReInsecableSpaceRule class >> initialize [
 	ReRuleManager resetWithInform
 ]

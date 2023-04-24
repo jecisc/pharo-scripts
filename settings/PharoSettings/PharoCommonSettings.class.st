@@ -7,7 +7,7 @@ Class {
 	#category : #PharoSettings
 }
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> addIcebergHack [
 	"Add a hack to fetch a project if a commit is not found."
 
@@ -33,7 +33,7 @@ PharoCommonSettings class >> addIcebergHack [
 				control: #after)
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> addMetaLinkForDNUTrick [
 	<script>
 	(Object >> #doesNotUnderstand:) ast
@@ -45,18 +45,18 @@ PharoCommonSettings class >> addMetaLinkForDNUTrick [
 				control: #before)
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> closeWelcomeWindow [
 	<script>
 	World submorphs select: [ :m | m isSystemWindow and: [ m label includesSubstring: 'Welcome' ] ] thenDo: #delete
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> collectAllSubprojectsFrom: aDirectory into: aCollection [
 	(aDirectory directories anySatisfy: [ :e | e basename = '.git' ]) ifTrue: [ aCollection add: aDirectory ] ifFalse: [ aDirectory directories do: [ :dir | self collectAllSubprojectsFrom: dir into: aCollection ] ]
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> copyClassShouldCopyComment [
 	"Because the community does not want it, but I want it. http://forum.world.st/Bad-copied-class-comment-td5106493.html"
 	<script>
@@ -69,7 +69,7 @@ PharoCommonSettings class >> copyClassShouldCopyComment [
 				control: #instead)
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> customizeBlockStyler [
 
 	<script>
@@ -78,7 +78,7 @@ PharoCommonSettings class >> customizeBlockStyler [
 		put: (Color blue alpha: 0.05)
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> disableSampleInstance [
 	<script>
 	(ClySampleInstanceScript >> #executeOn:) ast
@@ -90,13 +90,13 @@ PharoCommonSettings class >> disableSampleInstance [
 				control: #instead)
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> enableStackColoring [
 	<script>
 	SystemVersion current major < 9 ifTrue: [ Smalltalk tools debugger enableStackColoring: true. ] ifFalse: [ self inform: 'Stack coloring is not yet in the debugger. Ask for it later.' ]
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> fixRenameRefactoringBug [
 	<script>
 	self flag: #todo.	"This is fix in P11 and should be move to a UpToP11 package"
@@ -117,7 +117,7 @@ PharoCommonSettings class >> fixRenameRefactoringBug [
 				control: #instead)
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> initialize [
 	self
 		setAuthorName;
@@ -143,7 +143,7 @@ PharoCommonSettings class >> initialize [
 		resetMenuBar
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> initializeIcebergSettings [
 	"Add a shared repository"
 
@@ -195,7 +195,7 @@ PharoCommonSettings class >> initializeIcebergSettings [
 		ifFalse: [ IceTipRepositoriesBrowser new open ]
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> initializePotentialIcebergRepos [
 	<script>
 	| projects |
@@ -204,7 +204,7 @@ PharoCommonSettings class >> initializePotentialIcebergRepos [
 	IceRepository registry do: [ :repo | projects detect: [ :e | e basename asLowercase = repo name asLowercase and: [ repo location isNil or: [ repo location exists not ] ] ] ifFound: [ :dir | repo location: dir ] ]
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> installGitFileTree [
 	<script>
 	Metacello new
@@ -213,7 +213,7 @@ PharoCommonSettings class >> installGitFileTree [
 		load: 'Git'
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> monticelloOptions [
 
 	<script>
@@ -246,13 +246,13 @@ PharoCommonSettings class >> monticelloOptions [
 		thenDo: [ :r | MCRepositoryGroup default removeRepository: r ]
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> registerBazard [
 	<script>
 	self registerIfPresentProjectOf: 'jecisc' named: 'Bazard'
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> removeLogo [
 	<script>
 	PolymorphSystemSettings showDesktopLogo: false
@@ -270,13 +270,13 @@ PharoCommonSettings class >> removeSomeRules [
 	ReRuleManager reset
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> removeTaskBarPreview [
 	<script>
 	TaskbarMorph showWindowPreview: false
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> resetMenuBar [
 	<script>
 	"Needed to make scripts work."
@@ -284,7 +284,7 @@ PharoCommonSettings class >> resetMenuBar [
 	PharoQuickAccess resetMenubar
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> setAppearance [
 	<script>
 	self removeLogo.
@@ -292,13 +292,13 @@ PharoCommonSettings class >> setAppearance [
 	self setFonts
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> setAuthorName [
 	<script>
 	Author fullName: 'CyrilFerlicot'
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> setFonts [
 	<script>
 	| provider |
@@ -313,7 +313,7 @@ PharoCommonSettings class >> setFonts [
 			GraphicFontSettings resetAllFontToDefaultButton ]
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> setRandomBackground [
 	<script>
 	[ | files |
@@ -323,26 +323,26 @@ PharoCommonSettings class >> setRandomBackground [
 	PolymorphSystemSettings desktopImageFileName: (files at: UUID new asInteger \\ files size + 1) fullName ] fork
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> setThemeSetting [
 	<script>
 	UITheme currentSettings fastDragging: true
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> shortcutReminderSettings [
 	<script>
 	ShortcutReminder defaultReminder limit: -1.
 	ShortcutReminder defaultReminder position: #topRight
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> showBoundsInHalo [
 	<script>
 	HaloMorph showBoundsInHalo: true
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoCommonSettings class >> updateCurrentCursor [
 	<script>
 	PawCursor beCurrent

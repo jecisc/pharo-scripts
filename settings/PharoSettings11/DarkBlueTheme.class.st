@@ -21,7 +21,7 @@ DarkBlueTheme class >> colorConfiguratorClass [
 	^ DarkBlueThemeConfigurator
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 DarkBlueTheme class >> initialize [
 
 	BlockStyler defaultThemes at: self put: (Color lightBlue alpha: 0.05).

@@ -7,14 +7,14 @@ Class {
 	#category : #PharoSettings11
 }
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoSettings11 class >> debuggerCustomizations [
 
 	<script>
 	StDebuggerActionModel shouldFilterStack: false
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoSettings11 class >> initialize [
 
 	self
@@ -22,7 +22,7 @@ PharoSettings11 class >> initialize [
 		debuggerCustomizations
 ]
 
-{ #category : #initialization }
+{ #category : #'class initialization' }
 PharoSettings11 class >> spotterCustomizations [
 	<script>
 
