@@ -19,6 +19,29 @@ classes
 ]
 
 { #category : #'class refactoring' }
+RefactoringScripts class >> batchRenameMethodsInAClass [
+
+	<script>
+	self open: 'class := ClassOrganizationTest.
+from := ''Into''.
+to := ''As''.
+
+class methods
+	select: [ :method | method selector includesSubstring: from ]
+	thenDo: [ :method |
+		| oldSelector newSelector |
+		oldSelector := method selector asSymbol.
+		newSelector := (method selector copyReplaceAll: from with: to) asSymbol.
+
+			class compiledMethodAt: newSelector ifPresent: [ :m | self inform: newSelector , '' already exists'' ] ifAbsent: [
+			(RBRenameMethodRefactoring
+				 renameMethod: oldSelector
+				 in: class
+				 to: newSelector
+				 permutation: (1 to: method numArgs) asArray) execute ] ]'
+]
+
+{ #category : #'class refactoring' }
 RefactoringScripts class >> batchRenameMethodsWithDeprecation [
 
 	<script>

@@ -73,6 +73,20 @@ variables
 			yourself ]'
 ]
 
+{ #category : #'instance creation' }
+Scripts class >> methodAnnouncementReceived: anAnnouncement [
+	"No need to rebuild if it contains the world menu pragma"
+
+	self flag: #pharo6. "Menubar was introduced in Pharo 7"
+	SystemVersion current major < 7 ifTrue: [ ^ self ].
+
+	anAnnouncement methodAffected pragmas
+		detect: [ :e | e selector = 'worldMenu' ]
+		ifFound: [ :p | ^ self ].
+
+	(anAnnouncement methodAffected methodClass includesBehavior: self class) ifTrue: [ MenubarMorph reset ]
+]
+
 { #category : #protocol }
 Scripts class >> open: aString [
 	Smalltalk tools workspace openContents: aString
