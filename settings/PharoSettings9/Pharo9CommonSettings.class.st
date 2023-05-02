@@ -7,6 +7,12 @@ Class {
 	#category : #PharoSettings9
 }
 
+{ #category : #'class initialization' }
+Pharo9CommonSettings class >> calypsoOptions [
+	<script>
+	ClyTextLineNumbersSwitchMorph showLineNumbers: true
+]
+
 { #category : #initialization }
 Pharo9CommonSettings class >> disableSomeGTSpotterExtensions [
 	"World menu because it is too long with my scripts."
@@ -40,7 +46,8 @@ Pharo9CommonSettings class >> initialize [
 		formatingOptions;
 		setPlaygroundFolder;
 		setMetaLinkForIcebergBrowseInGroupCommand;
-		enableFluidClassDefinition
+		enableFluidClassDefinition;
+		calypsoOptions
 ]
 
 { #category : #'class initialization' }
