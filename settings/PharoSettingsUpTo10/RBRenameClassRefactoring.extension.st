@@ -1,6 +1,6 @@
 Extension { #name : #RBRenameClassRefactoring }
 
-{ #category : #'*PharoSettings' }
+{ #category : #'*PharoSettingsUpTo10' }
 RBRenameClassRefactoring >> altRenameReferences [
 	| replacer |
 	replacer := (RBParseTreeRewriter replaceLiteral: className with: newName)

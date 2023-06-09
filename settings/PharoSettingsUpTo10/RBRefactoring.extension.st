@@ -1,6 +1,6 @@
 Extension { #name : #RBRefactoring }
 
-{ #category : #'*PharoSettings' }
+{ #category : #'*PharoSettingsUpTo10' }
 RBRefactoring >> altConvertAllReferencesToUsing: arguments [
 	(self model allReferencesTo: (arguments at: 1))
 		reject: [ :rbMethod |
