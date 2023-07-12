@@ -17,7 +17,9 @@ BaselineOfPharoSettings >> baseline: spec [
 
 	spec for: (self pharoVersionsFrom: 9) do: [ spec package: 'PharoSettings9' with: [ spec requires: #('PharoSettings') ] ].
 
-	spec for: (self pharoVersionsFrom: 11) do: [ spec package: 'PharoSettings11' with: [ spec requires: #('PharoSettings') ] ].
+	spec for: (self pharoVersionsFrom: 11) do: [ spec package: 'PharoSettings11' with: [ spec requires: #('PharoSettings') ] ]..
+
+	spec for: (self pharoVersionsFrom: 12) do: [ spec package: 'PharoSettings12' with: [ spec requires: #('PharoSettings') ] ].
 
 	"This one is from the removal of BlueInk and GTEventRecorder."
 	spec for: #(#'pharo7.x') do: [ spec package: 'PharoSettings7-Specific' with: [ spec requires: #('PharoSettings') ] ].
