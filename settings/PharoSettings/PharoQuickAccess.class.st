@@ -162,7 +162,11 @@ PharoQuickAccess class >> methodAnnouncementReceived: anAnnouncement [
 
 { #category : #accessing }
 PharoQuickAccess class >> methodsIn: aProtocol [
-	^ (self methods select: [ :method | method protocol = aProtocol ]) sort: #selector ascending
+
+	^ (self methods select: [ :method |
+		   (method protocol isString
+			    ifTrue: [ method protocol ]
+			    ifFalse: [ method protocol name ]) = aProtocol ]) sort: #selector ascending
 ]
 
 { #category : #'world menu' }
@@ -301,8 +305,9 @@ PharoQuickAccess >> browseScripts [
 
 { #category : #browse }
 PharoQuickAccess >> browseSpecDemo [
+
 	<name: #'Spec demo'>
-	SpecDemo browse
+	(self class environment at: #SpecDemo ifAbsent: [ self class environment at: #SpDemo ]) browse
 ]
 
 { #category : #counter }
