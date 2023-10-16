@@ -1,6 +1,6 @@
-Extension { #name : #True }
+Extension { #name : 'True' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 True >> haltIfTrue [
 	1h
 ]

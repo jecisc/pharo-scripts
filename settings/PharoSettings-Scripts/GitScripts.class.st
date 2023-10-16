@@ -2,12 +2,13 @@
 A bunch on scripts about git.
 "
 Class {
-	#name : #GitScripts,
-	#superclass : #Scripts,
-	#category : #'PharoSettings-Scripts'
+	#name : 'GitScripts',
+	#superclass : 'Scripts',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #removing }
+{ #category : 'removing' }
 GitScripts class >> createDraftOfChangelog [
 
 	<script>
@@ -23,7 +24,7 @@ git log --pretty="* %s ([%h](https://github.com/pharo-spec/Spec/commit/%H))" 820
 	'
 ]
 
-{ #category : #removing }
+{ #category : 'removing' }
 GitScripts class >> removeMergedBranches [
 
 	<script>

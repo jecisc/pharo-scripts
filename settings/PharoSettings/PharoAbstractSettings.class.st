@@ -2,22 +2,23 @@
 Abstract class to define my settings.
 "
 Class {
-	#name : #PharoAbstractSettings,
-	#superclass : #Object,
-	#category : #PharoSettings
+	#name : 'PharoAbstractSettings',
+	#superclass : 'Object',
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoAbstractSettings class >> backgroundFolder [
 	^ self resourcesFolder / 'backgrounds'
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 PharoAbstractSettings class >> projectCache [
 	^ self resourcesFolder / 'ProjectCache'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoAbstractSettings class >> registerIfPresentProjectAt: location subdirectory: subdirectory [
 	location exists ifFalse: [ ^ self ].
 
@@ -29,27 +30,27 @@ PharoAbstractSettings class >> registerIfPresentProjectAt: location subdirectory
 		do: [ "nothing" ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoAbstractSettings class >> registerIfPresentProjectOf: owner named: project [
 	self registerIfPresentProjectOf: owner named: project subdirectory: 'src'
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoAbstractSettings class >> registerIfPresentProjectOf: owner named: project subdirectory: subdirectory [
 	self registerIfPresentProjectAt: StartupPreferencesLoader preferencesGeneralFolder / 'GitRepositories' / owner / project subdirectory: subdirectory
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 PharoAbstractSettings class >> resourcesFolder [
 	^ self rootFolder / 'SettingRessources'
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 PharoAbstractSettings class >> rootFolder [
 	^ StartupPreferencesLoader preferencesGeneralFolder
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 PharoAbstractSettings class >> sharedRepositoryFolder [
 	| file |
 	file := self resourcesFolder / 'localisation'.
@@ -61,7 +62,7 @@ PharoAbstractSettings class >> sharedRepositoryFolder [
 	^ ((STON fromString: file contents) at: #dir) asFileReference
 ]
 
-{ #category : #asserting }
+{ #category : 'asserting' }
 PharoAbstractSettings class >> shouldBeSFW [
 	^ CommandLineArguments default hasOption: 'sfw'
 ]

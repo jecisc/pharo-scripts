@@ -1,1 +1,1 @@
-Package { #name : #PharoSettings }
+Package { #name : 'PharoSettings' }

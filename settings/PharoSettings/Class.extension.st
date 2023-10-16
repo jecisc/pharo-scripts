@@ -1,6 +1,6 @@
-Extension { #name : #Class }
+Extension { #name : 'Class' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Class >> altDuplicateClassWithNewName: args [
 	| copysName class aSymbol |
 	aSymbol := args first.

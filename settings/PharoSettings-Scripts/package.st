@@ -1,1 +1,1 @@
-Package { #name : #'PharoSettings-Scripts' }
+Package { #name : 'PharoSettings-Scripts' }

@@ -2,8 +2,8 @@
 A class to highlight block and visualize better imbricated blocks.
 "
 Class {
-	#name : #BlockStyler,
-	#superclass : #IconStyler,
+	#name : 'BlockStyler',
+	#superclass : 'IconStyler',
 	#instVars : [
 		'nesting'
 	],
@@ -11,47 +11,48 @@ Class {
 		'DefaultThemes',
 		'Enabled'
 	],
-	#category : #PharoSettings
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 BlockStyler class >> defaultBackgroundColor [
 	^ self defaultThemes at: Smalltalk ui theme class ifPresent: [ :each | each ] ifAbsent: [ Smalltalk ui theme backgroundColor negated alpha: 0.15 ]
 ]
 
-{ #category : #settings }
+{ #category : 'settings' }
 BlockStyler class >> defaultBackgroundColor: aColor [
 	self defaultThemes at: Smalltalk ui theme class put: aColor
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 BlockStyler class >> defaultThemes [
 	^ DefaultThemes ifNil: [ DefaultThemes := Dictionary new ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlockStyler class >> enabled [
 	^ Enabled
 		ifNil: [Enabled := true]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlockStyler class >> enabled: aBoolean [
 	Enabled := aBoolean
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 BlockStyler class >> isStaticStyler [
 
 	^ true
 ]
 
-{ #category : #defaults }
+{ #category : 'defaults' }
 BlockStyler class >> resetDefaultThemes [
 	DefaultThemes := nil
 ]
 
-{ #category : #settings }
+{ #category : 'settings' }
 BlockStyler class >> settingsOn: aBuilder [
 	<systemsettings>
 	(aBuilder setting: #'BlockStyler')
@@ -61,30 +62,30 @@ BlockStyler class >> settingsOn: aBuilder [
 		with: [ (aBuilder setting: #defaultBackgroundColor) label: 'Background color' ]
 ]
 
-{ #category : #adding }
+{ #category : 'adding' }
 BlockStyler >> addIconStyle: aNode from: start to: stop color: aColor [
 	"not doing that like this"
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 BlockStyler >> backgroundColor [
 	^ self class defaultBackgroundColor
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BlockStyler >> backgroundLineLimits: aCollection [
 	| backgroundLineLimits |
 	backgroundLineLimits := aCollection withIndexCollect: [ :line :index | index = 1 ifTrue: [ line ] ifFalse: [ line key + nesting -> line value ] ].
 	^ backgroundLineLimits select: [ :line | line value > line key ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 BlockStyler >> initialize [
 	super initialize.
 	nesting := 0
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 BlockStyler >> lineLimitsOf: aBlockNode [
 	| text limits |
 	limits := OrderedCollection new.
@@ -93,7 +94,7 @@ BlockStyler >> lineLimitsOf: aBlockNode [
 	^ limits
 ]
 
-{ #category : #visiting }
+{ #category : 'visiting' }
 BlockStyler >> visitBlockNode: aBlockNode [
 	(SHPreferences enabled and: self class enabled) ifTrue: [ (self backgroundLineLimits: (self lineLimitsOf: aBlockNode)) do: [ :line | | change |
 		change := RubConfigurationChange new.

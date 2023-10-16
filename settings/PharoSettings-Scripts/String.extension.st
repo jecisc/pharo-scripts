@@ -1,6 +1,6 @@
-Extension { #name : #String }
+Extension { #name : 'String' }
 
-{ #category : #'*PharoSettings-Scripts' }
+{ #category : '*PharoSettings-Scripts' }
 String >> mySplitCamelCase [
 
 	| results accum previousIsLower |

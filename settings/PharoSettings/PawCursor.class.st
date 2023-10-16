@@ -2,17 +2,18 @@
 A cursor looking like a paw.
 "
 Class {
-	#name : #PawCursor,
-	#superclass : #Cursor,
-	#category : #PharoSettings
+	#name : 'PawCursor',
+	#superclass : 'Cursor',
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #query }
+{ #category : 'query' }
 PawCursor class >> beCurrent [
 	self initNormalWithMask
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 PawCursor class >> initNormal [
 	NormalCursor :=
 		(Cursor
@@ -37,7 +38,7 @@ PawCursor class >> initNormal [
 	offset: 0@0)
 ]
 
-{ #category : #'initialization - private' }
+{ #category : 'initialization - private' }
 PawCursor class >> initNormalWithMask [
 	"Cursor initNormalWithMask.  Cursor normal show"
 

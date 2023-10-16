@@ -2,36 +2,37 @@
 A simple command to generate the #isAbstract method.
 "
 Class {
-	#name : #ClyMakeAbstractCommand,
-	#superclass : #SycSingleClassCommand,
-	#category : #PharoSettings
+	#name : 'ClyMakeAbstractCommand',
+	#superclass : 'SycSingleClassCommand',
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #activation }
+{ #category : 'activation' }
 ClyMakeAbstractCommand class >> fullBrowserMenuActivation [
 
 	<classAnnotation>
 	^ CmdContextMenuActivation for: (Smalltalk at: #ClyClassContextOfFullBrowser ifAbsent: [ Smalltalk at: #ClyFullBrowserClassContext ])
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 ClyMakeAbstractCommand class >> fullBrowserShortcutActivation [
 
 	<classAnnotation>
 	^ CmdShortcutActivation by: $m meta , $a meta for: (Smalltalk at: #ClyClassContextOfFullBrowser ifAbsent: [ Smalltalk at: #ClyFullBrowserClassContext ])
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ClyMakeAbstractCommand >> defaultMenuIconName [
 	^ #abstract
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ClyMakeAbstractCommand >> defaultMenuItemName [
 	^ 'Make abstract'
 ]
 
-{ #category : #execution }
+{ #category : 'execution' }
 ClyMakeAbstractCommand >> execute [
 	targetClass class
 		compile:

@@ -1,6 +1,6 @@
-Extension { #name : #PharoCommandLineHandler }
+Extension { #name : 'PharoCommandLineHandler' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 PharoCommandLineHandler >> handleArgument: aString [
 	aString = '--sfw' ifTrue: [ ^ self ].
 

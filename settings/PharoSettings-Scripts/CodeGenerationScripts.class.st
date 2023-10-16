@@ -2,12 +2,13 @@
 A bunch on scripts about code generation.
 "
 Class {
-	#name : #CodeGenerationScripts,
-	#superclass : #Scripts,
-	#category : #'PharoSettings-Scripts'
+	#name : 'CodeGenerationScripts',
+	#superclass : 'Scripts',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #generation }
+{ #category : 'generation' }
 CodeGenerationScripts class >> generateBasicVisitorMethods [
 	<script>
 	self open: '| toVisit visitor |
@@ -41,6 +42,55 @@ CodeGenerationScripts class >> generateBasicVisitorMethods [
 						classified: ''visiting'' ] ]'
 ]
 
-{ #category : #'see class side' }
+{ #category : 'generation' }
+CodeGenerationScripts class >> generateSimpleBaseline [
+
+	<script>
+	(UIManager default request: 'Name of the project') ifNotNil: [ :aName |
+		| baselineName class |
+		baselineName := 'BaselineOf' , aName capitalized.
+		class := self classInstaller make: [ :builder |
+			         builder
+				         name: baselineName asSymbol;
+				         superclass: BaselineOf;
+				         package: baselineName ].
+
+		class comment: 'I am a baseline to define the structure and dependencies of the ' , aName , ' project.'.
+
+		class
+			compile: ('baseline: spec
+	<baseline>
+	spec
+		for: #common
+		do: [
+			"Dependencies"
+			self materialDesignLite: spec.
+
+			"Packages"
+			spec
+				package: ''{1}'';
+				package: ''{1}-Tests'' with: [ spec requires: #(''{1}'') ].
+
+			"Groups"
+			spec
+				group: ''Core'' with: #(''{1}'');
+				group: ''Tests'' with: #(''{1}-Tests'') ].' format: { aName })
+			classified: 'baselines'.
+
+		class
+			compile: 'materialDesignLite: spec
+	spec
+		baseline: ''MaterialDesignLite'' with: [ spec repository: ''github://DuneSt/MaterialDesignLite:v2.x.x/src'' ]'
+			classified: 'dependencies'.
+
+		class
+			compile: 'projectClass
+	^ MetacelloCypressBaselineProject'
+			classified: 'accessing'.
+
+		class browse ]
+]
+
+{ #category : 'see class side' }
 CodeGenerationScripts >> seeClassSide [
 ]

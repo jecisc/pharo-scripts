@@ -1,6 +1,6 @@
-Extension { #name : #Collection }
+Extension { #name : 'Collection' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Collection >> mapWith: aValuable [
 	^ OrderedDictionary new
 		in: [ :dic |

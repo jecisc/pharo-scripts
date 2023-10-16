@@ -2,8 +2,8 @@
 A class to generate my toolbar menu and add some utilities.
 "
 Class {
-	#name : #PharoQuickAccess,
-	#superclass : #PharoAbstractSettings,
+	#name : 'PharoQuickAccess',
+	#superclass : 'PharoAbstractSettings',
 	#instVars : [
 		'counter'
 	],
@@ -13,15 +13,16 @@ Class {
 	#classInstVars : [
 		'directoriesMap'
 	],
-	#category : #PharoSettings
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> buildAddToIcebergOn: aBuilder [
 	self createAddToIcebergSubmenusFrom: self sharedRepositoryFolder on: aBuilder
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> buildOpenNativelyOn: aBuilder [
 
 	(aBuilder item: #'Pharo scripts root')
@@ -32,7 +33,7 @@ PharoQuickAccess class >> buildOpenNativelyOn: aBuilder [
 	self createOpenNativelySubmenusFrom: self sharedRepositoryFolder on: aBuilder
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> buildScriptsOf: aClass on: aBuilder [
 
 	(aBuilder item: ('From: ' , aClass name) asSymbol)
@@ -47,7 +48,7 @@ PharoQuickAccess class >> buildScriptsOf: aClass on: aBuilder [
 	aClass subclassesDo: [ :subClass | self buildScriptsOf: subClass on: aBuilder ]
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> buildSelectBackgroundOn: aBuilder [
 
 	((self backgroundFolder allFiles reject: [ :f | f basename beginsWith: '.' ]) sorted: #basename ascending) do: [ :background |
@@ -57,7 +58,7 @@ PharoQuickAccess class >> buildSelectBackgroundOn: aBuilder [
 			iconName: #smallDoIt ]
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> buildSubmenu: cat on: aBuilder [
 	"Sometimes I add insecable spaces to separate different menus with the same name."
 
@@ -70,7 +71,7 @@ PharoQuickAccess class >> buildSubmenu: cat on: aBuilder [
 				iconName: #smallDoIt ] ]
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> createAddToIcebergSubmenusFrom: aFolder on: aBuilder [
 	self
 		recursivelyCreateCommandForRepositoriesFrom: aFolder
@@ -83,12 +84,12 @@ PharoQuickAccess class >> createAddToIcebergSubmenusFrom: aFolder on: aBuilder [
 		on: aBuilder
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> createOpenNativelySubmenusFrom: aFolder on: aBuilder [
 	self recursivelyCreateCommandForRepositoriesFrom: aFolder action: [ :dir | dir openInOSFileBrowser ] prefix: '  ' on: aBuilder
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoQuickAccess class >> execute: aSelector [
 	[ self instance perform: aSelector.
 	self inform: 'Executed with success: ' , aSelector ]
@@ -100,7 +101,7 @@ PharoQuickAccess class >> execute: aSelector [
 ' , ex asString ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoQuickAccess class >> executeBlock: aBlock [
 	[ aBlock value.
 	self inform: 'Executed with success' ]
@@ -112,7 +113,7 @@ PharoQuickAccess class >> executeBlock: aBlock [
 ' , ex asString ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 PharoQuickAccess class >> focusIceberg [
 	"This method will look for an open tip repository browser open (This is the entry point of Iceberg). If one is open, bring it to front. Else, open one."
 
@@ -126,13 +127,13 @@ PharoQuickAccess class >> focusIceberg [
 			window isMinimized ifTrue: [ window restore ] ifFalse: [ window activate ] ]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PharoQuickAccess class >> initialize [
 	self install.
 	Smalltalk at: #OwO put: self instance
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 PharoQuickAccess class >> install [
 	"Unsubscribe to subscribe only once"
 	SystemAnnouncer uniqueInstance unsubscribe: self.
@@ -141,12 +142,12 @@ PharoQuickAccess class >> install [
 		send: #methodAnnouncementReceived: to: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoQuickAccess class >> instance [
 	^ UniqueInstance ifNil: [ UniqueInstance := self new ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoQuickAccess class >> methodAnnouncementReceived: anAnnouncement [
 	"No need to rebuild if it contains the world menu pragma"
 
@@ -160,7 +161,7 @@ PharoQuickAccess class >> methodAnnouncementReceived: anAnnouncement [
 	({self . self class} anySatisfy: [ :class | anAnnouncement methodAffected methodClass = class ]) ifTrue: [ self resetMenubar ]
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoQuickAccess class >> methodsIn: aProtocol [
 
 	^ (self methods select: [ :method |
@@ -169,7 +170,7 @@ PharoQuickAccess class >> methodsIn: aProtocol [
 			    ifFalse: [ method protocol name ]) = aProtocol ]) sort: #selector ascending
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> recursivelyCreateCommandForRepositoriesFrom: aFolder action: action prefix: aString on: aBuilder [
 
 	((self subDirectoriesOf: aFolder) sort: [ :a | a basename asLowercase ] ascending) do: [ :dir |
@@ -190,20 +191,20 @@ PharoQuickAccess class >> recursivelyCreateCommandForRepositoriesFrom: aFolder a
 							on: aBuilder ] ] ]
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 PharoQuickAccess class >> resetMenubar [
 	"Invalidate cache to speedup menu creation"
 	directoriesMap := nil.
 	MenubarMorph reset
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PharoQuickAccess class >> subDirectoriesOf: aDirectory [
 	directoriesMap ifNil: [ directoriesMap := Dictionary new ].
 	^ directoriesMap at: aDirectory ifAbsentPut: [ aDirectory directories ]
 ]
 
-{ #category : #'world menu' }
+{ #category : 'world menu' }
 PharoQuickAccess class >> worldMenuSectionsOn: aBuilder [
 	<worldMenu>
 	(aBuilder item: #Scripts)
@@ -249,149 +250,97 @@ PharoQuickAccess class >> worldMenuSectionsOn: aBuilder [
 				with: [ self buildOpenNativelyOn: aBuilder ] ]
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseCommonSettings [
 	<name: #'Pharo common settings'>
 	PharoCommonSettings class browse
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseCommonSettings10 [
 	<name: #'Pharo common settings 10'>
 	self class environment at: #Pharo10CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseCommonSettings11 [
 	<name: #'Pharo common settings 11'>
 	self class environment at: #Pharo11CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseCommonSettings5 [
 	<name: #'Pharo common settings 5'>
 	self class environment at: #Pharo5CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseCommonSettings8 [
 	<name: #'Pharo common settings 8'>
 	self class environment at: #Pharo8CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseCommonSettings9 [
 	<name: #'Pharo common settings 9'>
 	self class environment at: #Pharo9CommonSettings ifPresent: [ :class | class class browse ]
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> browseIcons [
 	<name: #'Browse icons'>
 	Smalltalk ui icons inspect
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseQuickAccess [
 	<name: #QuickAccess>
 	self class browse
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseScripts [
 	<name: #'Browse scripts'>
 	self class environment at: #Scripts ifPresent: [ :class | class class browse ]
 ]
 
-{ #category : #browse }
+{ #category : 'browse' }
 PharoQuickAccess >> browseSpecDemo [
 
 	<name: #'Spec demo'>
 	(self class environment at: #SpecDemo ifAbsent: [ self class environment at: #SpDemo ]) browse
 ]
 
-{ #category : #counter }
+{ #category : 'counter' }
 PharoQuickAccess >> counter [
 	^ counter
 ]
 
-{ #category : #counter }
+{ #category : 'counter' }
 PharoQuickAccess >> decrement [
 	counter := counter - 1
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> findIcebergRepos [
 	<name: #'Find Iceberg repositories'>
 
 	Smalltalk at: #PharoCommonSettings ifPresent: [ :c | c initializePotentialIcebergRepos ]
 ]
 
-{ #category : #recentwindows }
+{ #category : 'recentwindows' }
 PharoQuickAccess >> flushRecentWindow [
 	<name: #'Flush recent windows'>
 	RecentlyClosedWindowsSaver default flush
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> gc [
 	<name: #'Garbage collect'>
 	5 timesRepeat: [ Smalltalk garbageCollect ]
 ]
 
-{ #category : #conveniance }
-PharoQuickAccess >> generateSimpleBaseline [
-	<name: #'Generate simple baseline'>
-	(UIManager default request: 'Name of the project')
-		ifNotNil: [ :name |
-			| baselineName class |
-			baselineName := 'BaselineOf' , name capitalized.
-			class := BaselineOf
-				subclass: baselineName asSymbol
-				slots: {}
-				classVariables: {}
-				package: baselineName.
-
-			class comment: 'I am a baseline to define the structure and dependencies of the ' , name , ' project.'.
-
-			class
-				compile:
-					('baseline: spec
-	<baseline>
-	spec
-		for: #common
-		do: [
-			"Dependencies"
-			self materialDesignLite: spec.
-
-			"Packages"
-			spec
-				package: ''{1}'';
-				package: ''{1}-Tests'' with: [ spec requires: #(''{1}'') ].
-
-			"Groups"
-			spec
-				group: ''Core'' with: #(''{1}'');
-				group: ''Tests'' with: #(''{1}-Tests'') ].' format: {name})
-				classified: 'baselines'.
-
-			class
-				compile:
-					'materialDesignLite: spec
-	spec
-		baseline: ''MaterialDesignLite'' with: [ spec repository: ''github://DuneSt/MaterialDesignLite:v2.x.x/src'' ]'
-				classified: 'dependencies'.
-
-			class
-				compile:
-					'projectClass
-	^ MetacelloCypressBaselineProject'
-				classified: 'accessing'.
-
-			class browse ]
-]
-
-{ #category : #recentwindows }
+{ #category : 'recentwindows' }
 PharoQuickAccess >> groupWindowForGitReposWithPatter [
 	<name: 'Open group window with git repos using pattern'>
 	| repos group |
@@ -406,18 +355,18 @@ PharoQuickAccess >> groupWindowForGitReposWithPatter [
 			(group openInWindowLabeled: 'Common repos') expandBoxHit ]
 ]
 
-{ #category : #counter }
+{ #category : 'counter' }
 PharoQuickAccess >> increment [
 	counter := counter + 1
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 PharoQuickAccess >> initialize [
 	super initialize.
 	self resetCounter
 ]
 
-{ #category : #loading }
+{ #category : 'loading' }
 PharoQuickAccess >> installDiscordSt [
 	<name: #'Install DiscordSt'>
 	Metacello new
@@ -426,7 +375,7 @@ PharoQuickAccess >> installDiscordSt [
 		load: #('light')
 ]
 
-{ #category : #loading }
+{ #category : 'loading' }
 PharoQuickAccess >> installGeometry [
 	<name: #'Install Geometry'>
 
@@ -436,7 +385,7 @@ PharoQuickAccess >> installGeometry [
 		load
 ]
 
-{ #category : #loading }
+{ #category : 'loading' }
 PharoQuickAccess >> installWebPokedex [
 	<name: #'Install WebPokedex'>
 	Metacello new
@@ -451,7 +400,7 @@ PharoQuickAccess >> installWebPokedex [
 	(Smalltalk at: #WPServer) readStonModelWithContextFile: '../../GitRepositories/WebPokedex/Ressources/devContext.ston'
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> logAllUnusedVariables [
 	<name: #'Log all unused variables'>
 	Transcript clear; open.
@@ -461,7 +410,7 @@ PharoQuickAccess >> logAllUnusedVariables [
 				do: [ :each | (class whichSelectorsAccess: each) size = 0 ifTrue: [ Transcript crShow: 'Class: ' , class printString , ' var: ' , each ] ] ]
 ]
 
-{ #category : #recentwindows }
+{ #category : 'recentwindows' }
 PharoQuickAccess >> openCommonTools [
 	<name: #'Open common tools'>
 	| group |
@@ -474,49 +423,49 @@ PharoQuickAccess >> openCommonTools [
 	(group openInWindowLabeled: 'Common Tools') expandBoxHit
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> openImageNatively [
 	<name: #'Open image natively'>
 	FileLocator image openInOSFileBrowser
 ]
 
-{ #category : #recentwindows }
+{ #category : 'recentwindows' }
 PharoQuickAccess >> openRecentWindow [
 	<name: #'Open recent window'>
 	RecentlyClosedWindowsSaver default restoreWindow
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> randomBackground [
 	<name: #'Set random background'>
 
 	PharoCommonSettings setRandomBackground
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> refreshMenubar [
 	<name: #'Refresh menubar'>
 	self class resetMenubar
 ]
 
-{ #category : #counter }
+{ #category : 'counter' }
 PharoQuickAccess >> resetCounter [
 	counter := 0
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> screenshot [
 	<name: #Screenshot>
 	Form fromUser asMorph openInWindow
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> toggleDeprecation [
 	<name: #'Togglee deprecations'>
 	Deprecation raiseWarning: Deprecation raiseWarning not
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> toggleTheme [
 	<name: #'Toggle theme'>
 	| light dark |
@@ -530,7 +479,7 @@ PharoQuickAccess >> toggleTheme [
 	PharoCommonSettings setThemeSetting
 ]
 
-{ #category : #conveniance }
+{ #category : 'conveniance' }
 PharoQuickAccess >> tweakGCParameters [
 	<name: 'Tweak GC parameters'>
 

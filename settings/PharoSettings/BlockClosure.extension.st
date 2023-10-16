@@ -1,13 +1,13 @@
-Extension { #name : #BlockClosure }
+Extension { #name : 'BlockClosure' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 BlockClosure >> spy [
 	| res |
 	TimeProfiler spyOn: [ res := self value ].
 	^ res
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 BlockClosure >> spyAll [
 	| res |
 	TimeProfiler spyAllOn: [ res := self value ].

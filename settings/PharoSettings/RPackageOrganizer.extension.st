@@ -1,11 +1,11 @@
-Extension { #name : #RPackageOrganizer }
+Extension { #name : 'RPackageOrganizer' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 RPackageOrganizer class >> includingSubstring: aString [
 	^ self default packages select: [ :p | p name includesSubstring: aString ]
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 RPackageOrganizer class >> startingWith: aString [
 	^ self default packages select: [ :p | p name beginsWith: aString ]
 ]

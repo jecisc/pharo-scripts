@@ -1,6 +1,6 @@
-Extension { #name : #Object }
+Extension { #name : 'Object' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> compileGetterNamed: var [
 	self class
 		compile:
@@ -16,7 +16,7 @@ Object >> compileGetterNamed: var [
 	UIManager default inform: 'Compiled: ' , var , ' into: ' , self printString
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> compileSetterNamed: message returning: var [
 	self class
 		compile:
@@ -33,7 +33,7 @@ Object >> compileSetterNamed: message returning: var [
 	UIManager default inform: 'Compiled: ' , message , ' into: ' , self printString
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> generatesPotentialSetterOrGetterWith: anArray context: context [
 	<debuggerCompleteToSender>
 	| message aMessage selectorsToIgnore |
@@ -60,7 +60,7 @@ Object >> generatesPotentialSetterOrGetterWith: anArray context: context [
 					context return: (aMessage sentTo: self) ] ]
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> h [
 	"This is the typical message to use for inserting breakpoints during debugging."
 
@@ -68,7 +68,7 @@ Object >> h [
 	Halt now
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> haltOnceIf: aBlock [
 	"This is the typical message to use for inserting breakpoints during debugging."
 
@@ -76,12 +76,12 @@ Object >> haltOnceIf: aBlock [
 	(aBlock cull: self) ifTrue: [ self haltOnce ]
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> storeIn: aSymbol [
 	self class environment at: aSymbol put: self
 ]
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 Object >> toKill [
 	self flag: #toKill.
 	('Method to kill ' , thisContext sender method printString , ' called by ' , thisContext sender sender method printString) logCr

@@ -2,12 +2,13 @@
 A bunch on scripts Telescope
 "
 Class {
-	#name : #TelescopeScripts,
-	#superclass : #Scripts,
-	#category : #'PharoSettings-Scripts'
+	#name : 'TelescopeScripts',
+	#superclass : 'Scripts',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 TelescopeScripts class >> dependenciesOfAProject [
 	<script>
 	self open: '| baseline visu substringsToHighlight |
@@ -76,6 +77,6 @@ TelescopeScripts class >> dependenciesOfAProject [
 	visu open'
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 TelescopeScripts >> seeClassSide [
 ]

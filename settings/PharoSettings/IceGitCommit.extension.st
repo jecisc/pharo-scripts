@@ -1,6 +1,6 @@
-Extension { #name : #IceGitCommit }
+Extension { #name : 'IceGitCommit' }
 
-{ #category : #'*PharoSettings' }
+{ #category : '*PharoSettings' }
 IceGitCommit >> projectAlt [
 	^ [ IceProjectReader readProjectFrom: self ]
 		on: NotFound

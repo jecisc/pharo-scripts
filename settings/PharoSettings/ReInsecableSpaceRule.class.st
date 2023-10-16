@@ -2,47 +2,48 @@
 A rule to highlight insecable spaces.
 "
 Class {
-	#name : #ReInsecableSpaceRule,
-	#superclass : #ReAbstractRule,
-	#category : #PharoSettings
+	#name : 'ReInsecableSpaceRule',
+	#superclass : 'ReAbstractRule',
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #'testing-interest' }
+{ #category : 'testing-interest' }
 ReInsecableSpaceRule class >> checksMethod [
 	^ true
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 ReInsecableSpaceRule class >> initialize [
 	ReRuleManager resetWithInform
 ]
 
-{ #category : #helpers }
+{ #category : 'helpers' }
 ReInsecableSpaceRule >> anchorFor: anEntity [
 	^ ReSearchStringSourceAnchor entity: anEntity string: Character nbsp asString
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 ReInsecableSpaceRule >> basicCheck: aMethod [
 	^ aMethod sourceCode includes: Character nbsp
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ReInsecableSpaceRule >> group [
 	^ 'Bugs'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ReInsecableSpaceRule >> name [
 	^ 'There is an insequable space that might break the method.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ReInsecableSpaceRule >> rationale [
 	^ 'Insecable spaces might break a lot of code and is usually unitentional.'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ReInsecableSpaceRule >> severity [
 	^ #error
 ]

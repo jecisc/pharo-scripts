@@ -2,12 +2,13 @@
 A bunch on scripts refactorings.
 "
 Class {
-	#name : #RefactoringScripts,
-	#superclass : #Scripts,
-	#category : #'PharoSettings-Scripts'
+	#name : 'RefactoringScripts',
+	#superclass : 'Scripts',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #'class refactoring' }
+{ #category : 'class refactoring' }
 RefactoringScripts class >> batchClassRename [
 	<script>
 	self open: '	classes := (RPackageOrganizer includingSubstring: ''Name'') flatCollect: #definedClasses.
@@ -18,7 +19,7 @@ classes
 	do: [ :class | (class name beginsWith: oldPrefix) ifTrue: [ (RBRenameClassRefactoring rename: class name to: newPrefix , (class name withoutPrefix: oldPrefix)) execute ] ]'
 ]
 
-{ #category : #'class refactoring' }
+{ #category : 'class refactoring' }
 RefactoringScripts class >> batchRenameMethodsInAClass [
 
 	<script>
@@ -41,7 +42,7 @@ class methods
 				 permutation: (1 to: method numArgs) asArray) execute ] ]'
 ]
 
-{ #category : #'class refactoring' }
+{ #category : 'class refactoring' }
 RefactoringScripts class >> batchRenameMethodsWithDeprecation [
 
 	<script>
@@ -82,7 +83,7 @@ class methods
 			] ].'
 ]
 
-{ #category : #'class refactoring' }
+{ #category : 'class refactoring' }
 RefactoringScripts class >> cleanProjectWithChanel [
 
 	<script>
@@ -103,7 +104,7 @@ packages := ((IceRepository registry select: [ :e | e name = ''Moose'' ]) flatCo
 Chanel perfum: packages'
 ]
 
-{ #category : #'class refactoring' }
+{ #category : 'class refactoring' }
 RefactoringScripts class >> condenseCode [
 
 	<script>
@@ -117,7 +118,7 @@ cms do: [:cm |
          addMethodSource: (ReMethodSourceCleaner clean: cm sourceCode) in: cm origin) execute ]'
 ]
 
-{ #category : #'class refactoring' }
+{ #category : 'class refactoring' }
 RefactoringScripts class >> rewritePatterns [
 
 	<script>
@@ -138,6 +139,6 @@ classes do: [ :class |
 	displayingProgress: [ :c | c printString ]'
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 RefactoringScripts >> seeClassSide [
 ]

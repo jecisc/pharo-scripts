@@ -2,24 +2,25 @@
 A tab of Calypso to display the comments of used traits.
 "
 Class {
-	#name : #ClyTraitsCommentEditorToolMorph,
-	#superclass : #ClyClassEditorToolMorph,
-	#category : #PharoSettings
+	#name : 'ClyTraitsCommentEditorToolMorph',
+	#superclass : 'ClyClassEditorToolMorph',
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #testing }
+{ #category : 'testing' }
 ClyTraitsCommentEditorToolMorph class >> shouldBeActivatedInContext: aToolContext [
 	(super shouldBeActivatedInContext: aToolContext) ifFalse: [ ^ false ].
 
 	^ aToolContext isSelectedClassUsesTraits
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ClyTraitsCommentEditorToolMorph class >> tabOrder [
 	^ super tabOrder - 0.5
 ]
 
-{ #category : #activation }
+{ #category : 'activation' }
 ClyTraitsCommentEditorToolMorph class >> traitsCommentTabActivation [
 
 	<classAnnotation>
@@ -28,30 +29,30 @@ ClyTraitsCommentEditorToolMorph class >> traitsCommentTabActivation [
 		   ifFalse: [ ClyTabActivationStrategyAnnotation ]) for: ClyClassComment asCalypsoItemContext
 ]
 
-{ #category : #operations }
+{ #category : 'operations' }
 ClyTraitsCommentEditorToolMorph >> applyChanges [
 	^ false
 ]
 
-{ #category : #building }
+{ #category : 'building' }
 ClyTraitsCommentEditorToolMorph >> buildTextMorph [
 	super buildTextMorph.
 	textMorph beReadOnly
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ClyTraitsCommentEditorToolMorph >> defaultIconName [
 	^ (editingClass traitComposition allTraits anySatisfy: #hasComment)
 		ifTrue: [ #commentsIcon ]
 		ifFalse: [ #uncommentedClass ]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ClyTraitsCommentEditorToolMorph >> defaultTitle [
 	^ 'Traits Comments'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 ClyTraitsCommentEditorToolMorph >> editingText [
 	^ String
 		streamContents: [ :s |
@@ -69,12 +70,12 @@ ClyTraitsCommentEditorToolMorph >> editingText [
 								lf ] ] ]
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 ClyTraitsCommentEditorToolMorph >> printContext [
 	^ super printContext , ' / ' , editingClass name
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 ClyTraitsCommentEditorToolMorph >> setUpDefaultIcon [
 	"Here we duplicate logic of #defaultIconName to directly ask class about comment.
 	This method is called during background tab building.
@@ -87,7 +88,7 @@ ClyTraitsCommentEditorToolMorph >> setUpDefaultIcon [
 	containerTab icon: (self iconNamed: iconName)
 ]
 
-{ #category : #testing }
+{ #category : 'testing' }
 ClyTraitsCommentEditorToolMorph >> wantsTextStyling [
 	^false
 ]

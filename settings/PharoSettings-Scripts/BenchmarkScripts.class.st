@@ -2,12 +2,13 @@
 A bunch on scripts about benchmarking.
 "
 Class {
-	#name : #BenchmarkScripts,
-	#superclass : #Scripts,
-	#category : #'PharoSettings-Scripts'
+	#name : 'BenchmarkScripts',
+	#superclass : 'Scripts',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #benchmarking }
+{ #category : 'benchmarking' }
 BenchmarkScripts class >> benchTestSuite [
 	<script>
 	self open: '| packageSelectionBlock testSuite |
@@ -21,6 +22,6 @@ BenchmarkScripts class >> benchTestSuite [
 	[ testSuite run ] spy'
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 BenchmarkScripts >> seeClassSide [
 ]

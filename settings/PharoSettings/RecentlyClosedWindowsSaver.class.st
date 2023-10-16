@@ -32,36 +32,37 @@ Internal Representation and Key Implementation Points.
 
 "
 Class {
-	#name : #RecentlyClosedWindowsSaver,
-	#superclass : #Object,
+	#name : 'RecentlyClosedWindowsSaver',
+	#superclass : 'Object',
 	#instVars : [
 		'cache'
 	],
 	#classVars : [
 		'UniqueInstance'
 	],
-	#category : #PharoSettings
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RecentlyClosedWindowsSaver class >> default [
 	^ UniqueInstance ifNil: [ UniqueInstance := self new ]
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 RecentlyClosedWindowsSaver class >> initialize [
 	SessionManager default registerUserClassNamed: self name.
 	self startUp: true.
 	self setCalypsoMetaLink
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 RecentlyClosedWindowsSaver class >> reset [
 	<script>
 	UniqueInstance := nil
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 RecentlyClosedWindowsSaver class >> setCalypsoMetaLink [
 	"When a Calypso window is closing, it is removing its content making it impossible to open again the window.
 	To work around the problem I use a metalink to not remove the content."
@@ -99,22 +100,22 @@ RecentlyClosedWindowsSaver class >> setCalypsoMetaLink [
 								control: #instead) ] ]
 ]
 
-{ #category : #'system startup' }
+{ #category : 'system startup' }
 RecentlyClosedWindowsSaver class >> shutDown: isImageQuitting [
 	isImageQuitting ifTrue: [ self reset ]
 ]
 
-{ #category : #'system startup' }
+{ #category : 'system startup' }
 RecentlyClosedWindowsSaver class >> startUp: isImageStarting [
 	isImageStarting ifTrue: [ self default ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 RecentlyClosedWindowsSaver >> flush [
 	cache removeAll
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 RecentlyClosedWindowsSaver >> initialize [
 
 	super initialize.
@@ -126,12 +127,12 @@ RecentlyClosedWindowsSaver >> initialize [
 		for: self
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RecentlyClosedWindowsSaver >> numberOfWindowsToKeep: anInteger [
 	cache maximumWeight: anInteger
 ]
 
-{ #category : #printing }
+{ #category : 'printing' }
 RecentlyClosedWindowsSaver >> printYMDHMS: aDate [
 	^ String
 		streamContents: [ :s |
@@ -140,7 +141,7 @@ RecentlyClosedWindowsSaver >> printYMDHMS: aDate [
 			aDate printHMSOn: s ]
 ]
 
-{ #category : #actions }
+{ #category : 'actions' }
 RecentlyClosedWindowsSaver >> restoreWindow [
 	| labels values |
 	labels := OrderedCollection new.

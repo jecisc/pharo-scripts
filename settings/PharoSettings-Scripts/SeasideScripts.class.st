@@ -2,12 +2,13 @@
 A bunch on scripts seaside.
 "
 Class {
-	#name : #SeasideScripts,
-	#superclass : #Scripts,
-	#category : #'PharoSettings-Scripts'
+	#name : 'SeasideScripts',
+	#superclass : 'Scripts',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeasideScripts class >> enableInImageDebugger [
 	<script>
 	self class environment
@@ -16,13 +17,13 @@ SeasideScripts class >> enableInImageDebugger [
 		ifAbsent: [ self error: 'Seaside dev not loaded' ]
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeasideScripts class >> startOn8080 [
 	<script>
 	(self class environment at: #ZnZincServerAdaptor) startOn: 8080
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeasideScripts class >> startOn8080AndEnableInImageDebugger [
 	<script>
 	self
@@ -30,13 +31,13 @@ SeasideScripts class >> startOn8080AndEnableInImageDebugger [
 		enableInImageDebugger
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeasideScripts class >> stopAdaptors [
 	<script>
 	(self class environment at: #WAServerAdaptor) allSubInstances do: #stop
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 SeasideScripts class >> templateToAddFileToLibraryFromURL [
 	<script>
 	self

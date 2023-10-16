@@ -2,12 +2,13 @@
 A bunch on scripts.
 "
 Class {
-	#name : #Scripts,
-	#superclass : #Object,
-	#category : #'PharoSettings-Scripts'
+	#name : 'Scripts',
+	#superclass : 'Object',
+	#category : 'PharoSettings-Scripts',
+	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Scripts class >> compileIcon [
 
 	<script>
@@ -25,7 +26,7 @@ ThemeIcons compile: iconName, ''
 Smalltalk ui icons perform: iconName asSymbol'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Scripts class >> downloadBooks [
 	<script>
 	self open: '| folder novelFolder page urls |
@@ -48,7 +49,7 @@ Scripts class >> downloadBooks [
 		displayingProgress: [ :novel | novel ]'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Scripts class >> findDependenciesToAPackage [
 
 	<script>
@@ -58,7 +59,7 @@ Scripts class >> findDependenciesToAPackage [
 (report knownDependantsOf: ''Garage'') inspect'
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Scripts class >> findVaribleUsageInSubclasses [
 
 	<script>
@@ -73,7 +74,7 @@ variables
 			yourself ]'
 ]
 
-{ #category : #'instance creation' }
+{ #category : 'instance creation' }
 Scripts class >> methodAnnouncementReceived: anAnnouncement [
 	"No need to rebuild if it contains the world menu pragma"
 
@@ -87,12 +88,12 @@ Scripts class >> methodAnnouncementReceived: anAnnouncement [
 	(anAnnouncement methodAffected methodClass includesBehavior: self class) ifTrue: [ MenubarMorph reset ]
 ]
 
-{ #category : #protocol }
+{ #category : 'protocol' }
 Scripts class >> open: aString [
 	Smalltalk tools workspace openContents: aString
 ]
 
-{ #category : #'as yet unclassified' }
+{ #category : 'as yet unclassified' }
 Scripts class >> updateLauncherList [
 	<script>
 	self open: '
@@ -137,6 +138,6 @@ sources := {
             nextPut: sources ]'
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 Scripts >> seeClassSide [
 ]
