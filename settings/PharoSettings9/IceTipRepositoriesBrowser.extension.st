@@ -1,6 +1,6 @@
-Extension { #name : #IceTipRepositoriesBrowser }
+Extension { #name : 'IceTipRepositoriesBrowser' }
 
-{ #category : #'*PharoSettings9' }
+{ #category : '*PharoSettings9' }
 IceTipRepositoriesBrowser class >> altBuildSelectionCommandGroupWith: args [
 	{
 		IceTipRepairCommand.

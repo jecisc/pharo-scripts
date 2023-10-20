@@ -2,22 +2,23 @@
 I'm a command to open the package manager browser for a project.
 "
 Class {
-	#name : #IceTipBrowsePackagesInGroupCommand,
-	#superclass : #IceTipRepositoryCommand,
-	#category : 'PharoSettings9'
+	#name : 'IceTipBrowsePackagesInGroupCommand',
+	#superclass : 'IceTipRepositoryCommand',
+	#category : 'PharoSettings9',
+	#package : 'PharoSettings9'
 }
 
-{ #category : #'accessing - defaults' }
+{ #category : 'accessing - defaults' }
 IceTipBrowsePackagesInGroupCommand class >> defaultDescription [
 	^ 'Open packages manager browser for this repository in a group'
 ]
 
-{ #category : #'accessing - defaults' }
+{ #category : 'accessing - defaults' }
 IceTipBrowsePackagesInGroupCommand class >> defaultName [
 	^ 'Packages in group'
 ]
 
-{ #category : #executing }
+{ #category : 'executing' }
 IceTipBrowsePackagesInGroupCommand >> execute [
 
 	| group |
@@ -39,12 +40,12 @@ IceTipBrowsePackagesInGroupCommand >> execute [
 			 ifFalse: [ (IceTipWorkingCopyBrowser on: self repositoryModel) open ]) window
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IceTipBrowsePackagesInGroupCommand >> iconName [
 	^ #package
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IceTipBrowsePackagesInGroupCommand >> shortcutKey [
 	^ $i meta
 ]

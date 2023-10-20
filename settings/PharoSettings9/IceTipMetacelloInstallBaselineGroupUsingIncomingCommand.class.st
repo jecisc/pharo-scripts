@@ -2,22 +2,23 @@
 Command to load baseline group using incommings
 "
 Class {
-	#name : #IceTipMetacelloInstallBaselineGroupUsingIncomingCommand,
-	#superclass : #IceTipMetacelloInstallBaselineGroupCommand,
-	#category : #PharoSettings9
+	#name : 'IceTipMetacelloInstallBaselineGroupUsingIncomingCommand',
+	#superclass : 'IceTipMetacelloInstallBaselineGroupCommand',
+	#category : 'PharoSettings9',
+	#package : 'PharoSettings9'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 IceTipMetacelloInstallBaselineGroupUsingIncomingCommand class >> defaultName [
 	^ 'Install baseline using incoming...'
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 IceTipMetacelloInstallBaselineGroupUsingIncomingCommand >> chooseConflictPolicyProject: projectName optionA: optionA optionB: optionB [
 	^ #useIncoming
 ]
 
-{ #category : #private }
+{ #category : 'private' }
 IceTipMetacelloInstallBaselineGroupUsingIncomingCommand >> chooseUpgradePolicyProject: projectName optionA: optionA optionB: optionB [
 	^ #useIncoming
 ]

@@ -1,6 +1,6 @@
-Extension { #name : #ClyMethodEditorToolMorph }
+Extension { #name : 'ClyMethodEditorToolMorph' }
 
-{ #category : #'*PharoSettings9' }
+{ #category : '*PharoSettings9' }
 ClyMethodEditorToolMorph >> myTextChanged: args [
 
 	super textChanged: args anyOne.

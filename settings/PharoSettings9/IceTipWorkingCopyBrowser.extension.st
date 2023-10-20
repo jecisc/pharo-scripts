@@ -1,6 +1,6 @@
-Extension { #name : #IceTipWorkingCopyBrowser }
+Extension { #name : 'IceTipWorkingCopyBrowser' }
 
-{ #category : #'*PharoSettings9' }
+{ #category : '*PharoSettings9' }
 IceTipWorkingCopyBrowser class >> myMetacelloCommandsWith: presenter forRootGroup: aCommandGroup [
 
 	<extensionCommands>

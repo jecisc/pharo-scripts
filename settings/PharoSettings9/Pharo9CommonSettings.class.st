@@ -2,18 +2,19 @@
 Settings for Pharo 9+
 "
 Class {
-	#name : #Pharo9CommonSettings,
-	#superclass : #PharoAbstractSettings,
-	#category : #PharoSettings9
+	#name : 'Pharo9CommonSettings',
+	#superclass : 'PharoAbstractSettings',
+	#category : 'PharoSettings9',
+	#package : 'PharoSettings9'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> calypsoOptions [
 	<script>
 	ClyTextLineNumbersSwitchMorph showLineNumbers: true
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Pharo9CommonSettings class >> disableSomeGTSpotterExtensions [
 	"World menu because it is too long with my scripts."
 
@@ -21,13 +22,13 @@ Pharo9CommonSettings class >> disableSomeGTSpotterExtensions [
 	StWorldMenuProcessor enabled: false
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Pharo9CommonSettings class >> enableFluidClassDefinition [
 	<script>
-	ClassDefinitionPrinter showFluidClassDefinition: true
+	SystemVersion current major < 12 ifTrue:[ClassDefinitionPrinter showFluidClassDefinition: true]
 ]
 
-{ #category : #initialization }
+{ #category : 'initialization' }
 Pharo9CommonSettings class >> formatingOptions [
 
 	<script>
@@ -39,7 +40,7 @@ Pharo9CommonSettings class >> formatingOptions [
 		numberOfNewLinesAfterMethodSignature: 2
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> initialize [
 	self
 		disableSomeGTSpotterExtensions;
@@ -50,7 +51,7 @@ Pharo9CommonSettings class >> initialize [
 		calypsoOptions
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> setMetaLinkForBlockStyler [
 
 	<script>
@@ -61,7 +62,7 @@ Pharo9CommonSettings class >> setMetaLinkForBlockStyler [
 			 control: #instead)
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> setMetaLinkForIcebergBrowseInGroupCommand [
 
 	<script>
@@ -72,12 +73,12 @@ Pharo9CommonSettings class >> setMetaLinkForIcebergBrowseInGroupCommand [
 			 control: #instead)
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> setPlaygroundFolder [
 	<script>
 	StPlayground cacheDirectory: self rootFolder / 'play-cache'
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 Pharo9CommonSettings >> seeClassSide [
 ]
