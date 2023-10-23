@@ -139,6 +139,22 @@ classes do: [ :class |
 	displayingProgress: [ :c | c printString ]'
 ]
 
+{ #category : 'class refactoring' }
+RefactoringScripts class >> rewritePatternsForAllMethods [
+
+	<script>
+	self open: '| rewriter |
+rewriter := RBParseTreeRewriter new
+	            replace: ''`@object = nil ifTrue: `@arg'' with: ''`@object ifNil: `@arg'';
+	            yourself.
+
+SystemNavigation default allMethods do: [ :method |
+	(rewriter executeTree: method ast) ifTrue: [ "We don''t want a method to end up just been a method calling itself."
+		(method ast sendNodes anySatisfy: [ :message | message isSelfSend and: [ message selector = method selector ] ])
+			ifFalse: [ method methodClass compile: method ast formattedCode ]
+			ifTrue: [ ASTCache reset ] ] ]'
+]
+
 { #category : 'see class side' }
 RefactoringScripts >> seeClassSide [
 ]
