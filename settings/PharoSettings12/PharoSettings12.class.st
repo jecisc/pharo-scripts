@@ -31,18 +31,22 @@ PharoSettings12 class >> installShoutTelemetry [
 	sourcesDir := self sharedRepositoryFolder / 'Gabriel-Darbord' / 'opentelemetry-pharo' / 'src'.
 
 	sourcesDir exists
-		ifTrue: [ Metacello new
+		ifTrue: [
+			Metacello new
 				repository: 'tonel://' , sourcesDir fullName;
 				baseline: 'OpenTelemetry';
 				load: 'Shout' ]
-		ifFalse: [ (UIManager default questionWithoutCancel: 'Clone open telemetry?')
-				ifTrue: [ Metacello new
-		githubUser: 'Gabriel-Darbord' project: 'opentelemetry-pharo' commitish: 'main' path: 'src';
-		baseline: 'OpenTelemetry';
-		load: 'Shout' ] ].
-	
-	
-	
+		ifFalse: [
+			(UIManager default questionWithoutCancel: 'Clone open telemetry?') ifTrue: [
+				Metacello new
+					githubUser: 'Gabriel-Darbord'
+					project: 'opentelemetry-pharo'
+					commitish: 'main'
+					path: 'src';
+					baseline: 'OpenTelemetry';
+					load: 'Shout' ] ].
+
+	OTSpanExporter instance folder: (self resourcesFolder / 'ShoutTelemetry') ensureCreateDirectory
 ]
 
 { #category : 'see class side' }
