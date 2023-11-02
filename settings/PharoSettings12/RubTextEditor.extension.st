@@ -1,6 +1,6 @@
-Extension { #name : #RubTextEditor }
+Extension { #name : 'RubTextEditor' }
 
-{ #category : #'*PharoSettings12' }
+{ #category : '*PharoSettings12' }
 RubTextEditor >> mySelectWord [
 	"Select delimited text or word--the result of double-clicking."
 

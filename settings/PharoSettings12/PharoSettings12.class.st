@@ -1,10 +1,11 @@
 Class {
-	#name : #PharoSettings12,
-	#superclass : #PharoAbstractSettings,
-	#category : #PharoSettings12
+	#name : 'PharoSettings12',
+	#superclass : 'PharoAbstractSettings',
+	#category : 'PharoSettings12',
+	#package : 'PharoSettings12'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PharoSettings12 class >> doNotSelectHashtagWhenSelectingSymbols [
 
 	<script>
@@ -14,12 +15,36 @@ PharoSettings12 class >> doNotSelectHashtagWhenSelectingSymbols [
 			 control: #instead)
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PharoSettings12 class >> initialize [
 
-	self doNotSelectHashtagWhenSelectingSymbols
+	self
+		doNotSelectHashtagWhenSelectingSymbols;
+		installShoutTelemetry
 ]
 
-{ #category : #'see class side' }
+{ #category : 'class initialization' }
+PharoSettings12 class >> installShoutTelemetry [
+
+	<script>
+	| sourcesDir |
+	sourcesDir := self sharedRepositoryFolder / 'Gabriel-Darbord' / 'opentelemetry-pharo' / 'src'.
+
+	sourcesDir exists
+		ifTrue: [ Metacello new
+				repository: 'tonel://' , sourcesDir fullName;
+				baseline: 'OpenTelemetry';
+				load: 'Shout' ]
+		ifFalse: [ (UIManager default questionWithoutCancel: 'Clone open telemetry?')
+				ifTrue: [ Metacello new
+		githubUser: 'Gabriel-Darbord' project: 'opentelemetry-pharo' commitish: 'main' path: 'src';
+		baseline: 'OpenTelemetry';
+		load: 'Shout' ] ].
+	
+	
+	
+]
+
+{ #category : 'see class side' }
 PharoSettings12 >> seeClassSide [
 ]
