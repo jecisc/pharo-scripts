@@ -16,11 +16,19 @@ PharoSettings12 class >> doNotSelectHashtagWhenSelectingSymbols [
 ]
 
 { #category : 'class initialization' }
+PharoSettings12 class >> enableProjectViewOfCalypso [
+
+	<script>
+	ClyFullBrowserMorph shouldDisplayProjectView: true
+]
+
+{ #category : 'class initialization' }
 PharoSettings12 class >> initialize [
 
 	self
 		doNotSelectHashtagWhenSelectingSymbols;
-		installShoutTelemetry
+		installShoutTelemetry;
+		enableProjectViewOfCalypso
 ]
 
 { #category : 'class initialization' }
