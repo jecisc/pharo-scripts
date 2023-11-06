@@ -282,13 +282,13 @@ PharoCommonSettings class >> setFonts [
 	| provider |
 	provider := FreeTypeFontProvider current.
 
-	((provider platformAbsoluteDirectories flatCollect: #files) select: [ :e | e basenameWithoutExtension beginsWith: 'Roboto' ])
-		ifEmpty: [ self inform: 'Roboto is not installed' ]
+	((provider platformAbsoluteDirectories flatCollect: #files) select: [ :e | e basename beginsWith: 'Noto' ])
+		ifEmpty: [ self inform: 'Font is not installed' ]
 		ifNotEmpty: [ :fonts |
 			fonts do: [ :file | provider updateFromFile: file ].
 			provider updateAvailableFontFamilies.
-			StandardFonts defaultFont: (LogicalFont familyName: 'Roboto' pointSize: 10).
-			GraphicFontSettings resetAllFontToDefaultButton ]
+			StandardFonts defaultFont: (LogicalFont familyName: 'Noto Sans' pointSize: 10).
+			GraphicFontSettings resetAllFontToDefault ]
 ]
 
 { #category : 'class initialization' }
