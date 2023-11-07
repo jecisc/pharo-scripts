@@ -19,7 +19,8 @@ PharoSettings12 class >> doNotSelectHashtagWhenSelectingSymbols [
 PharoSettings12 class >> enableProjectViewOfCalypso [
 
 	<script>
-	ClyFullBrowserMorph shouldDisplayProjectView: true
+	"disabled for now :("
+	"ClyFullBrowserMorph shouldDisplayProjectView: true"
 ]
 
 { #category : 'class initialization' }
