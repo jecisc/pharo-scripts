@@ -293,10 +293,11 @@ PharoCommonSettings class >> setFonts [
 
 { #category : 'class initialization' }
 PharoCommonSettings class >> setRandomBackground [
+
 	<script>
-	[ | files |
-	self shouldBeSFW traceCr.
-	files := (self shouldBeSFW ifTrue: [ self backgroundFolder / 'SFW' ] ifFalse: [ self backgroundFolder ]) allFiles.
+	[
+	| files |
+	files := self backgroundFolder allFiles.
 	files := files reject: [ :f | f basename beginsWith: '.' ].
 	PolymorphSystemSettings desktopImageFileName: (files at: UUID new asInteger \\ files size + 1) fullName ] fork
 ]

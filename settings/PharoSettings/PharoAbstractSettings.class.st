@@ -61,8 +61,3 @@ PharoAbstractSettings class >> sharedRepositoryFolder [
 			file writeStreamDo: [ :s | s nextPutAll: (STON toStringPretty: cred) ] ].
 	^ ((STON fromString: file contents) at: #dir) asFileReference
 ]
-
-{ #category : 'asserting' }
-PharoAbstractSettings class >> shouldBeSFW [
-	^ CommandLineArguments default hasOption: 'sfw'
-]
