@@ -14,7 +14,10 @@ IceTipWorkingCopyBrowser class >> myMetacelloCommandsWith: presenter forRootGrou
 		IceTipMetacelloInstallBaselineGroupUsingIncomingCommand.
 		IceTipMetacelloInstallBaselineGroupUsingLoadedCommand.
 		IceTipMetacelloInstallDefaultUsingIncommingCommand.
-		IceTipMetacelloInstallDefaultUsingLoadedCommand } do: [ :each | newGroup register: each forSpec ].
+		IceTipMetacelloInstallDefaultUsingLoadedCommand } do: [ :each |
+		newGroup register: (SystemVersion current major < 12
+				 ifTrue: [ each forSpec ]
+				 ifFalse: [ each forSpecContext: presenter ]) ].
 
 	aCommandGroup / self selectionCommandGroupName register: newGroup
 ]
