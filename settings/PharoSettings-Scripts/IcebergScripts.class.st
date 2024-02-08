@@ -9,6 +9,14 @@ Class {
 }
 
 { #category : 'removing' }
+IcebergScripts class >> forceTonelExport [
+	<script>
+	self open: 'repository := IceRepository repositories detect: [ :repo | repo name = ''Toplo'' ].
+repository workingCopy packages do: [ :pkg |
+IceLibgitTonelWriter forInternalStoreFileOut: pkg latestVersion mcVersion on: repository ]'
+]
+
+{ #category : 'removing' }
 IcebergScripts class >> removePackagesFromIcebergRepository [
 	<script>
 	self open: '(IceRepository registry detect: [ :e | e name = ''MyProject'' ]) workingCopy packages
