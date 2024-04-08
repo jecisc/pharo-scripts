@@ -1,6 +1,6 @@
-Extension { #name : #FileLocator }
+Extension { #name : 'FileLocator' }
 
-{ #category : #'*PharoSettings8' }
+{ #category : '*PharoSettings8' }
 FileLocator class >> googleDrive [
 	^ self origin: #googleDrive
 ]

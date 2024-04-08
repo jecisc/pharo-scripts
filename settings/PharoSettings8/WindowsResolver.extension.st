@@ -1,6 +1,6 @@
-Extension { #name : #WindowsResolver }
+Extension { #name : 'WindowsResolver' }
 
-{ #category : #'*PharoSettings8' }
+{ #category : '*PharoSettings8' }
 WindowsResolver >> googleDrive [
 
 	"I have 2 windows so I try both"

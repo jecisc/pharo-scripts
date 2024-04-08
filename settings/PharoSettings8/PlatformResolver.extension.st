@@ -1,6 +1,6 @@
-Extension { #name : #PlatformResolver }
+Extension { #name : 'PlatformResolver' }
 
-{ #category : #'*PharoSettings8' }
+{ #category : '*PharoSettings8' }
 PlatformResolver >> googleDrive [
 	<origin>
 	^ self home / 'Google Drive'

@@ -14,7 +14,7 @@ Pharo9CommonSettings class >> calypsoOptions [
 	ClyTextLineNumbersSwitchMorph showLineNumbers: true
 ]
 
-{ #category : 'initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> disableSomeGTSpotterExtensions [
 	"World menu because it is too long with my scripts."
 
@@ -22,13 +22,13 @@ Pharo9CommonSettings class >> disableSomeGTSpotterExtensions [
 	StWorldMenuProcessor enabled: false
 ]
 
-{ #category : 'initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> enableFluidClassDefinition [
 	<script>
 	SystemVersion current major < 12 ifTrue:[ClassDefinitionPrinter showFluidClassDefinition: true]
 ]
 
-{ #category : 'initialization' }
+{ #category : 'class initialization' }
 Pharo9CommonSettings class >> formatingOptions [
 
 	<script>
@@ -48,7 +48,29 @@ Pharo9CommonSettings class >> initialize [
 		setPlaygroundFolder;
 		setMetaLinkForIcebergBrowseInGroupCommand;
 		enableFluidClassDefinition;
-		calypsoOptions
+		calypsoOptions;
+		installFlagBrowser
+]
+
+{ #category : 'class initialization' }
+Pharo9CommonSettings class >> installFlagBrowser [
+	<script>
+	| sourcesDir |
+	sourcesDir := self sharedRepositoryFolder / 'jecisc' / 'FlagBrowser' / 'src'.
+
+	sourcesDir exists
+		ifTrue: [ Metacello new
+				repository: 'tonel://' , sourcesDir fullName;
+				baseline: 'FlagBrowser';
+				load ]
+		ifFalse: [ (UIManager default questionWithoutCancel: 'Clone FlagBrowser?')
+				ifTrue: [ Metacello new
+						githubUser: 'jecisc'
+							project: 'FlagBrowser'
+							commitish: 'master'
+							path: 'src';
+						baseline: 'FlagBrowser';
+						load ] ]
 ]
 
 { #category : 'class initialization' }
