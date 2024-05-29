@@ -15,8 +15,8 @@ Class >> altDuplicateClassWithNewName: args [
 			fillFor: self;
 			name: copysName].
 
-	class copyAllCategoriesFrom: self.
-	class class copyAllCategoriesFrom: self class.
+	class copyAllMethodsFrom: self.
+	class class copyAllMethodsFrom: self class.
 	class comment: self comment.
 	^ class
 ]
