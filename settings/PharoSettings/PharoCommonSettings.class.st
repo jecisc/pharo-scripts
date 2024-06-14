@@ -243,7 +243,7 @@ PharoCommonSettings class >> removeSomeRules [
 	#(#GRNonPortableSourceFormatRule #GRTestAssertionsRule #GRUsesCurlyBraceArraysRule #GRAnsiStreamsRule #GRAnsiExceptionsRule #GREmptyStatementsRule #GRInvalidObjectInitializationRule #GRUsesLiteralByteArraysRule #GRAnsiStringsRule #GRAnsiConvertorRule #GRObjectInRule #GRNonPortableMessageRule #GRAnsiConditionalsRule #GRAnsiBooleansRule #GRBasicNewInitializeMissingRule #GRAnsiCollectionsRule #GRUsesClassForHashRule #GRUsesCanPerformOrUnderstandRule #GRUsesNotPortableClassRule #GRNotPortableCollectionsRule #GRUsesMethodAnnotationsRule #GRAnsiCharactersRule)
 		do: [ :each | self environment at: each ifPresent: [ :class | class enabled: false ] ].
 
-	#(#RBShouldntRaiseErrorRule #ReShouldntRaiseErrorRule) do: [ :each | self environment at: each ifPresent: [ :class | class enabled: false ] ].
+	#(#RBShouldntRaiseErrorRule #ReShouldntRaiseErrorRule #ReCollectionMessagesToExternalObjectRule) do: [ :each | self environment at: each ifPresent: [ :class | class enabled: false ] ].
 
 	ReRuleManager reset
 ]
