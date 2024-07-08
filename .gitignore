@@ -19,3 +19,5 @@ org\.pharo\.gt\.spotter\.event\.recorder\.fuel
 org\.pharo\.global-identifiers\.ston
 
 SettingRessources/loc
+
+SettingRessources/ShoutTelemetry/
