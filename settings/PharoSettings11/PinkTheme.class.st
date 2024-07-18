@@ -2,29 +2,30 @@
 a Pink theme
 "
 Class {
-	#name : #PinkTheme,
-	#superclass : #ColoredBasedTheme,
-	#category : #PharoSettings11
+	#name : 'PinkTheme',
+	#superclass : 'ColoredBasedTheme',
+	#category : 'PharoSettings11',
+	#package : 'PharoSettings11'
 }
 
-{ #category : #query }
+{ #category : 'query' }
 PinkTheme class >> beCurrent [
 	<script>
 	super beCurrent
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 PinkTheme class >> colorConfiguratorClass [
 
 	^ PinkThemeConfigurator
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 PinkTheme class >> themeName [
 	^ 'Pink Theme'
 ]
 
-{ #category : #'fill-styles' }
+{ #category : 'fill-styles' }
 PinkTheme >> progressBarProgressFillStyleFor: aProgressBar [
 	"Answer the colour for the given progress bar."
 

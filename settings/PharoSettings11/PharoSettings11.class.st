@@ -2,19 +2,20 @@
 Settings for Pharo 11+
 "
 Class {
-	#name : #PharoSettings11,
-	#superclass : #PharoAbstractSettings,
-	#category : #PharoSettings11
+	#name : 'PharoSettings11',
+	#superclass : 'PharoAbstractSettings',
+	#category : 'PharoSettings11',
+	#package : 'PharoSettings11'
 }
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PharoSettings11 class >> debuggerCustomizations [
 
 	<script>
 	StDebuggerActionModel shouldFilterStack: false
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PharoSettings11 class >> initialize [
 
 	self
@@ -22,13 +23,13 @@ PharoSettings11 class >> initialize [
 		debuggerCustomizations
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 PharoSettings11 class >> spotterCustomizations [
 	<script>
 
 	StSpotter insertsSelection: false
 ]
 
-{ #category : #'see class side' }
+{ #category : 'see class side' }
 PharoSettings11 >> seeClassSide [
 ]

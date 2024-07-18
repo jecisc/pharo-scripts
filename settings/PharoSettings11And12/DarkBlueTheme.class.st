@@ -2,12 +2,13 @@
 Dark blue theme for Pharo.
 "
 Class {
-	#name : #DarkBlueTheme,
-	#superclass : #PharoDarkTheme,
-	#category : #PharoSettings11
+	#name : 'DarkBlueTheme',
+	#superclass : 'PharoDarkTheme',
+	#category : 'PharoSettings11And12',
+	#package : 'PharoSettings11And12'
 }
 
-{ #category : #query }
+{ #category : 'query' }
 DarkBlueTheme class >> beCurrent [
 
 	<script>
@@ -15,25 +16,25 @@ DarkBlueTheme class >> beCurrent [
 	PharoCommonSettings setThemeSetting
 ]
 
-{ #category : #configuration }
+{ #category : 'configuration' }
 DarkBlueTheme class >> colorConfiguratorClass [
 
 	^ DarkBlueThemeConfigurator
 ]
 
-{ #category : #'class initialization' }
+{ #category : 'class initialization' }
 DarkBlueTheme class >> initialize [
 
 	BlockStyler defaultThemes at: self put: (Color lightBlue alpha: 0.05).
 	self beCurrent
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DarkBlueTheme class >> themeName [
 	^ 'DarkBlue'
 ]
 
-{ #category : #'border-styles - buttons' }
+{ #category : 'border-styles - buttons' }
 DarkBlueTheme >> buttonNormalBorderStyleFor: aButton [
 	"Return the normal button borderStyle for the given button."
 
@@ -48,13 +49,13 @@ DarkBlueTheme >> buttonNormalBorderStyleFor: aButton [
 		baseColor: self buttonColor darker
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 DarkBlueTheme >> shStyleTableName [
 
 	^ #darkBlueStyleTable
 ]
 
-{ #category : #'fill-styles' }
+{ #category : 'fill-styles' }
 DarkBlueTheme >> windowInactiveFillStyleFor: aWindow [
 	"We do not want the lighting effect when the window goes inactive"
 

@@ -1,6 +1,6 @@
-Extension { #name : #SHRBTextStyler }
+Extension { #name : 'SHRBTextStyler' }
 
-{ #category : #'*PharoSettings11' }
+{ #category : '*PharoSettings11' }
 SHRBTextStyler class >> darkBlueStyleTable [
 	<styleTable: 'DarkBlue'>
 

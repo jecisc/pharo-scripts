@@ -2,22 +2,23 @@
 Red theme configurator
 "
 Class {
-	#name : #RedThemeConfigurator,
-	#superclass : #ColoredBasedThemeConfigurator,
-	#category : #PharoSettings11
+	#name : 'RedThemeConfigurator',
+	#superclass : 'ColoredBasedThemeConfigurator',
+	#category : 'PharoSettings11',
+	#package : 'PharoSettings11'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 RedThemeConfigurator >> baseColor [
 	^ Color fromHexString: 'c62828'
 ]
 
-{ #category : #'accessing colors' }
+{ #category : 'accessing colors' }
 RedThemeConfigurator >> selectionColor [
 	^ Color fromHexString: '73264d'
 ]
 
-{ #category : #'accessing colors' }
+{ #category : 'accessing colors' }
 RedThemeConfigurator >> selectionTextColor [
 	^ Color fromHexString: '993366'
 ]

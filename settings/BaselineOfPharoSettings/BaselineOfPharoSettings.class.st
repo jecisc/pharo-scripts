@@ -1,10 +1,11 @@
 Class {
-	#name : #BaselineOfPharoSettings,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfPharoSettings
+	#name : 'BaselineOfPharoSettings',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfPharoSettings',
+	#package : 'BaselineOfPharoSettings'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfPharoSettings >> baseline: spec [
 	<baseline>
 	spec
@@ -31,10 +32,14 @@ BaselineOfPharoSettings >> baseline: spec [
 	spec for: #(#'pharo7.x' #'pharo8.x' #'pharo9.x' #'pharo10.x') do: [ spec package: 'PharoSettingsUpTo10' with: [ spec requires: #('PharoSettings') ] ].
 
 	"This is to fix a bug in Pharo 9 that is fixed in Pharo 10"
-	spec for: #'pharo9.x' do: [ spec package: 'PharoSettings9-Specific' with: [ spec requires: #('PharoSettings') ] ]
+	spec for: #'pharo9.x' do: [ spec package: 'PharoSettings9-Specific' with: [ spec requires: #('PharoSettings') ] ].
+
+	"Dark Blue Theme before I integrated it in Pharo."
+	spec for: #(#'pharo11.x' #'pharo12.x') do: [ spec package: 'PharoSettings11And12' with: [ spec requires: #('PharoSettings') ] ].	
+
 ]
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfPharoSettings >> pharoVersionsFrom: aVersion [
 	^ (aVersion to: SystemVersion current major) collect: [ :v | ('pharo' , v asString , '.x') asSymbol ]
 ]

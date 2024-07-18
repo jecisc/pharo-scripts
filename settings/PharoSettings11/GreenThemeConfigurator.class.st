@@ -2,17 +2,18 @@
 Green theme configurator.
 "
 Class {
-	#name : #GreenThemeConfigurator,
-	#superclass : #ColoredBasedThemeConfigurator,
-	#category : #PharoSettings11
+	#name : 'GreenThemeConfigurator',
+	#superclass : 'ColoredBasedThemeConfigurator',
+	#category : 'PharoSettings11',
+	#package : 'PharoSettings11'
 }
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GreenThemeConfigurator >> baseColor [
 	^ Color fromHexString: '1F774D'
 ]
 
-{ #category : #accessing }
+{ #category : 'accessing' }
 GreenThemeConfigurator >> selectionColor [
 	^ Color fromHexString: '1F774D'
 ]
