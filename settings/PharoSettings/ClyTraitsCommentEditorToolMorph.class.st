@@ -83,7 +83,7 @@ ClyTraitsCommentEditorToolMorph >> setUpDefaultIcon [
 
 	| iconName |
 	iconName := (editingClass traitComposition allTraits anySatisfy: #hasComment)
-		ifTrue: [ #commentsIcon ]
+		ifTrue: [ #comments ]
 		ifFalse: [ #uncommentedClass ].
 	containerTab icon: (self iconNamed: iconName)
 ]
