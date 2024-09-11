@@ -43,7 +43,7 @@ ClyTraitsCommentEditorToolMorph >> buildTextMorph [
 { #category : 'initialization' }
 ClyTraitsCommentEditorToolMorph >> defaultIconName [
 	^ (editingClass traitComposition allTraits anySatisfy: #hasComment)
-		ifTrue: [ #commentsIcon ]
+		ifTrue: [ #comments ]
 		ifFalse: [ #uncommentedClass ]
 ]
 
