@@ -86,3 +86,10 @@ Object >> toKill [
 	self flag: #toKill.
 	('Method to kill ' , thisContext sender method printString , ' called by ' , thisContext sender sender method printString) logCr
 ]
+
+{ #category : '*PharoSettings' }
+Object >> todo [
+	"If it is not enabled, do not block the flow. I'll see later to implements those features."
+
+	OwO isTodoEnabled ifTrue: [ self shouldBeImplemented ]
+]

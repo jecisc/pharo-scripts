@@ -5,7 +5,8 @@ Class {
 	#name : 'PharoQuickAccess',
 	#superclass : 'PharoAbstractSettings',
 	#instVars : [
-		'counter'
+		'counter',
+		'isTodoEnabled'
 	],
 	#classVars : [
 		'UniqueInstance'
@@ -363,7 +364,8 @@ PharoQuickAccess >> increment [
 { #category : 'initialization' }
 PharoQuickAccess >> initialize [
 	super initialize.
-	self resetCounter
+	self resetCounter.
+	isTodoEnabled := false
 ]
 
 { #category : 'loading' }
@@ -398,6 +400,12 @@ PharoQuickAccess >> installWebPokedex [
 		load.
 
 	(Smalltalk at: #WPServer) readStonModelWithContextFile: '../../GitRepositories/WebPokedex/Ressources/devContext.ston'
+]
+
+{ #category : 'initialization' }
+PharoQuickAccess >> isTodoEnabled [
+
+	^ isTodoEnabled
 ]
 
 { #category : 'conveniance' }
@@ -477,6 +485,13 @@ PharoQuickAccess >> toggleTheme [
 		ifFalse: [ dark ]) beCurrent.
 
 	PharoCommonSettings setThemeSetting
+]
+
+{ #category : 'conveniance' }
+PharoQuickAccess >> toggleTodoBlocking [
+
+	<name: 'Toggle todo blocking'>
+	isTodoEnabled := isTodoEnabled not
 ]
 
 { #category : 'conveniance' }
