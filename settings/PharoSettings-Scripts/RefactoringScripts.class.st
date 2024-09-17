@@ -11,12 +11,12 @@ Class {
 { #category : 'class refactoring' }
 RefactoringScripts class >> batchClassRename [
 	<script>
-	self open: '	classes := (RPackageOrganizer includingSubstring: ''Name'') flatCollect: #definedClasses.
+	self open: 'classes := (self packageOrganizer packages select: [ :p | p name includesSubstring: ''Name'' ]) flatCollect: #definedClasses.
 oldPrefix := ''old''.
 newPrefix := ''new''.
 
 classes
-	do: [ :class | (class name beginsWith: oldPrefix) ifTrue: [ (RBRenameClassRefactoring rename: class name to: newPrefix , (class name withoutPrefix: oldPrefix)) execute ] ]'
+	do: [ :class | (class name beginsWith: oldPrefix) ifTrue: [ (ReRenameClassRefactoring rename: class name to: newPrefix , (class name withoutPrefix: oldPrefix)) execute ] ]'
 ]
 
 { #category : 'class refactoring' }
