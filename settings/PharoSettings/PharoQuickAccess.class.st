@@ -356,6 +356,13 @@ PharoQuickAccess >> groupWindowForGitReposWithPatter [
 			(group openInWindowLabeled: 'Common repos') expandBoxHit ]
 ]
 
+{ #category : 'conveniance' }
+PharoQuickAccess >> importReader [
+
+	<name: #'Import reader'>
+	[ FamixPythonImporter import: '/Users/cyril/testPython/reader' asFileReference ] spy
+]
+
 { #category : 'counter' }
 PharoQuickAccess >> increment [
 	counter := counter + 1
