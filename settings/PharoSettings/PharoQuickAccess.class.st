@@ -360,6 +360,7 @@ PharoQuickAccess >> groupWindowForGitReposWithPatter [
 PharoQuickAccess >> importReader [
 
 	<name: #'Import reader'>
+	"38000 LoC"
 	[ FamixPythonImporter import: '/Users/cyril/testPython/reader' asFileReference ] spy
 ]
 
