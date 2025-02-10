@@ -1,3 +1,4 @@
 {
-	'srcDirectory' : 'settings'
+	'srcDirectory' : 'src',
+	'tags' : [ #Moose ]
 }
