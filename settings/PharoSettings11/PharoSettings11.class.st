@@ -9,18 +9,9 @@ Class {
 }
 
 { #category : 'class initialization' }
-PharoSettings11 class >> debuggerCustomizations [
-
-	<script>
-	StDebuggerActionModel shouldFilterStack: false
-]
-
-{ #category : 'class initialization' }
 PharoSettings11 class >> initialize [
 
-	self
-		spotterCustomizations;
-		debuggerCustomizations
+	self spotterCustomizations
 ]
 
 { #category : 'class initialization' }
