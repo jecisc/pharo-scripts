@@ -53,7 +53,7 @@ Scripts class >> downloadBooks [
 Scripts class >> findDependenciesToAPackage [
 
 	<script>
-	self open: 'report := DADependencyChecker new computeImageDependencies.
+	self open: 'report := StDependencyChecker new computeImageDependencies.
 
 
 (report knownDependantsOf: ''Garage'') inspect'
