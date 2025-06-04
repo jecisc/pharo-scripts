@@ -13,9 +13,29 @@ ReInsecableSpaceRule class >> checksMethod [
 	^ true
 ]
 
+{ #category : 'accessing' }
+ReInsecableSpaceRule class >> group [
+	^ 'Bugs'
+]
+
 { #category : 'class initialization' }
 ReInsecableSpaceRule class >> initialize [
 	ReRuleManager resetWithInform
+]
+
+{ #category : 'accessing' }
+ReInsecableSpaceRule class >> rationale [
+	^ 'Insecable spaces might break a lot of code and is usually unitentional.'
+]
+
+{ #category : 'accessing' }
+ReInsecableSpaceRule class >> ruleName [
+	^ 'There is an insequable space that might break the method.'
+]
+
+{ #category : 'accessing' }
+ReInsecableSpaceRule class >> severity [
+	^ #error
 ]
 
 { #category : 'helpers' }
@@ -30,20 +50,24 @@ ReInsecableSpaceRule >> basicCheck: aMethod [
 
 { #category : 'accessing' }
 ReInsecableSpaceRule >> group [
-	^ 'Bugs'
+
+	^ self class group
 ]
 
 { #category : 'accessing' }
 ReInsecableSpaceRule >> name [
-	^ 'There is an insequable space that might break the method.'
+
+	^ self class ruleName
 ]
 
 { #category : 'accessing' }
 ReInsecableSpaceRule >> rationale [
-	^ 'Insecable spaces might break a lot of code and is usually unitentional.'
+
+	^ self class rationale
 ]
 
 { #category : 'accessing' }
 ReInsecableSpaceRule >> severity [
-	^ #error
+
+	^ self class severity
 ]
