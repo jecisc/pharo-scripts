@@ -1,63 +1,62 @@
 Extension { #name : 'Object' }
 
 { #category : '*PharoSettings' }
-Object >> compileGetterNamed: var [
-	self class
-		compile:
-			(String
-				streamContents: [ :s |
-					s
-						<< var;
-						cr;
-						<< Character tab;
-						<< '^ ';
-						<< var ])
+Object >> compileGetterNamed: var in: class [
+
+	class
+		compile: (String streamContents: [ :s |
+					 s
+						 << var;
+						 cr;
+						 << Character tab;
+						 << '^ ';
+						 << var ])
 		classified: 'accessing'.
-	UIManager default inform: 'Compiled: ' , var , ' into: ' , self printString
+	self inform: 'Compiled: ' , var , ' into: ' , class printString
 ]
 
 { #category : '*PharoSettings' }
-Object >> compileSetterNamed: message returning: var [
-	self class
-		compile:
-			(String
-				streamContents: [ :s |
-					s
-						<< message;
-						<< ' anObject';
-						<< String cr;
-						<< Character tab;
-						<< var;
-						<< ' := anObject' ])
+Object >> compileSetterNamed: message returning: var in: class [
+
+	class
+		compile: (String streamContents: [ :s |
+					 s
+						 << message;
+						 << ' anObject';
+						 << String cr;
+						 << Character tab;
+						 << var;
+						 << ' := anObject' ])
 		classified: 'accessing'.
-	UIManager default inform: 'Compiled: ' , message , ' into: ' , self printString
+	self inform: 'Compiled: ' , message , ' into: ' , class printString
 ]
 
 { #category : '*PharoSettings' }
 Object >> generatesPotentialSetterOrGetterWith: anArray context: context [
+
 	<debuggerCompleteToSender>
 	| message aMessage selectorsToIgnore |
-
 	"In some cases I want to not generate the accessors."
-	selectorsToIgnore := #(
-	'buttonPresenter' 'subpresenter1' 'subpresenter2' 'subpresenter3' 'subpresenter4' 	"This one is in a Spec Mock to test usage of the Interpreter when there is no getter. So I do not want to generate a getter for the test. Remove when I will not work on Spec anymore."
-	).
+	selectorsToIgnore := #( 'buttonPresenter' 'subpresenter1' 'subpresenter2' 'subpresenter3' 'subpresenter4' ). "This one is in a Spec Mock to test usage of the Interpreter when there is no getter. So I do not want to generate a getter for the test. Remove when I will not work on Spec anymore."
 
 	aMessage := anArray anyOne.
 	message := aMessage selector asString.
 	(selectorsToIgnore includes: message) ifTrue: [ ^ self ].
 	(self class allSuperclasses anySatisfy: [ :c | c name = #PP2CompositeNode ]) ifTrue: [ ^ self ].
-	message last = $:
-		ifTrue: [ self class instVarNames
-				detect: [ :var | var = message allButLast ]
-				ifFound: [ :var |
-					self compileSetterNamed: message returning: var.
-					context return: (aMessage sentTo: self) ] ]
-		ifFalse: [ self class instVarNames
-				detect: [ :var | var = message ]
-				ifFound: [ :var |
-					self compileGetterNamed: var.
-					context return: (aMessage sentTo: self) ] ]
+	self class withAllSuperclassesDo: [ :class |
+			message last = $:
+				ifTrue: [
+						class instVarNames
+							detect: [ :var | var = message allButLast ]
+							ifFound: [ :var |
+									self compileSetterNamed: message returning: var in: class.
+									context return: (aMessage sentTo: self) ] ]
+				ifFalse: [
+						class instVarNames
+							detect: [ :var | var = message ]
+							ifFound: [ :var |
+									self compileGetterNamed: var in: class.
+									context return: (aMessage sentTo: self) ] ] ]
 ]
 
 { #category : '*PharoSettings' }
