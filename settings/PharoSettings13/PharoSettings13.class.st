@@ -8,6 +8,7 @@ Class {
 { #category : 'class initialization' }
 PharoSettings13 class >> initFileBrowserSettings [
 
+	<script>
 	StFileBrowserSettings
 		showHiddenFiles: true;
 		openOnLastDirectory: true.
