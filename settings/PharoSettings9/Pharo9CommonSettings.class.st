@@ -54,23 +54,27 @@ Pharo9CommonSettings class >> initialize [
 
 { #category : 'class initialization' }
 Pharo9CommonSettings class >> installFlagBrowser [
+
 	<script>
 	| sourcesDir |
 	sourcesDir := self sharedRepositoryFolder / 'jecisc' / 'FlagBrowser' / 'src'.
 
 	sourcesDir exists
-		ifTrue: [ Metacello new
-				repository: 'tonel://' , sourcesDir fullName;
-				baseline: 'FlagBrowser';
-				load ]
-		ifFalse: [ (UIManager default questionWithoutCancel: 'Clone FlagBrowser?')
-				ifTrue: [ Metacello new
-						githubUser: 'jecisc'
+		ifTrue: [
+				Metacello new
+					repository: 'tonel://' , sourcesDir fullName;
+					baseline: 'FlagBrowser';
+					load.
+				self registerIfPresentProjectOf: 'jecisc' named: 'FlagBrowser' ]
+		ifFalse: [
+				(UIManager default questionWithoutCancel: 'Clone FlagBrowser?') ifTrue: [
+						Metacello new
+							githubUser: 'jecisc'
 							project: 'FlagBrowser'
 							commitish: 'master'
 							path: 'src';
-						baseline: 'FlagBrowser';
-						load ] ]
+							baseline: 'FlagBrowser';
+							load ] ]
 ]
 
 { #category : 'class initialization' }
