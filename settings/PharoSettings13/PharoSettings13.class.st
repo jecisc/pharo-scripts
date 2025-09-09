@@ -11,14 +11,7 @@ PharoSettings13 class >> initFileBrowserSettings [
 	<script>
 	StFileBrowserSettings
 		showHiddenFiles: true;
-		openOnLastDirectory: true.
-
-
-	StFileSystemModel addBookmarkNamed: 'pharo' location: FileLocator preferences / 'pharo' iconName: #git.
-	StFileSystemModel
-		addBookmarkNamed: 'Proton drive'
-		location: '/Users/cyril/Library/CloudStorage/ProtonDrive-cyril@ferlicot.fr' asFileReference
-		iconName: #package
+		openOnLastDirectory: true
 ]
 
 { #category : 'class initialization' }
