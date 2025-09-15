@@ -1,6 +1,6 @@
 Extension { #name : 'WindowsResolver' }
 
-{ #category : '*PharoSettings8' }
+{ #category : '*PharoSettings' }
 WindowsResolver >> googleDrive [
 
 	"I have 2 windows so I try both"
@@ -11,4 +11,11 @@ WindowsResolver >> googleDrive [
 	^ firstOrigin exists
 		  ifTrue: [ firstOrigin ]
 		  ifFalse: [ FileLocator E / 'GoogleDrive' ]
+]
+
+{ #category : '*PharoSettings' }
+WindowsResolver >> protonDrive [
+
+	<origin>
+	self shouldBeImplemented
 ]
