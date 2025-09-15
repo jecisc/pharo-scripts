@@ -327,13 +327,6 @@ PharoCommonSettings class >> setAppearance [
 ]
 
 { #category : 'class initialization' }
-PharoCommonSettings class >> setAuthorName [
-	<script>
-	"I should move it to a package not loaded in P13"
-	SystemVersion current major < 13 ifTrue: [Author fullName: 'CyrilFerlicot']
-]
-
-{ #category : 'class initialization' }
 PharoCommonSettings class >> setFonts [
 	<script>
 	| provider |
