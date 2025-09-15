@@ -47,6 +47,12 @@ PharoCommonSettings class >> addMetaLinkForDNUTrick [
 ]
 
 { #category : 'class initialization' }
+PharoCommonSettings class >> calypsoOptions [
+	<script>
+	ClyTextLineNumbersSwitchMorph showLineNumbers: true
+]
+
+{ #category : 'class initialization' }
 PharoCommonSettings class >> closeWelcomeWindow [
 	<script>
 	World submorphs select: [ :m | m isSystemWindow and: [ m label includesSubstring: 'Welcome' ] ] thenDo: #delete
@@ -92,13 +98,40 @@ PharoCommonSettings class >> disableSampleInstance [
 ]
 
 { #category : 'class initialization' }
+PharoCommonSettings class >> disableSomeGTSpotterExtensions [
+	"World menu because it is too long with my scripts."
+
+	<script>
+	StWorldMenuProcessor enabled: false
+]
+
+{ #category : 'class initialization' }
+PharoCommonSettings class >> enableFluidClassDefinition [
+	<script>
+	SystemVersion current major < 12 ifTrue:[ClassDefinitionPrinter showFluidClassDefinition: true]
+]
+
+{ #category : 'class initialization' }
 PharoCommonSettings class >> enableStackColoring [
 	<script>
 	SystemVersion current major < 9 ifTrue: [ Smalltalk tools debugger enableStackColoring: true. ] ifFalse: [ self inform: 'Stack coloring is not yet in the debugger. Ask for it later.' ]
 ]
 
 { #category : 'class initialization' }
+PharoCommonSettings class >> formatingOptions [
+
+	<script>
+	EFFormatter
+		multiLineMessages:
+			'#(#on:do: #ensure: #ifCurtailed: #ifTrue:ifFalse: #ifFalse:ifTrue: #ifEmtpy:ifNotEmpty: #ifNotEmpty:ifEmpty: #ifExists:ifAbsent: #ifNil:ifNotNil: #ifNotNil:ifNil: #detect:ifFound: #detect:ifNone: #detect:ifFound:ifNone: #at:ifPresent:ifAbsent: #collect:thenDo: #collect:thenReject: #collect:thenSelect:  #reject:thenCollect: #reject:thenDo: #select:thenCollect: #select:thenDo:)';
+		retainBlankLinesBetweenStatements: true;
+		maxLineLength: 160;
+		numberOfNewLinesAfterMethodSignature: 2
+]
+
+{ #category : 'class initialization' }
 PharoCommonSettings class >> initialize [
+
 	self
 		setAuthorName;
 		setAppearance;
@@ -119,7 +152,14 @@ PharoCommonSettings class >> initialize [
 		registerBazard;
 		disableSampleInstance;
 		removeSomeRules;
-		resetMenuBar
+		resetMenuBar;
+		disableSomeGTSpotterExtensions;
+		formatingOptions;
+		setPlaygroundFolder;
+		setMetaLinkForIcebergBrowseInGroupCommand;
+		enableFluidClassDefinition;
+		calypsoOptions;
+		installFlagBrowser
 ]
 
 { #category : 'class initialization' }
@@ -181,6 +221,31 @@ PharoCommonSettings class >> initializePotentialIcebergRepos [
 	projects := OrderedCollection new.
 	self collectAllSubprojectsFrom: self sharedRepositoryFolder into: projects.
 	IceRepository registry do: [ :repo | projects detect: [ :e | e basename asLowercase = repo name asLowercase and: [ repo location isNil or: [ repo location exists not ] ] ] ifFound: [ :dir | repo location: dir ] ]
+]
+
+{ #category : 'class initialization' }
+PharoCommonSettings class >> installFlagBrowser [
+
+	<script>
+	| sourcesDir |
+	sourcesDir := self sharedRepositoryFolder / 'jecisc' / 'FlagBrowser' / 'src'.
+
+	sourcesDir exists
+		ifTrue: [
+				Metacello new
+					repository: 'tonel://' , sourcesDir fullName;
+					baseline: 'FlagBrowser';
+					load.
+				self registerIfPresentProjectOf: 'jecisc' named: 'FlagBrowser' ]
+		ifFalse: [
+				(UIManager default questionWithoutCancel: 'Clone FlagBrowser?') ifTrue: [
+						Metacello new
+							githubUser: 'jecisc'
+							project: 'FlagBrowser'
+							commitish: 'master'
+							path: 'src';
+							baseline: 'FlagBrowser';
+							load ] ]
 ]
 
 { #category : 'class initialization' }
@@ -281,6 +346,34 @@ PharoCommonSettings class >> setFonts [
 			provider updateAvailableFontFamilies.
 			StandardFonts defaultFont: (LogicalFont familyName: 'Noto Sans' pointSize: 10).
 			GraphicFontSettings resetAllFontToDefault ]
+]
+
+{ #category : 'class initialization' }
+PharoCommonSettings class >> setMetaLinkForBlockStyler [
+
+	<script>
+	(ClyMethodEditorToolMorph >> #textChanged:) ast link: (MetaLink new
+			 metaObject: #receiver;
+			 selector: #myTextChanged:;
+			 arguments: #( #arguments );
+			 control: #instead)
+]
+
+{ #category : 'class initialization' }
+PharoCommonSettings class >> setMetaLinkForIcebergBrowseInGroupCommand [
+
+	<script>
+	(IceTipRepositoriesBrowser class>> #buildSelectionCommandGroupWith:for:) ast link: (MetaLink new
+			 metaObject: #receiver;
+			 selector: #altBuildSelectionCommandGroupWith:;
+			 arguments: #( #arguments );
+			 control: #instead)
+]
+
+{ #category : 'class initialization' }
+PharoCommonSettings class >> setPlaygroundFolder [
+	<script>
+	StPlayground cacheDirectory: self rootFolder / 'play-cache'
 ]
 
 { #category : 'class initialization' }

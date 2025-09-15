@@ -4,8 +4,8 @@ I'm a command to open the package manager browser for a project.
 Class {
 	#name : 'IceTipBrowsePackagesInGroupCommand',
 	#superclass : 'IceTipRepositoryCommand',
-	#category : 'PharoSettings9',
-	#package : 'PharoSettings9'
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
 { #category : 'accessing - defaults' }

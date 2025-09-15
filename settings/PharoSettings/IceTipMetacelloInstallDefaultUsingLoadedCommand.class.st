@@ -4,8 +4,8 @@ Command to load baseline default group using loaded
 Class {
 	#name : 'IceTipMetacelloInstallDefaultUsingLoadedCommand',
 	#superclass : 'IceTipMetacelloInstallBaselineDefaultCommand',
-	#category : 'PharoSettings9',
-	#package : 'PharoSettings9'
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
 { #category : 'accessing' }

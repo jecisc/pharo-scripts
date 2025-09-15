@@ -4,8 +4,8 @@ Command to load baseline group using incommings
 Class {
 	#name : 'IceTipMetacelloInstallBaselineGroupUsingIncomingCommand',
 	#superclass : 'IceTipMetacelloInstallBaselineGroupCommand',
-	#category : 'PharoSettings9',
-	#package : 'PharoSettings9'
+	#category : 'PharoSettings',
+	#package : 'PharoSettings'
 }
 
 { #category : 'accessing' }
