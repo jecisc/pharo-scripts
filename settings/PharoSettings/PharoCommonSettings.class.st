@@ -153,10 +153,7 @@ PharoCommonSettings class >> initializeIcebergSettings [
 
 	<script>
 	| file creds |
-	self flag: #todo. "Remove hack when the Pharo 6 version will always have at least Iceberg v0.7"
-	((IceRepository respondsTo: #shareRepositoriesBetweenImages:)
-		 ifTrue: [ IceRepository ]
-		 ifFalse: [ IceLibgitRepository ])
+	IceLibgitRepository 
 		shareRepositoriesBetweenImages: true;
 		sharedRepositoriesLocation: (self sharedRepositoryFolder
 				 ensureCreateDirectory;
@@ -194,9 +191,7 @@ PharoCommonSettings class >> initializeIcebergSettings [
 		forHostname: 'github.com'.
 
 	"Open Iceberg. I often need it."
-	SystemVersion current major < 10
-		ifTrue: [ IceTipRepositoriesBrowser new openWithSpec ]
-		ifFalse: [ IceTipRepositoriesBrowser new open ]
+	IceTipRepositoriesBrowser new open
 ]
 
 { #category : 'class initialization' }
