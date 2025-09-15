@@ -25,6 +25,9 @@ BaselineOfPharoSettings >> baseline: spec [
 	"This on is for some Calypso options"
 	spec for: #(#'pharo9.x' #'pharo10.x') do: [ spec package: 'PharoSettingsUpTo10' with: [ spec requires: #('PharoSettings') ] ].
 
+	"Fluid class definition"
+	spec for: #(#'pharo9.x' #'pharo10.x' #'pharo11.x') do: [ spec package: 'PharoSettingsUpTo11' with: [ spec requires: #('PharoSettings') ] ].
+	
 	"Author"
 	spec for: #(#'pharo9.x' #'pharo10.x' #'pharo11.x' #'pharo12.x') do: [ spec package: 'PharoSettingsUpTo12' with: [ spec requires: #('PharoSettings') ] ].
 

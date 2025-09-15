@@ -106,18 +106,6 @@ PharoCommonSettings class >> disableSomeGTSpotterExtensions [
 ]
 
 { #category : 'class initialization' }
-PharoCommonSettings class >> enableFluidClassDefinition [
-	<script>
-	SystemVersion current major < 12 ifTrue:[ClassDefinitionPrinter showFluidClassDefinition: true]
-]
-
-{ #category : 'class initialization' }
-PharoCommonSettings class >> enableStackColoring [
-	<script>
-	SystemVersion current major < 9 ifTrue: [ Smalltalk tools debugger enableStackColoring: true. ] ifFalse: [ self inform: 'Stack coloring is not yet in the debugger. Ask for it later.' ]
-]
-
-{ #category : 'class initialization' }
 PharoCommonSettings class >> formatingOptions [
 
 	<script>
@@ -133,7 +121,6 @@ PharoCommonSettings class >> formatingOptions [
 PharoCommonSettings class >> initialize [
 
 	self
-		setAuthorName;
 		setAppearance;
 		showBoundsInHalo;
 		removeTaskBarPreview;
@@ -142,7 +129,6 @@ PharoCommonSettings class >> initialize [
 		updateCurrentCursor;
 		copyClassShouldCopyComment;
 		shortcutReminderSettings;
-		enableStackColoring;
 		closeWelcomeWindow;
 		monticelloOptions;
 		initializeIcebergSettings;
@@ -157,7 +143,6 @@ PharoCommonSettings class >> initialize [
 		formatingOptions;
 		setPlaygroundFolder;
 		setMetaLinkForIcebergBrowseInGroupCommand;
-		enableFluidClassDefinition;
 		calypsoOptions;
 		installFlagBrowser
 ]
