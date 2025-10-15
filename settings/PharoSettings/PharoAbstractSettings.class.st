@@ -41,6 +41,19 @@ PharoAbstractSettings class >> registerIfPresentProjectOf: owner named: project 
 ]
 
 { #category : 'helpers' }
+PharoAbstractSettings class >> requestInputNamed: aString password: aBoolean [
+
+	| presenter |
+	presenter := SpTextInputFieldPresenter new
+		     bePassword: aBoolean;
+		     placeholder: aString;
+		     yourself.
+	presenter openBlockedDialog.
+
+	presenter text
+]
+
+{ #category : 'helpers' }
 PharoAbstractSettings class >> resourcesFolder [
 	^ self rootFolder / 'SettingRessources'
 ]

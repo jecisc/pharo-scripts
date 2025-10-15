@@ -153,34 +153,30 @@ PharoCommonSettings class >> initializeIcebergSettings [
 
 	<script>
 	| file creds |
-	IceLibgitRepository 
+	IceLibgitRepository
 		shareRepositoriesBetweenImages: true;
 		sharedRepositoriesLocation: (self sharedRepositoryFolder
 				 ensureCreateDirectory;
-				 yourself).
-
-	"Use wy SSH key"
+				 yourself). "Use wy SSH key"
 	IceCredentialsProvider useCustomSsh: true.
 
 	(FileLocator home / '.ssh' / 'id_ed25519') exists ifTrue: [
-		IceCredentialStore current defaultSSHCredential
-			publicKey: '/Users/cyril/.ssh/id_ed25519.pub';
-			privateKey: '/Users/cyril/.ssh/id_ed25519' ].
-
-	"Make sur Metacello integration is on, even in Pharo 6"
-	Iceberg enableMetacelloIntegration: true.
-
-	"Add my preference folder by default"
+			IceCredentialStore current defaultSSHCredential
+				publicKey: '/Users/cyril/.ssh/id_ed25519.pub';
+				privateKey: '/Users/cyril/.ssh/id_ed25519' ]. "Make sur Metacello integration is on, even in Pharo 6"
+	Iceberg enableMetacelloIntegration: true. "Add my preference folder by default"
 	(IceRepositoryCreator new
 		 location: StartupPreferencesLoader preferencesGeneralFolder;
 		 subdirectory: 'settings';
 		 createRepository) register.
-		
+
 	file := self resourcesFolder / 'CredsIceberg'.
 	file exists ifFalse: [
-		file writeStreamDo: [ :s |
-			s nextPutAll: (STON toStringPretty:
-					 (Dictionary with: #username -> (UIManager default textEntry: 'Username') with: #password -> (UIManager default requestPassword: 'Password'))) ] ].
+			file writeStreamDo: [ :s |
+					s nextPutAll: (STON toStringPretty:
+							 (Dictionary
+								  with: #username -> (self requestInputNamed: 'Username' password: false)
+								  with: #password -> (self requestInputNamed: 'Password' password: true))) ] ].
 	creds := STON fromString: file contents.
 
 	IceCredentialStore current
@@ -188,9 +184,7 @@ PharoCommonSettings class >> initializeIcebergSettings [
 				 username: (creds at: #username);
 				 password: (creds at: #password);
 				 yourself)
-		forHostname: 'github.com'.
-
-	"Open Iceberg. I often need it."
+		forHostname: 'github.com'. "Open Iceberg. I often need it."
 	IceTipRepositoriesBrowser new open
 ]
 
@@ -235,18 +229,18 @@ PharoCommonSettings class >> monticelloOptions [
 	| creds file |
 	file := self resourcesFolder / 'Creds'.
 	file exists ifFalse: [
-		| cred |
-		cred := Dictionary new.
-		cred at: #username put: (UIManager default textEntry: 'Username').
-		cred at: #password put: (UIManager default requestPassword: 'Password').
-		file writeStreamDo: [ :s | s nextPutAll: (STON toStringPretty: cred) ] ].
+			| cred |
+			cred := Dictionary new.
+			cred at: #username put: (self requestInputNamed: 'Username' password: false).
+			cred at: #password put: (self requestInputNamed: 'Password' password: true).
+			file writeStreamDo: [ :s | s nextPutAll: (STON toStringPretty: cred) ] ].
 	creds := STON fromString: file contents.
 	MCRepositoryGroup default repositories do: [ :rep |
-		[
-		rep user: (creds at: #username).
-		rep password: (creds at: #password) ]
-			on: Error
-			do: [  ] ].
+			[
+				rep user: (creds at: #username).
+				rep password: (creds at: #password) ]
+				on: Error
+				do: [ ] ].
 	MCCacheRepository cacheDirectory: ((self rootFolder / 'package-cache')
 			 ensureCreateDirectory;
 			 yourself).
