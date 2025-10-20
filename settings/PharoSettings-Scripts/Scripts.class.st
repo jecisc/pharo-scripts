@@ -8,7 +8,18 @@ Class {
 	#package : 'PharoSettings-Scripts'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'scripts' }
+Scripts class >> addClassInitializationLogs [
+
+	<script>
+	self open: 'CompiledMethod allInstances
+	select: [ :method | method isClassSide and: [ method selector = #initialize ] ]
+	thenDo: [ :method |
+			method methodClass compile: method sourceCode , ''
+	.SystemNotification signal: (''''Initializing '''', '' , method methodClass printString , '' asString)'' ]'
+]
+
+{ #category : 'scripts' }
 Scripts class >> compileIcon [
 
 	<script>
@@ -26,7 +37,7 @@ ThemeIcons compile: iconName, ''
 Smalltalk ui icons perform: iconName asSymbol'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'scripts' }
 Scripts class >> downloadBooks [
 	<script>
 	self open: '| folder novelFolder page urls |
@@ -49,7 +60,7 @@ Scripts class >> downloadBooks [
 		displayingProgress: [ :novel | novel ]'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'scripts' }
 Scripts class >> findDependenciesToAPackage [
 
 	<script>
@@ -59,7 +70,7 @@ Scripts class >> findDependenciesToAPackage [
 (report knownDependantsOf: ''Garage'') inspect'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'scripts' }
 Scripts class >> findVaribleUsageInSubclasses [
 
 	<script>
@@ -93,7 +104,7 @@ Scripts class >> open: aString [
 	Smalltalk tools workspace openContents: aString
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'scripts' }
 Scripts class >> updateLauncherList [
 	<script>
 	self open: '
