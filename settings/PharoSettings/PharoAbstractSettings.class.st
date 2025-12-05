@@ -13,6 +13,14 @@ PharoAbstractSettings class >> backgroundFolder [
 	^ self resourcesFolder / 'backgrounds'
 ]
 
+{ #category : 'ui requests' }
+PharoAbstractSettings class >> inform: aString [
+
+	SystemVersion current major <= 13
+		ifTrue: [ self inform: aString ]
+		ifFalse: [ InformativeNotification signal: aString ]
+]
+
 { #category : 'helpers' }
 PharoAbstractSettings class >> projectCache [
 	^ self resourcesFolder / 'ProjectCache'

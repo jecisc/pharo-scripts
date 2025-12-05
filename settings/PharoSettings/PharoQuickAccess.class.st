@@ -118,14 +118,9 @@ PharoQuickAccess class >> executeBlock: aBlock [
 PharoQuickAccess class >> focusIceberg [
 	"This method will look for an open tip repository browser open (This is the entry point of Iceberg). If one is open, bring it to front. Else, open one."
 
-	(self currentWorld windowsSatisfying: [ :window | window label = 'Repositories' ])
-		ifEmpty: [ [ IceTipRepositoriesBrowser new openWithSpec ]
-				on: Error
-				do: [ self inform: 'Opening Iceberg only works in Pharo >= 7' ] ]
-		ifNotEmpty: [ :repos |
-			| window |
-			window := repos first.
-			window isMinimized ifTrue: [ window restore ] ifFalse: [ window activate ] ]
+	[ IceTipRepositoriesBrowser ensureIsOpen ]
+		on: Error
+		do: [ self inform: 'The Iceberg opening and focus works only in Pharo 13+' ]
 ]
 
 { #category : 'class initialization' }
@@ -341,21 +336,6 @@ PharoQuickAccess >> gc [
 	5 timesRepeat: [ Smalltalk garbageCollect ]
 ]
 
-{ #category : 'recentwindows' }
-PharoQuickAccess >> groupWindowForGitReposWithPatter [
-	<name: 'Open group window with git repos using pattern'>
-	| repos group |
-	(UIManager default textEntry: 'Substring for the repos?')
-		ifNotNil: [ :pattern |
-			repos := IceRepository registry select: [ :e | e name includesSubstring: pattern ].
-
-			group := GroupWindowMorph new.
-
-			repos do: [ :r | group addWindow: (IceTipWorkingCopyBrowser on: (IceTipRepositoryModel on: r) beCached) openWithSpec window ].
-			group tabGroup selectedPageIndex: 1.
-			(group openInWindowLabeled: 'Common repos') expandBoxHit ]
-]
-
 { #category : 'conveniance' }
 PharoQuickAccess >> importReader [
 
@@ -377,15 +357,6 @@ PharoQuickAccess >> initialize [
 ]
 
 { #category : 'loading' }
-PharoQuickAccess >> installDiscordSt [
-	<name: #'Install DiscordSt'>
-	Metacello new
-		baseline: #DiscordSt;
-		repository: 'github://JurajKubelka/DiscordSt/src';
-		load: #('light')
-]
-
-{ #category : 'loading' }
 PharoQuickAccess >> installGeometry [
 	<name: #'Install Geometry'>
 
@@ -393,21 +364,6 @@ PharoQuickAccess >> installGeometry [
 		baseline: #Geometry;
 		githubUser: 'TelescopeSt' project: 'Geometry' commitish: 'master' path: 'src';
 		load
-]
-
-{ #category : 'loading' }
-PharoQuickAccess >> installWebPokedex [
-	<name: #'Install WebPokedex'>
-	Metacello new
-		baseline: #WebPokedex;
-		githubUser: 'jecisc'
-			project: 'WebPokedex'
-			commitish: 'development'
-			path: 'src';
-		onWarningLog;
-		load.
-
-	(Smalltalk at: #WPServer) readStonModelWithContextFile: '../../GitRepositories/WebPokedex/Ressources/devContext.ston'
 ]
 
 { #category : 'initialization' }
@@ -424,19 +380,6 @@ PharoQuickAccess >> logAllUnusedVariables [
 		allSubclassesDo: [ :class |
 			class instVarNames
 				do: [ :each | (class whichSelectorsAccess: each) size = 0 ifTrue: [ Transcript crShow: 'Class: ' , class printString , ' var: ' , each ] ] ]
-]
-
-{ #category : 'recentwindows' }
-PharoQuickAccess >> openCommonTools [
-	<name: #'Open common tools'>
-	| group |
-	group := GroupWindowMorph new
-		addWindow: MCWorkingCopyBrowser new show;
-		addWindow: GTPlayground open;
-		addWindow: Transcript open;
-		addWindow: TestRunner open.
-	group tabGroup selectedPageIndex: 1.
-	(group openInWindowLabeled: 'Common Tools') expandBoxHit
 ]
 
 { #category : 'conveniance' }
