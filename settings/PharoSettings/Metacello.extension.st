@@ -14,18 +14,3 @@ Metacello class >> githubUser: userName project: projectName commitish: commitis
 				onWarningLog;
 				load
 ]
-
-{ #category : '*PharoSettings' }
-Metacello >> stHubConf: userName project: projectName [
-			self smalltalkhubUser: userName project: projectName.
-			self configuration: projectName
-]
-
-{ #category : '*PharoSettings' }
-Metacello class >> stHubUser: userName project: projectName [
-			^ self new
-				smalltalkhubUser: userName project: projectName;
-				configuration: projectName;
-				onWarningLog;
-				load
-]
