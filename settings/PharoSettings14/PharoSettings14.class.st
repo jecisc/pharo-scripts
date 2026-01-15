@@ -6,6 +6,19 @@ Class {
 }
 
 { #category : 'class initialization' }
+PharoSettings14 class >> disableRefactoringPreviews [
+
+	<script>
+	{ #ReDuplicateClassDriver. #ReGenerateEqualAndHashDriver. #ReGeneratePrintOnDriver. #ReMoveMethodsToClassSideDriver. #ReRemoveClassDriver. #ReRemoveMethodDriver.
+	#ReRemoveInstanceVariablesDriver. #ReRemoveSharedVariablesDriver. #ReRenameArgumentOrTemporaryDriver. #ReRenameInstanceVariableDriver.
+	#ReRenameSharedVariableDriver } do: [ :class |
+			self environment
+				at: class
+				ifPresent: [ :aClass | aClass shouldPreviewChanges: false ]
+				ifAbsent: [ InformativeNotification signal: 'Missing class ' , class ] ]
+]
+
+{ #category : 'class initialization' }
 PharoSettings14 class >> initFileBrowserSettings [
 
 	<script>
@@ -19,7 +32,9 @@ PharoSettings14 class >> initFileBrowserSettings [
 { #category : 'class initialization' }
 PharoSettings14 class >> initialize [
 
-	self initFileBrowserSettings
+	self
+		initFileBrowserSettings;
+		disableRefactoringPreviews
 ]
 
 { #category : 'see class side' }
