@@ -17,7 +17,7 @@ PharoAbstractSettings class >> backgroundFolder [
 PharoAbstractSettings class >> inform: aString [
 
 	SystemVersion current major <= 13
-		ifTrue: [ self inform: aString ]
+		ifTrue: [ super inform: aString ]
 		ifFalse: [ InformativeNotification signal: aString ]
 ]
 
