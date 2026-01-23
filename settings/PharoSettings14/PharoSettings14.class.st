@@ -11,7 +11,7 @@ PharoSettings14 class >> disableRefactoringPreviews [
 	<script>
 	{ #ReDuplicateClassDriver. #ReGenerateEqualAndHashDriver. #ReGeneratePrintOnDriver. #ReMoveMethodsToClassSideDriver. #ReRemoveClassDriver. #ReRemoveMethodDriver.
 	#ReRemoveInstanceVariablesDriver. #ReRemoveSharedVariablesDriver. #ReRenameArgumentOrTemporaryDriver. #ReRenameInstanceVariableDriver.
-	#ReRenameSharedVariableDriver } do: [ :class |
+	#ReRenameSharedVariableDriver. #ReRenameClassDriver } do: [ :class |
 			self environment
 				at: class
 				ifPresent: [ :aClass | aClass shouldPreviewChanges: false ]
