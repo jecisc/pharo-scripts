@@ -20,6 +20,42 @@ Scripts class >> addClassInitializationLogs [
 ]
 
 { #category : 'scripts' }
+Scripts class >> bootstrapScript [
+
+	<script>
+	self open: '"To launch in the bootstrap image"
+	
+repositoryPathString := ''/Users/cyril/Library/Preferences/pharo/GitRepositories/pharo-project/pharo/src''.
+
+[  
+[ 
+  Metacello new
+	  baseline: ''PharoBootstrapProcess'';
+	  repository: ''tonel://'', repositoryPathString;
+	  load ]
+      on: IceGenericError
+      do: [ :exception |
+        Metacello new
+	        baseline: ''PharoBootstrapProcess'';
+	        repository: ''tonel://'', repositoryPathString;
+	        load
+      ].
+] on: Warning do: #resume.
+
+[
+	versionInfo := (PBVersionInfo fromLongGitDescribe: ''Pharo10.0-aaaddb-aaaa-vbb'')
+		buildNumber: 42;
+		yourself.
+		 
+		
+(PBBootstrap for64Bits
+		versionInfo: versionInfo;
+		repositoryLocation: ''/Users/cyril/Library/Preferences/pharo/GitRepositories/pharo-project/pharo'' asFileReference;
+		imageName: ''bootstrap.image'';
+		yourself) bootstrap] spy '
+]
+
+{ #category : 'scripts' }
 Scripts class >> compileIcon [
 
 	<script>
