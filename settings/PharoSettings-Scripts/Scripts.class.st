@@ -121,6 +121,20 @@ variables
 			yourself ]'
 ]
 
+{ #category : 'scripts' }
+Scripts class >> memoryLeakFinder [
+
+	<script>
+	self open: 'class := StDebugger.
+
+"See pointers"	
+class someInstance pointersTo.
+
+"Find paths to the instance"
+ReferenceFinder findPathTo: class someInstance.
+'
+]
+
 { #category : 'instance creation' }
 Scripts class >> methodAnnouncementReceived: anAnnouncement [
 	"No need to rebuild if it contains the world menu pragma"
