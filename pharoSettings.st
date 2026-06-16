@@ -7,7 +7,7 @@ StartupPreferencesLoader default executeAtomicItems: {
 				Metacello new
 					filetreeDirectory: (StartupPreferencesLoader preferencesGeneralFolder / 'settings') fullName;
 					baseline: 'PharoSettings';
-					load 
+					load
 			]
 		]
 		runOnce: true
