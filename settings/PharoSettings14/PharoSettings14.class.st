@@ -5,6 +5,16 @@ Class {
 	#package : 'PharoSettings14'
 }
 
+{ #category : 'adding' }
+PharoSettings14 class >> addDeleteButtonInPlaygroudPagesView [
+
+	<script>
+	(StPlaygroundPageSummaryPresenter >> #initializePresenters) ast link: (MetaLink new
+			 metaObject: #receiver;
+			 selector: #altInitializePresenters;
+			 control: #instead)
+]
+
 { #category : 'class initialization' }
 PharoSettings14 class >> disableRefactoringPreviews [
 
