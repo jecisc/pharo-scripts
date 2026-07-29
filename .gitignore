@@ -1,5 +1,4 @@
-images/
-SynSources/
+images/ß
 GitRepositories/
 epicea*
 package-cache/
@@ -21,3 +20,8 @@ org\.pharo\.global-identifiers\.ston
 SettingRessources/loc
 
 SettingRessources/ShoutTelemetry/
+
+
+**/venv/
+**/__pycache__/
+**/*.pyc
