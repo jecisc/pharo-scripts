@@ -127,7 +127,6 @@ PharoCommonSettings class >> initialize [
 		disableSomeGTSpotterExtensions;
 		formatingOptions;
 		setPlaygroundFolder;
-		setMetaLinkForIcebergBrowseInGroupCommand;
 		calypsoOptions;
 		installFlagBrowser
 ]
@@ -307,17 +306,6 @@ PharoCommonSettings class >> setMetaLinkForBlockStyler [
 	(ClyMethodEditorToolMorph >> #textChanged:) ast link: (MetaLink new
 			 metaObject: #receiver;
 			 selector: #myTextChanged:;
-			 arguments: #( #arguments );
-			 control: #instead)
-]
-
-{ #category : 'class initialization' }
-PharoCommonSettings class >> setMetaLinkForIcebergBrowseInGroupCommand [
-
-	<script>
-	(IceTipRepositoriesBrowser class>> #buildSelectionCommandGroupWith:for:) ast link: (MetaLink new
-			 metaObject: #receiver;
-			 selector: #altBuildSelectionCommandGroupWith:;
 			 arguments: #( #arguments );
 			 control: #instead)
 ]
