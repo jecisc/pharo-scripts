@@ -230,11 +230,6 @@ PharoQuickAccess class >> worldMenuSectionsOn: aBuilder [
 				iconName: #configNew;
 				with: [ self buildSubmenu: #'Browse ' on: aBuilder ].
 
-			(aBuilder item: #RecentWindows)
-				order: 23;
-				iconName: #configNew;
-				with: [ self buildSubmenu: #RecentWindows on: aBuilder ].
-
 			(aBuilder item: #'Add to Iceberg')
 				order: 25;
 				iconName: #configNew;
@@ -324,12 +319,6 @@ PharoQuickAccess >> findIcebergRepos [
 	Smalltalk at: #PharoCommonSettings ifPresent: [ :c | c initializePotentialIcebergRepos ]
 ]
 
-{ #category : 'recentwindows' }
-PharoQuickAccess >> flushRecentWindow [
-	<name: #'Flush recent windows'>
-	RecentlyClosedWindowsSaver default flush
-]
-
 { #category : 'conveniance' }
 PharoQuickAccess >> gc [
 	<name: #'Garbage collect'>
@@ -386,12 +375,6 @@ PharoQuickAccess >> logAllUnusedVariables [
 PharoQuickAccess >> openImageNatively [
 	<name: #'Open image natively'>
 	FileLocator image openInOSFileBrowser
-]
-
-{ #category : 'recentwindows' }
-PharoQuickAccess >> openRecentWindow [
-	<name: #'Open recent window'>
-	RecentlyClosedWindowsSaver default restoreWindow
 ]
 
 { #category : 'conveniance' }
