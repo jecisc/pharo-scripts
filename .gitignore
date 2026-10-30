@@ -12,6 +12,7 @@ startup.stold
 **/.DS_Store
 SettingRessources/Creds*
 SettingRessources/localisation
+SettingRessources/python-scripts
 
 org\.pharo\.gt\.spotter\.event\.recorder\.fuel
 
