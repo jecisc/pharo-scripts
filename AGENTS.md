@@ -38,6 +38,7 @@
 - Class initializations should not have a super initialize call
 - In blocks, do not prefix variable names by "each". If it is a selector, call it "selector" and not "eachSelector"
 - Do not wrap class comments or comments. Return to a new line only for new sentences, not in the middle of a sentence
+- Always apply the Pharo formatter to every method you add or change, tests included, in every project and without being asked. In the image: `formatted := method ast formattedCode`, convert the line returns to cr (`copyReplaceAll: String lf with: String cr`) and recompile it in the same class and protocol (`method protocol name`). Do it before reporting the work as done, then run the tests again
 
 #### Testing
 - Do not do `self assert: a == b` but `self assert: a identicalTo: b`
