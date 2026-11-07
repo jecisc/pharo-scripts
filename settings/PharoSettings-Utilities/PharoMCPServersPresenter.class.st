@@ -11,6 +11,8 @@ MCP is not a dependency of my package: the MCP class is looked up in the environ
 Class {
 	#name : 'PharoMCPServersPresenter',
 	#superclass : 'SpPresenter',
+	#traits : 'TPharoStatusDot',
+	#classTraits : 'TPharoStatusDot classTrait',
 	#instVars : [
 		'serversList',
 		'portInput',
@@ -53,16 +55,6 @@ PharoMCPServersPresenter >> dotColorFor: aServer [
 	(aServer isRunning and: [ aServer isListening ]) ifTrue: [ ^ Color green ].
 	(aServer isRunning or: [ aServer isListening ]) ifTrue: [ ^ Color orange ].
 	^ Color gray
-]
-
-{ #category : 'displaying' }
-PharoMCPServersPresenter >> dotFor: aServer [
-
-	| form |
-	form := Form extent: 12 @ 12 depth: 32.
-	form fillColor: Color transparent.
-	form getCanvas fillOval: (1 @ 1 extent: 10 @ 10) color: (self dotColorFor: aServer).
-	^ form
 ]
 
 { #category : 'initialization' }
