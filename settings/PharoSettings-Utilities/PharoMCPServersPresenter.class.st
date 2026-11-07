@@ -1,6 +1,7 @@
 "
 I list the MCP servers of the image with a colored dot telling their state: green when running and listening, orange when running without listening or stopped while its socket still listens, gray when stopped.
 Below the list, a port input and a button start a new server; port 0 lets the operating system choose a free port.
+An image usually has a single server, so the list can be as small as one row (see #allowListToShowOneRow): my panel in the utilities bar can then only show the server and the port input.
 
 If MCP (https://github.com/Evref-BL/MCP) is not loaded, I only display a button to load it (see PharoSettings12 class >> #installMCP).
 
@@ -23,6 +24,14 @@ Class {
 	#category : 'PharoSettings-Utilities',
 	#package : 'PharoSettings-Utilities'
 }
+
+{ #category : 'private' }
+PharoMCPServersPresenter >> allowListToShowOneRow [
+	"The default style sheet of Spec gives lists a minimum height of 125 pixels. An image usually has a single MCP server, so the list can be as small as one row to keep the panel small in the utilities bar. It is done once I am built because the style is applied to the list after its own widget is built."
+
+	self flag: #morphic.
+	serversList withAdapterDo: [ :listAdapter | listAdapter widgetDo: [ :listMorph | listMorph minHeight: listMorph rowHeight ceiling ] ]
+]
 
 { #category : 'layout' }
 PharoMCPServersPresenter >> defaultLayout [
@@ -85,6 +94,7 @@ PharoMCPServersPresenter >> initializePresenters [
 		              icon: (self iconNamed: #smallLoadProject);
 		              action: [ self loadMCP ];
 		              yourself.
+	self whenBuiltDo: [ self allowListToShowOneRow ].
 	self isMCPLoaded ifTrue: [ self refresh ]
 ]
 
@@ -112,7 +122,8 @@ PharoMCPServersPresenter >> loadMCP [
 	PharoSettings12 installMCP.
 	self isMCPLoaded ifFalse: [ ^ self ].
 	self refresh.
-	self layout: self defaultLayout
+	self layout: self defaultLayout.
+	self allowListToShowOneRow
 ]
 
 { #category : 'accessing' }

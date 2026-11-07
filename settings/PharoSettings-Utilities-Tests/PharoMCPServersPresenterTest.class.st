@@ -19,6 +19,16 @@ PharoMCPServersPresenterTest >> setUp [
 ]
 
 { #category : 'tests' }
+PharoMCPServersPresenterTest >> testContentCanBeAsSmallAsOneServerAndThePortRow [
+
+	| morph |
+	morph := PharoMCPServersPresenter new build.
+	morph extent: 340 @ 300.
+	morph fullBounds.
+	self assert: morph minExtent y < 70
+]
+
+{ #category : 'tests' }
 PharoMCPServersPresenterTest >> testDotIsGrayWhenStopped [
 
 	self assert: (presenter dotColorFor: (PharoFakeMCPServer port: 4000 running: false listening: false)) equals: Color gray
