@@ -3,7 +3,7 @@ I list the MCP servers of the image with a colored dot telling their state: gree
 Below the list, a port input and a button start a new server; port 0 lets the operating system choose a free port.
 An image usually has a single server, so the list can be as small as one row (see #allowListToShowOneRow): my panel in the utilities bar can then only show the server and the port input.
 
-If MCP (https://github.com/Evref-BL/MCP) is not loaded, I only display a button to load it (see PharoSettings12 class >> #installMCP).
+If MCP (https://github.com/Evref-BL/MCP) is not loaded, I only display a button to load it (see PharoSettings12 class >> #installMCP) and a refresh button. The refresh button displays the servers as soon as MCP is loaded, even when it was loaded after I was built.
 
 Listing the servers costs a full garbage collection (see MCP class >> #allServers), so the list is only refreshed when I am built, after starting a server and when clicking the refresh button. It is never polled.
 
@@ -40,7 +40,12 @@ PharoMCPServersPresenter >> defaultLayout [
 			^ SpBoxLayout newTopToBottom
 				  spacing: 4;
 				  add: 'MCP is not loaded in this image.' expand: false;
-				  add: loadButton expand: false;
+				  add: (SpBoxLayout newLeftToRight
+						   spacing: 4;
+						   add: loadButton;
+						   add: refreshButton expand: false;
+						   yourself)
+				  expand: false;
 				  yourself ].
 	^ SpBoxLayout newTopToBottom
 		  spacing: 4;
@@ -95,7 +100,7 @@ PharoMCPServersPresenter >> initializePresenters [
 		              action: [ self loadMCP ];
 		              yourself.
 	self whenBuiltDo: [ self allowListToShowOneRow ].
-	self isMCPLoaded ifTrue: [ self refresh ]
+	self isMCPLoaded ifTrue: [ self listServers ]
 ]
 
 { #category : 'accessing' }
@@ -116,14 +121,18 @@ PharoMCPServersPresenter >> labelFor: aServer [
 				  nextPut: $) ]
 ]
 
+{ #category : 'private' }
+PharoMCPServersPresenter >> listServers [
+	"Listing the servers costs a full garbage collection, see the class comment."
+
+	serversList items: self mcpClass allServers
+]
+
 { #category : 'actions' }
 PharoMCPServersPresenter >> loadMCP [
 
 	PharoSettings12 installMCP.
-	self isMCPLoaded ifFalse: [ ^ self ].
-	self refresh.
-	self layout: self defaultLayout.
-	self allowListToShowOneRow
+	self refresh
 ]
 
 { #category : 'accessing' }
@@ -135,9 +144,18 @@ PharoMCPServersPresenter >> mcpClass [
 
 { #category : 'actions' }
 PharoMCPServersPresenter >> refresh [
-	"Listing the servers costs a full garbage collection, see the class comment."
+	"MCP may have been loaded since I was built, so the layout is chosen again."
 
-	serversList items: self mcpClass allServers
+	self isMCPLoaded ifFalse: [ ^ self ].
+	self listServers.
+	self layout: self defaultLayout.
+	self allowListToShowOneRow
+]
+
+{ #category : 'accessing' }
+PharoMCPServersPresenter >> serversList [
+
+	^ serversList
 ]
 
 { #category : 'actions' }

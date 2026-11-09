@@ -60,3 +60,16 @@ PharoMCPServersPresenterTest >> testLabelGivesThePortAndTheState [
 	self assert: (presenter labelFor: (PharoFakeMCPServer port: 4002 running: true listening: false)) equals: 'MCP on port 4002 (running, socket not listening)'.
 	self assert: (presenter labelFor: (PharoFakeMCPServer port: 4003 running: false listening: true)) equals: 'MCP on port 4003 (stopped, socket still listening)'
 ]
+
+{ #category : 'tests' }
+PharoMCPServersPresenterTest >> testRefreshDisplaysTheServersOnceMCPIsLoadedAfterTheBuild [
+
+	| lateLoaded |
+	lateLoaded := PharoMCPLateLoadedPresenter new.
+	lateLoaded build.
+	self deny: lateLoaded layout children first identicalTo: lateLoaded serversList.
+	lateLoaded loadMCPNow.
+	lateLoaded refresh.
+	self assert: lateLoaded layout children first identicalTo: lateLoaded serversList.
+	self assert: lateLoaded serversList items size equals: 1
+]
