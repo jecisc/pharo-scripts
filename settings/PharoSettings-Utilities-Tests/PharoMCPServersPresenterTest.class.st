@@ -73,3 +73,14 @@ PharoMCPServersPresenterTest >> testRefreshDisplaysTheServersOnceMCPIsLoadedAfte
 	self assert: lateLoaded layout children first identicalTo: lateLoaded serversList.
 	self assert: lateLoaded serversList items size equals: 1
 ]
+
+{ #category : 'tests' }
+PharoMCPServersPresenterTest >> testServerMenuOffersPauseAndStopOnlyForARunningServer [
+
+	| items |
+	items := (presenter serverMenuFor: (PharoFakeMCPServer port: 4000 running: true listening: true)) menuGroups first menuItems.
+	self assert: (items collect: #name) asArray equals: #( 'Inspect' 'Pause' 'Resume' 'Stop' ).
+	self assert: (items collect: #isEnabled) asArray equals: #( true true false true ).
+	items := (presenter serverMenuFor: (PharoFakeMCPServer port: 4000 running: false listening: false)) menuGroups first menuItems.
+	self assert: (items collect: #isEnabled) asArray equals: #( true false true false )
+]

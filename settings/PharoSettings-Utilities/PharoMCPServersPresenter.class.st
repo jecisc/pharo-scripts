@@ -8,6 +8,8 @@ If MCP (https://github.com/Evref-BL/MCP) is not loaded, I only display a button 
 Listing the servers costs a full garbage collection (see MCP class >> #allServers), so the list is only refreshed when I am built, after starting a server and when clicking the refresh button. It is never polled.
 
 MCP is not a dependency of my package: the MCP class is looked up in the environment (see #mcpClass) so that I can be loaded without it.
+
+A context menu on a server allows one to inspect it, pause it (closing its socket but keeping its handlers), resume it or stop it (see #serverMenuFor:). The utility refreshes me each time my panel is displayed (see PharoMCPServersUtility >> #displayed).
 "
 Class {
 	#name : 'PharoMCPServersPresenter',
@@ -62,6 +64,14 @@ PharoMCPServersPresenter >> defaultLayout [
 		  yourself
 ]
 
+{ #category : 'private' }
+PharoMCPServersPresenter >> do: aBlock [
+	"Run an action on a server then display its new state"
+
+	aBlock value.
+	self listServers
+]
+
 { #category : 'displaying' }
 PharoMCPServersPresenter >> dotColorFor: aServer [
 	"Green when everything is fine, orange when the server and its socket disagree, gray when stopped."
@@ -99,6 +109,7 @@ PharoMCPServersPresenter >> initializePresenters [
 		              icon: (self iconNamed: #smallLoadProject);
 		              action: [ self loadMCP ];
 		              yourself.
+	serversList contextMenu: [ self serverMenuFor: serversList selectedItem ].
 	self whenBuiltDo: [ self allowListToShowOneRow ].
 	self isMCPLoaded ifTrue: [ self listServers ]
 ]
@@ -150,6 +161,33 @@ PharoMCPServersPresenter >> refresh [
 	self listServers.
 	self layout: self defaultLayout.
 	self allowListToShowOneRow
+]
+
+{ #category : 'menu' }
+PharoMCPServersPresenter >> serverMenuFor: aServer [
+	"Pausing closes the socket of the server but keeps its handlers and observability, stopping also shuts the observability down. Menu items that are not possible for the state of the server are disabled."
+
+	^ SpMenuPresenter new
+		  addItem: [ :item |
+				  item
+					  name: 'Inspect';
+					  action: [ aServer inspect ] ];
+		  addItem: [ :item |
+				  item
+					  name: 'Pause';
+					  enabled: aServer isRunning;
+					  action: [ self do: [ aServer server stop ] ] ];
+		  addItem: [ :item |
+				  item
+					  name: 'Resume';
+					  enabled: aServer isRunning not;
+					  action: [ self do: [ aServer start ] ] ];
+		  addItem: [ :item |
+				  item
+					  name: 'Stop';
+					  enabled: aServer isRunning;
+					  action: [ self do: [ aServer stop ] ] ];
+		  yourself
 ]
 
 { #category : 'accessing' }
