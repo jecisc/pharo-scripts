@@ -48,3 +48,14 @@
 ## Don't
 - Don't use emoji if it does not bring value
 - Avoid premature abstractions
+
+## Backlogs (all agents, all sessions)
+
+Read `backlog/README.md` before starting work that touches the Pharo ecosystem.
+
+- **Log every problem you hit** in `backlog/agent-findings.md`: bugs, errors, workarounds, friction, things that would make future work simpler, and suspected security issues. Log it even if you worked around it. Do not silently ignore a problem.
+- Mention in your reply to the user when you add a finding. Give its ID.
+- Most dependencies, including Pharo itself, are projects the user contributes to. Set **Upstream** to `yes` when a fix belongs there.
+- Edit `backlog/user-backlog.md` **only when the user asks you to**. Read it at the start of a session to know what the user wants to work on.
+- Never reuse an ID. Update a finding's **Status** when you resolve it, instead of deleting it.
+- When you set a finding or backlog item to `done` or `wontfix`, add a **Resolved:** date and run `python3 backlog/archive-resolved.py` (under `ai-agents-resources/`). This moves it to the weekly file in `backlog/archive/`.
