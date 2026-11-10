@@ -57,5 +57,5 @@ Read `backlog/README.md` before starting work that touches the Pharo ecosystem.
 - Mention in your reply to the user when you add a finding. Give its ID.
 - Most dependencies, including Pharo itself, are projects the user contributes to. Set **Upstream** to `yes` when a fix belongs there.
 - Edit `backlog/user-backlog.md` **only when the user asks you to**. Read it at the start of a session to know what the user wants to work on.
-- Never reuse an ID. Update a finding's **Status** when you resolve it, instead of deleting it.
+- Get new IDs with `python3 backlog/next-id.py A` (or `U`) right before writing an entry. Never reuse an ID. Update a finding's **Status** when you resolve it, instead of deleting it.
 - When you set a finding or backlog item to `done` or `wontfix`, add a **Resolved:** date and run `python3 backlog/archive-resolved.py` (under `ai-agents-resources/`). This moves it to the weekly file in `backlog/archive/`.
