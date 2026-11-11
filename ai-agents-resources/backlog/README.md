@@ -1,11 +1,23 @@
 # Backlogs
 
-Two cross-session lists. Both live here and are read by every agent session (Claude Code and opencode) through `AGENTS.md`.
+Two cross-session lists. Both live here and are read by every agent session (Claude Code and opencode) through `AGENTS.md`, which points to this file.
 
 | File | Owner | Purpose |
 |---|---|---|
-| `agent-findings.md` | Agents log, you triage | Every bug, difficulty, friction, or improvement an agent hits, including ones it worked around. Nothing is silently dropped. |
+| `agent-findings.md` | Agents log, you triage | Every bug, difficulty, friction, improvement or documentation gap an agent hits, including ones it worked around. Nothing is silently dropped. |
 | `user-backlog.md` | You | Things you want to work on. Agents only edit it when you ask. |
+
+## Rules for agents
+
+- Read `user-backlog.md` at the start of a session to know what the user wants to work on. Edit it **only when the user asks you to**.
+- **Log every problem you hit** in `agent-findings.md`: bugs, errors, workarounds, friction, things that would make future work simpler, and suspected security issues. Log it even if you worked around it. Do not silently ignore a problem.
+- **Log improvements, not only problems.** When you see a way to make a tool, MCP server, skill, plugin or project better, log it as `Type: improvement` even if nothing broke. The Pharo MCP (`pharo` server, its `tool_*`, `method_*`, `class_*`, `test_run` and `image_evaluate` tools) is in scope: an unclear tool description, a missing parameter, a slow or noisy result, an error that does not say what to do next.
+- **Log missing or outdated documentation** as `Type: doc`: a project, tool or skill lacks docs for something you needed, or its docs contradict the code or the current behaviour. Name the project in **Area** and the file or missing topic in **Evidence**.
+- **Be precise.** **Area** names the exact project, tool, server or file (`pharo` MCP, `tool_search`, `Evref-BL/Pharo-Tree-Sitter`), not a category. **Evidence** holds the command, the exact error text or the file and line. **Summary** says what is wrong or what would be better, in one or two sentences, without speculation about the cause unless you verified it.
+- Mention in your reply to the user when you add a finding. Give its ID.
+- Most dependencies, including Pharo itself, are projects the user contributes to. Set **Upstream** to `yes` when a fix belongs there.
+- Get new IDs with `python3 backlog/next-id.py A` (or `U`) right before writing an entry. Never reuse an ID. Update a finding's **Status** when you resolve it, instead of deleting it.
+- When you set a finding or backlog item to `done` or `wontfix`, add a **Resolved:** date and run `python3 backlog/archive-resolved.py` (under `ai-agents-resources/`). This moves it to the weekly file in `backlog/archive/`.
 
 ## Entry format
 
