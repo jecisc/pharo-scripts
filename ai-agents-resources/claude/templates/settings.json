@@ -1,0 +1,48 @@
+{
+  "model": "haiku",
+  "statusLine": {
+    "type": "command",
+    "command": "bash {{HOME}}/.claude/statusline-command.sh"
+  },
+  "enabledPlugins": {
+    "gitkraken-hooks@gitkraken": true,
+    "mattpocock-skills@claude-plugins-official": true,
+    "task-list@cyril-mods": true
+  },
+  "extraKnownMarketplaces": {
+    "gitkraken": {
+      "source": {
+        "source": "directory",
+        "path": "{{HOME}}/.claude/plugins/marketplaces/gitkraken"
+      }
+    },
+    "cyril-mods": {
+      "source": {
+        "source": "directory",
+        "path": "{{HOME}}/.claude/my-mods/task-list"
+      },
+      "autoUpdate": true
+    }
+  },
+  "spinnerVerbs": {
+    "mode": "replace",
+    "verbs": [
+      "Pawing",
+      "Purring",
+      "Sniffing",
+      "Fetching",
+      "Wagging",
+      "Snuffling",
+      "Yiffing",
+      "Pouncing",
+      "Chasing tails",
+      "Fluffing",
+      "Belly-rubbing",
+      "Stretching",
+      "Scratching",
+      "Howling",
+      "Bitting"
+    ]
+  },
+  "theme": "dark"
+}

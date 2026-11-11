@@ -1,0 +1,1 @@
+Read this file at the beginning of each session: {{REPO}}/AGENTS.md

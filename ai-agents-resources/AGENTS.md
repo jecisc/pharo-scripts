@@ -59,3 +59,7 @@ Read `backlog/README.md` before starting work that touches the Pharo ecosystem.
 - Edit `backlog/user-backlog.md` **only when the user asks you to**. Read it at the start of a session to know what the user wants to work on.
 - Get new IDs with `python3 backlog/next-id.py A` (or `U`) right before writing an entry. Never reuse an ID. Update a finding's **Status** when you resolve it, instead of deleting it.
 - When you set a finding or backlog item to `done` or `wontfix`, add a **Resolved:** date and run `python3 backlog/archive-resolved.py` (under `ai-agents-resources/`). This moves it to the weekly file in `backlog/archive/`.
+
+## Keep setup.sh up to date
+
+`setup.sh` (under `ai-agents-resources/`) rebuilds this setup on a new machine. When you add or change a skill, plugin, marketplace entry, tool dependency, or Claude/opencode config, update `setup.sh` (and the templates in `claude/templates/` or `opencode/`) in the same change. Never put secrets in templates. Use `REPLACE_WITH_YOUR_KEY` placeholders.

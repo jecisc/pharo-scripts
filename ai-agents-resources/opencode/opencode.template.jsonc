@@ -1,0 +1,25 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "opencode-go": {
+      "options": {
+        "apiKey": "REPLACE_WITH_YOUR_KEY"
+      }
+    }
+  },
+  "mcp": {
+    "servers": {
+      "pharo": {
+        "type": "remote",
+        "url": "http://localhost:4000"
+      },
+      "pharo2": {
+        "type": "remote",
+        "url": "http://localhost:4001"
+      }
+    }
+  },
+  "instructions": [
+    "{{REPO}}/AGENTS.md"
+  ]
+}

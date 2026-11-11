@@ -1,0 +1,1 @@
+{ "name": "task-list", "version": "0.1.5", "description": "A side pane listing the session's tasks, kept up to date by Claude", "types": "./types/index.d.ts" }

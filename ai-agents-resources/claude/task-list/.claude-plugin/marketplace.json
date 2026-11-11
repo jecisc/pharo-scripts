@@ -1,0 +1,1 @@
+{ "name": "cyril-mods", "owner": { "name": "Cyril Ferlicot" }, "plugins": [{ "name": "task-list", "source": "./" }] }
