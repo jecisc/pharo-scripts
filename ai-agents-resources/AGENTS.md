@@ -8,6 +8,7 @@
 - Avoid to add dependencies iff possible. If you wish to bring a new dependency ask me if I want it
 - Document public API
 - Do not wrap in the middle of a line before 200 character. We now have wide screens, let's use it
+- Do not wrap messages (commit messages, pull request descriptions, chat messages) or comments. Return to a new line only for a new sentence, a list item or a new paragraph, never in the middle of a sentence
 - If you update code, check that class comments are still up to date
 - I am personaly using fish as shell
 
