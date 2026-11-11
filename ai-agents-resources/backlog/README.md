@@ -13,7 +13,7 @@ Use the same fields in both files:
 
 - **Status:** open | in-progress | done | wontfix
 - **Area:** the repo, dependency, or tool involved
-- **Type:** bug | friction | improvement | dependency | security
+- **Type:** bug | friction | improvement | dependency | security | doc (missing or outdated documentation)
 - **Found:** date and agent (Claude Code or opencode)
 - **Summary:** one or two sentences
 - **Evidence:** file path, command, or exact error text
