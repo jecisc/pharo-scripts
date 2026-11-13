@@ -32,6 +32,8 @@
 
 ### Coding rules
 - Use #isNotNil and not #notNil. Use #isNotEmpty and not #notEmpty
+- Use #ifEmpty:, #ifNotEmpty:, #ifEmpty:ifNotEmpty:, #ifNil:, #ifNotNil: and #ifNil:ifNotNil: instead of #isEmpty ifTrue:, #isNotEmpty ifTrue:, #isNil ifTrue: and their ifFalse: variants
+- Do not use UIManager to show dialogs or windows. Use Spec presenters (for example a Spec dialog) and the application: in Moose, use MiApplication, and in other images SpApplication
 - Avoid the use of #isKindOf: and #respondsTo: when possible. If you want to use it, ask me if it's ok in this context
 - If you override a method, favors the use of the protocol in the superclass
 - If you send multiple messages to the same receiver, prefer a cascade except for assertions in a test case
