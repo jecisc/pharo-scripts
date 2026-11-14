@@ -38,6 +38,7 @@
 - If you override a method, favors the use of the protocol in the superclass
 - If you send multiple messages to the same receiver, prefer a cascade except for assertions in a test case
 - Class initializations should not have a super initialize call
+- Put every class you create in a package tag, never in the root of its package. Reuse an existing tag of the package when one fits. The only exception is a baseline (`BaselineOf*`), which is alone in its package
 - In blocks, do not prefix variable names by "each". If it is a selector, call it "selector" and not "eachSelector"
 - Do not wrap class comments or comments. Return to a new line only for new sentences, not in the middle of a sentence
 - Always apply the Pharo formatter to every method you add or change, tests included, in every project and without being asked. In the image: `formatted := method ast formattedCode`, convert the line returns to cr (`copyReplaceAll: String lf with: String cr`) and recompile it in the same class and protocol (`method protocol name`). Do it before reporting the work as done, then run the tests again
