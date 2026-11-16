@@ -91,7 +91,7 @@ PharoMCPServersPresenter >> initializePresenters [
 	portInput := self newNumberInput
 		             beInteger;
 		             minimum: 0;
-		             number: 0;
+		             number: 4000;
 		             yourself.
 	startButton := self newButton
 		               label: 'Start';
