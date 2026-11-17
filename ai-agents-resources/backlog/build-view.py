@@ -55,78 +55,89 @@ TEMPLATE = """<!doctype html>
 <title>Backlog view</title>
 <style>
 :root {
-	--background: #fbfbfa;
+	--background: #fef9f4;
 	--surface: #ffffff;
-	--text: #1d1d1b;
-	--muted: #6b6b66;
-	--border: #dedcd6;
-	--accent: #3b6fd1;
-	--stripe: #ecebe6;
-	--hover: #e2e0da;
+	--text: #3a2e26;
+	--muted: #7a6558;
+	--border: #ecdfd2;
+	--accent: #d9770b;
+	--stripe: #fbf2ea;
+	--hover: #f8eadc;
 }
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme="light"]) {
-		--background: #161615;
-		--surface: #1f1f1d;
-		--text: #ececE6;
-		--muted: #9a9a93;
-		--border: #3a3a36;
-		--accent: #7ea6f0;
-		--stripe: #2a2a27;
-		--hover: #34342f;
+		--background: #2f2620;
+		--surface: #372d26;
+		--text: #f7ecdf;
+		--muted: #cdb8a4;
+		--border: #5a4a3e;
+		--accent: #f0a060;
+		--stripe: #3d332b;
+		--hover: #463c33;
 	}
 }
 :root[data-theme="dark"] {
-	--background: #161615;
-	--surface: #1f1f1d;
-	--text: #ececE6;
-	--muted: #9a9a93;
-	--border: #3a3a36;
-	--accent: #7ea6f0;
-	--stripe: #2a2a27;
-	--hover: #34342f;
+	--background: #2f2620;
+	--surface: #372d26;
+	--text: #f7ecdf;
+	--muted: #cdb8a4;
+	--border: #5a4a3e;
+	--accent: #f0a060;
+	--stripe: #3d332b;
+	--hover: #463c33;
 }
 body {
 	margin: 0;
 	padding: 16px;
 	background: var(--background);
 	color: var(--text);
-	font: 14px/1.45 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+	font: 15px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
 }
-h1 { font-size: 20px; margin: 0 0 12px; }
-.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 12px; }
+h1 { font-size: 22px; margin: 0 0 14px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 1px solid var(--border); margin-bottom: 14px; }
 .tab {
-	padding: 8px 14px;
+	padding: 10px 16px;
 	border: none;
-	border-bottom: 2px solid transparent;
+	border-bottom: 3px solid transparent;
 	background: none;
 	color: var(--muted);
 	font: inherit;
 	cursor: pointer;
 }
+.tab:hover { color: var(--text); }
 .tab[aria-selected="true"] { color: var(--text); border-bottom-color: var(--accent); }
 .filters {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 8px;
-	margin-bottom: 12px;
+	gap: 10px;
+	margin-bottom: 14px;
 }
-.filters label { display: flex; flex-direction: column; color: var(--muted); font-size: 12px; }
+.filters label { display: flex; flex-direction: column; color: var(--muted); font-size: 13px; }
 select, input {
-	margin-top: 2px;
-	padding: 5px 8px;
+	margin-top: 3px;
+	padding: 6px 10px;
 	border: 1px solid var(--border);
-	border-radius: 6px;
+	border-radius: 8px;
 	background: var(--surface);
 	color: var(--text);
 	font: inherit;
 	min-width: 120px;
 }
-.count { color: var(--muted); margin: 4px 0 10px; }
-.table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); }
+select:focus, input:focus { outline: 2px solid var(--accent); outline-offset: 1px; }
+.count { color: var(--muted); margin: 6px 0 12px; font-size: 13px; }
+.table-wrap { border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
 table { border-collapse: collapse; width: 100%; }
-th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid var(--border); vertical-align: top; }
-th { color: var(--muted); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.03em; white-space: nowrap; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--border); vertical-align: top; }
+th {
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	background: var(--surface);
+	color: var(--muted);
+	font-weight: 600;
+	font-size: 13px;
+	white-space: nowrap;
+}
 th.sortable { cursor: pointer; user-select: none; }
 th.sortable:hover { color: var(--text); }
 tr:last-child td { border-bottom: none; }
@@ -134,26 +145,46 @@ tbody tr:nth-child(even) { background: var(--stripe); }
 tbody tr.entry { cursor: pointer; }
 tbody tr.entry:hover { background: var(--hover); }
 tr.details td { white-space: normal; }
-dl.details { display: grid; grid-template-columns: max-content 1fr; gap: 4px 16px; margin: 0; }
-dl.details dt { color: var(--muted); font-size: 12px; text-transform: capitalize; }
-dl.details dd { margin: 0; white-space: pre-wrap; }
-.id { font-family: ui-monospace, Menlo, monospace; white-space: nowrap; color: var(--muted); }
-.pill[role="button"] { cursor: pointer; }
+.id { font-family: ui-monospace, Menlo, monospace; white-space: nowrap; color: var(--muted); font-size: 13px; }
 .pill {
 	display: inline-block;
-	margin: 1px 4px 1px 0;
-	padding: 1px 8px;
+	margin: 2px 5px 2px 0;
+	padding: 2px 9px;
 	border-radius: 999px;
-	font-size: 12px;
+	font-size: 12.5px;
 	font-weight: 600;
 	white-space: nowrap;
 	color: var(--pill);
 	background: color-mix(in srgb, var(--pill) 18%, transparent);
 }
-button.pill { border: none; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer; }
+button.pill { border: none; font: inherit; font-size: 12.5px; font-weight: 600; cursor: pointer; }
 button.pill:hover { outline: 1px solid var(--pill); }
-.empty { padding: 24px; text-align: center; color: var(--muted); }
+.pill[role="button"] { cursor: pointer; }
+.toggle { display: inline-block; width: 1.2em; color: var(--muted); }
+td.meta-title { font-weight: 700; }
+.progress { display: inline-flex; align-items: center; gap: 6px; margin-left: 8px; vertical-align: middle; }
+.progress-track { display: inline-block; width: 90px; height: 8px; border-radius: 4px; background: var(--border); overflow: hidden; }
+.progress-fill { display: block; height: 100%; background: #2e9e4f; }
+.progress-label { color: var(--muted); font-size: 13px; white-space: nowrap; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+button.action {
+	padding: 5px 14px;
+	border: 1px solid var(--border);
+	border-radius: 8px;
+	background: var(--surface);
+	color: var(--text);
+	font: inherit;
+	cursor: pointer;
+}
+button.action:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+button.action:disabled { opacity: 0.45; cursor: default; }
+.action-message { color: var(--muted); font-size: 13px; }
+dl.details { display: grid; grid-template-columns: max-content 1fr; gap: 6px 18px; margin: 0; }
+dl.details dt { color: var(--muted); font-size: 13px; }
+dl.details dd { margin: 0; white-space: pre-wrap; }
+.empty { padding: 28px; text-align: center; color: var(--muted); }
 @media (max-width: 600px) {
+	.table-wrap { overflow-x: auto; }
 	.filters label, select, input { min-width: 0; width: 100%; }
 	.filters label { flex: 1 1 140px; }
 }
@@ -212,6 +243,7 @@ const tagColors = {
 const fallbackColors = ["#0f9fb0", "#a8862b", "#b5472b", "#6b8e23", "#7a5c3e", "#c24f8a"];
 let sortState = { key: "id", direction: "asc" };
 let expandedIds = new Set();
+let collapsedIds = new Set();
 let savedScroll = null;
 const hiddenDetailFields = ["id", "title", "source", "archived"];
 
@@ -368,11 +400,46 @@ function updateHeaders() {
 	});
 }
 
+const writeServiceAddress = "http://127.0.0.1:8765/status";
+
+function setStatus(identifier, status, message) {
+	message.textContent = "Saving...";
+	fetch(writeServiceAddress, {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({ id: identifier, status: status })
+	}).then(response => response.json().then(body => {
+		if (!response.ok) throw new Error(body.error || "request failed");
+		message.textContent = identifier + " marked " + status + ".";
+		render();
+	})).catch(error => {
+		message.textContent = "Not saved: " + error.message + ". Is the watcher running (launch agent com.cyril.backlog-view)?";
+	});
+}
+
+function actionRow(entry) {
+	const actions = document.createElement("div");
+	actions.className = "actions";
+	const message = document.createElement("span");
+	message.className = "action-message";
+	[["done", "Mark done"], ["wontfix", "Won't fix"]].forEach(([status, label]) => {
+		const button = document.createElement("button");
+		button.className = "action";
+		button.textContent = label;
+		button.disabled = entry.status === status;
+		button.addEventListener("click", () => setStatus(entry.id, status, message));
+		actions.appendChild(button);
+	});
+	actions.appendChild(message);
+	return actions;
+}
+
 function detailRow(entry) {
 	const row = document.createElement("tr");
 	row.className = "details";
 	const cellElement = document.createElement("td");
 	cellElement.colSpan = 6;
+	cellElement.appendChild(actionRow(entry));
 	const list = document.createElement("dl");
 	list.className = "details";
 	Object.keys(entry).filter(key => !hiddenDetailFields.includes(key)).forEach(key => {
@@ -398,39 +465,94 @@ function toggleEntry(identifier) {
 	render();
 }
 
+function childrenOf(parentIdentifier, visibleEntries) {
+	return visibleEntries.filter(entry => entry.parent === parentIdentifier);
+}
+
+function isClosed(entry) {
+	return entry.status === "done" || entry.status === "wontfix";
+}
+
+function progressBar(children) {
+	const closed = children.filter(isClosed).length;
+	const percentage = Math.round((closed / children.length) * 100);
+	const wrapper = document.createElement("span");
+	wrapper.className = "progress";
+	wrapper.title = closed + " of " + children.length + " subtasks closed";
+	const track = document.createElement("span");
+	track.className = "progress-track";
+	const fill = document.createElement("span");
+	fill.className = "progress-fill";
+	fill.style.width = percentage + "%";
+	track.appendChild(fill);
+	const label = document.createElement("span");
+	label.className = "progress-label";
+	label.textContent = closed + "/" + children.length;
+	wrapper.appendChild(track);
+	wrapper.appendChild(label);
+	return wrapper;
+}
+
+function appendEntryRows(body, entry, depth, visibleEntries, visibleIds) {
+	const children = childrenOf(entry.id, visibleEntries);
+	const row = document.createElement("tr");
+	row.className = "entry";
+	row.addEventListener("click", event => {
+		if (event.target.closest(".pill, .toggle")) return;
+		toggleEntry(entry.id);
+	});
+	const titleCell = plainCell("");
+	titleCell.style.paddingLeft = (10 + depth * 22) + "px";
+	if (children.length > 0) {
+		const toggle = document.createElement("span");
+		toggle.className = "toggle";
+		toggle.textContent = collapsedIds.has(entry.id) ? "▸ " : "▾ ";
+		toggle.addEventListener("click", () => toggleCollapse(entry.id));
+		titleCell.appendChild(toggle);
+	}
+	titleCell.appendChild(document.createTextNode(entry.title));
+	const allChildren = entries.filter(child => child.parent === entry.id);
+	if (allChildren.length > 0) {
+		titleCell.classList.add("meta-title");
+		titleCell.appendChild(progressBar(allChildren));
+	}
+	if (entry.summary) titleCell.title = entry.summary;
+	const idCell = plainCell(entry.id, "id");
+	row.appendChild(idCell);
+	row.appendChild(titleCell);
+	row.appendChild(coloredCell("status", entry.status));
+	row.appendChild(tagCell(entry));
+	row.appendChild(coloredCell("priority", entry.priority));
+	row.appendChild(coloredCell("difficulty", entry.difficulty));
+	body.appendChild(row);
+	if (expandedIds.has(entry.id)) body.appendChild(detailRow(entry));
+	if (!collapsedIds.has(entry.id)) {
+		children.forEach(child => appendEntryRows(body, child, depth + 1, visibleEntries, visibleIds));
+	}
+}
+
 function render() {
 	const filters = currentFilters();
 	const visible = entries.filter(entry => matches(entry, filters)).sort(compareEntries);
+	const visibleIds = new Set(visible.map(entry => entry.id));
+	const roots = visible.filter(entry => !entry.parent || !visibleIds.has(entry.parent));
 	const body = document.getElementById("rows");
 	body.innerHTML = "";
-	visible.forEach(entry => {
-		const row = document.createElement("tr");
-		row.className = "entry";
-		row.addEventListener("click", event => {
-			if (event.target.closest(".pill")) return;
-			toggleEntry(entry.id);
-		});
-		row.appendChild(plainCell(entry.id, "id"));
-		const titleCell = plainCell(entry.title);
-		if (entry.summary) titleCell.title = entry.summary;
-		row.appendChild(titleCell);
-		row.appendChild(coloredCell("status", entry.status));
-		row.appendChild(tagCell(entry));
-		row.appendChild(coloredCell("priority", entry.priority));
-		row.appendChild(coloredCell("difficulty", entry.difficulty));
-		body.appendChild(row);
-		if (expandedIds.has(entry.id)) body.appendChild(detailRow(entry));
-	});
+	roots.forEach(entry => appendEntryRows(body, entry, 0, visible, visibleIds));
 	renderTabs();
 	updateHeaders();
 	document.getElementById("count").textContent = visible.length + " of " + entries.length + " entries";
 	document.getElementById("empty").hidden = visible.length > 0;
 }
 
-const unsortedState = { key: "id", direction: "asc" };
-
-function isUnsorted() {
-	return sortState.key === unsortedState.key && sortState.direction === unsortedState.direction;
+function toggleCollapse(identifier) {
+	if (collapsedIds.has(identifier)) {
+		collapsedIds.delete(identifier);
+	} else {
+		collapsedIds.add(identifier);
+	}
+	saveFilters();
+	render();
 }
 
 function sortBy(key) {
@@ -454,7 +576,7 @@ function loadSavedFilters() {
 }
 
 function saveFilters() {
-	const saved = { sort: sortState, expanded: [...expandedIds], scroll: window.scrollY };
+	const saved = { sort: sortState, expanded: [...expandedIds], collapsed: [...collapsedIds], scroll: window.scrollY };
 	filterIdentifiers.forEach(identifier => saved[identifier] = document.getElementById(identifier).value);
 	try {
 		localStorage.setItem(savedFilterKey, JSON.stringify(saved));
@@ -472,6 +594,7 @@ function restoreFilters() {
 	});
 	if (saved.sort && saved.sort.key) sortState = saved.sort;
 	if (Array.isArray(saved.expanded)) expandedIds = new Set(saved.expanded);
+	if (Array.isArray(saved.collapsed)) collapsedIds = new Set(saved.collapsed);
 	if (typeof saved.scroll === "number") savedScroll = saved.scroll;
 }
 

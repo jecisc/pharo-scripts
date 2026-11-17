@@ -35,6 +35,7 @@ Use the same fields in both files:
 - **Tags:** comma-separated subjects, such as `Pharo`, `Perso`, `Moose`, `MCP`, `Iceberg`. Reuse an existing tag before inventing one. Optional.
 - **Priority:** high | medium | low. Optional.
 - **Difficulty:** easy | medium | hard, your estimate of the effort. Optional.
+- **Parent:** ID of a meta task (an entry that groups other tasks). Optional. The view nests the entries under their parent.
 - **Guessed:** lists the fields above that an agent inferred from context and the user has not confirmed yet, such as `Tags, Priority`. Removed once the user confirms or corrects them. Absent when every field was given or confirmed.
 
 IDs: `A-001`, `A-002`, ... for agent findings; `U-001`, ... for your backlog. Never reuse an ID.
