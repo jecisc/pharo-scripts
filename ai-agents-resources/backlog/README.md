@@ -44,3 +44,9 @@ To get a new ID, run `python3 backlog/next-id.py A` (or `U`). It scans the activ
 ## Archive
 
 When an entry's **Status** becomes `done` or `wontfix`, run `python3 backlog/archive-resolved.py`. It moves the entry out of the active list into `archive/YYYY-Wnn.md`, one file per ISO week, named by the **Resolved** date. It adds **Resolved** (today's date) if the entry lacks one. Running it again is safe.
+
+## Browsing the backlogs
+
+Open `backlog/view.html` in a browser. It lists the cross-session tasks, the Claude tasks and the archive, with filters for source, status, project (tag), priority and difficulty. The filters are remembered in the browser.
+
+A launch agent (`com.cyril.backlog-view`) runs `watch-view.py`, which rebuilds `view.html` when a backlog file changes, and the page reloads itself every 5 seconds. The agent starts at login. The plist template is `claude/templates/com.cyril.backlog-view.plist`; `setup.sh` installs it in `~/Library/LaunchAgents`. Its log is `~/Library/Logs/backlog-view.log`. To rebuild by hand, run `python3 build-view.py`.

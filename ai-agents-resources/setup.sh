@@ -94,6 +94,21 @@ mkdir -p "$REPO/backlog/archive"
 [ -e "$REPO/backlog/user-backlog.md" ]  || { printf '# User backlog\n\n---\n' > "$REPO/backlog/user-backlog.md"; ok "created empty user-backlog.md"; }
 info "Your previous lists are not in git. Copy them over from your old machine if you want them."
 
+section "Backlog view: launch agent (rebuilds backlog/view.html on change)"
+AGENT_PLIST="$HOME/Library/LaunchAgents/com.cyril.backlog-view.plist"
+if [ -e "$AGENT_PLIST" ]; then
+  ok "$AGENT_PLIST already exists (left unchanged)"
+else
+  mkdir -p "$HOME/Library/LaunchAgents" "$HOME/Library/Logs"
+  sed -e "s#{{HOME}}#$HOME#g" -e "s#{{REPO}}#$REPO#g" -e "s#{{PYTHON}}#$(command -v python3)#g" \
+    "$REPO/claude/templates/com.cyril.backlog-view.plist" > "$AGENT_PLIST" && ok "created $AGENT_PLIST"
+fi
+if launchctl list | grep -q com.cyril.backlog-view; then
+  ok "launch agent com.cyril.backlog-view is loaded"
+else
+  launchctl load "$AGENT_PLIST" && ok "loaded com.cyril.backlog-view"
+fi
+
 section "Manual steps (cannot be scripted)"
 info "1. Claude Code, inside a session:"
 info "     /plugin marketplace add $REPO/claude/task-list   (only if the cyril-mods marketplace is missing)"
