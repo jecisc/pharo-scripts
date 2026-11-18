@@ -22,7 +22,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 POLL_SECONDS = 2
 HOST = "127.0.0.1"
 PORT = 8765
-ALLOWED_STATUSES = ("done", "wontfix")
+ALLOWED_STATUSES = ("open", "in-progress", "waiting-review", "done", "wontfix")
+CLOSED_STATUSES = ("done", "wontfix")
 IDENTIFIER_PATTERN = re.compile(r"^[UA]-\d+$")
 SOURCE_FILES = ["user-backlog.md", "agent-findings.md"]
 BACKLOG_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
@@ -70,7 +71,10 @@ def mark_in_file(path, identifier, status, today):
 		end += 1
 	fields = lines[start + 1:end]
 	set_field(fields, "Status", status)
-	set_field(fields, "Resolved", today)
+	if status in CLOSED_STATUSES:
+		set_field(fields, "Resolved", today)
+	else:
+		fields[:] = [line for line in fields if not line.startswith("- **Resolved:**")]
 	lines[start + 1:end] = fields
 	with open(path, "w", encoding="utf-8") as file:
 		file.write("\n".join(lines))
@@ -133,7 +137,7 @@ class StatusHandler(BaseHTTPRequestHandler):
 		identifier = request.get("id", "")
 		status = request.get("status", "")
 		if not IDENTIFIER_PATTERN.match(identifier) or status not in ALLOWED_STATUSES:
-			self.send_json(400, {"error": "need an id like U-012 and a status done or wontfix"}, origin)
+			self.send_json(400, {"error": "need an id like U-012 and a status open, in-progress, waiting-review, done or wontfix"}, origin)
 			return
 		if mark_status(identifier, status, self.generator):
 			self.send_json(200, {"ok": True, "id": identifier, "status": status}, origin)

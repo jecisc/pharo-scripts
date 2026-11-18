@@ -423,7 +423,7 @@ function actionRow(entry) {
 	actions.className = "actions";
 	const message = document.createElement("span");
 	message.className = "action-message";
-	[["done", "Mark done"], ["wontfix", "Won't fix"]].forEach(([status, label]) => {
+	[["open", "Open"], ["in-progress", "In progress"], ["waiting-review", "Waiting review"], ["done", "Done"], ["wontfix", "Won't fix"]].forEach(([status, label]) => {
 		const button = document.createElement("button");
 		button.className = "action";
 		button.textContent = label;
