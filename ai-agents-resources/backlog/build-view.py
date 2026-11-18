@@ -11,6 +11,7 @@ import re
 
 BACKLOG_DIRECTORY = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_PATH = os.path.join(BACKLOG_DIRECTORY, "view.html")
+DATA_PATH = os.path.join(BACKLOG_DIRECTORY, "backlog-data.js")
 REFRESH_SECONDS = 5
 HEADING_PATTERN = re.compile(r"^## ([UA]-\d+) — (.*)$")
 FIELD_PATTERN = re.compile(r"^- \*\*([A-Za-z ]+):\*\* ?(.*)$")
@@ -219,8 +220,9 @@ dl.details dd { margin: 0; white-space: pre-wrap; }
 	</table>
 	<div class="empty" id="empty" hidden>No entry matches these filters.</div>
 </div>
+<script src="backlog-data.js"></script>
 <script>
-const entries = __DATA__;
+const entries = window.backlogEntries || [];
 const tabNames = ["Cross-session tasks", "Claude tasks", "Archive"];
 const filterIdentifiers = ["search", "source", "status", "tag", "priority", "difficulty"];
 const savedFilterKey = "backlog-view-filters";
@@ -634,19 +636,25 @@ setup();
 """
 
 
-def page_html(entries):
-	data = json.dumps(entries, ensure_ascii=False).replace("</", "<\\/")
-	return TEMPLATE.replace("__DATA__", data).replace("__REFRESH__", str(REFRESH_SECONDS))
+def page_html():
+	return TEMPLATE.replace("__REFRESH__", str(REFRESH_SECONDS))
+
+
+def data_script(entries):
+	return "window.backlogEntries = " + json.dumps(entries, ensure_ascii=False) + ";\n"
 
 
 def write_page():
+	entries = collect_entries()
 	with open(OUTPUT_PATH, "w", encoding="utf-8") as file:
-		file.write(page_html(collect_entries()))
+		file.write(page_html())
+	with open(DATA_PATH, "w", encoding="utf-8") as file:
+		file.write(data_script(entries))
 
 
 def main():
 	write_page()
-	print("wrote " + OUTPUT_PATH)
+	print("wrote " + OUTPUT_PATH + " and " + DATA_PATH)
 
 
 if __name__ == "__main__":
