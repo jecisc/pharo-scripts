@@ -24,7 +24,7 @@ Two cross-session lists. Both live here and are read by every agent session (Cla
 
 Use the same fields in both files:
 
-- **Status:** open | in-progress | done | wontfix
+- **Status:** open | in-progress | waiting-review | done | wontfix
 - **Area:** the repo, dependency, or tool involved
 - **Type:** bug | friction | improvement | dependency | security | doc (missing or outdated documentation)
 - **Found:** date and agent (Claude Code or opencode)
