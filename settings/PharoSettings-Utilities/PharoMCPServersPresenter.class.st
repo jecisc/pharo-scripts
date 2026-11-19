@@ -3,7 +3,7 @@ I list the MCP servers of the image with a colored dot telling their state: gree
 Below the list, a port input and a button start a new server; port 0 lets the operating system choose a free port.
 An image usually has a single server, so the list can be as small as one row (see #allowListToShowOneRow): my panel in the utilities bar can then only show the server and the port input.
 
-If MCP (https://github.com/Evref-BL/MCP) is not loaded, I only display a button to load it (see PharoSettings12 class >> #installMCP) and a refresh button. The refresh button displays the servers as soon as MCP is loaded, even when it was loaded after I was built.
+If MCP (https://github.com/Evref-BL/MCP) is not loaded, I display a message, disable the server controls and show a button to load it (see PharoSettings12 class >> #installMCP). Refresh updates my widgets in place, so the servers are displayed as soon as MCP is loaded, even when it was loaded after I was built.
 
 Listing the servers costs a full garbage collection (see MCP class >> #allServers), so the list is only refreshed when I am built, after starting a server and when clicking the refresh button. It is never polled.
 
@@ -21,7 +21,8 @@ Class {
 		'portInput',
 		'startButton',
 		'refreshButton',
-		'loadButton'
+		'loadButton',
+		'statusLabel'
 	],
 	#category : 'PharoSettings-Utilities',
 	#package : 'PharoSettings-Utilities'
@@ -38,19 +39,9 @@ PharoMCPServersPresenter >> allowListToShowOneRow [
 { #category : 'layout' }
 PharoMCPServersPresenter >> defaultLayout [
 
-	self isMCPLoaded ifFalse: [
-			^ SpBoxLayout newTopToBottom
-				  spacing: 4;
-				  add: 'MCP is not loaded in this image.' expand: false;
-				  add: (SpBoxLayout newLeftToRight
-						   spacing: 4;
-						   add: loadButton;
-						   add: refreshButton expand: false;
-						   yourself)
-				  expand: false;
-				  yourself ].
 	^ SpBoxLayout newTopToBottom
 		  spacing: 4;
+		  add: statusLabel expand: false;
 		  add: serversList;
 		  add: (SpBoxLayout newLeftToRight
 				   spacing: 4;
@@ -58,6 +49,7 @@ PharoMCPServersPresenter >> defaultLayout [
 				   add: 'Port' expand: false;
 				   add: portInput;
 				   add: startButton expand: false;
+				   add: loadButton expand: false;
 				   add: refreshButton expand: false;
 				   yourself)
 		  expand: false;
@@ -84,6 +76,7 @@ PharoMCPServersPresenter >> dotColorFor: aServer [
 { #category : 'initialization' }
 PharoMCPServersPresenter >> initializePresenters [
 
+	statusLabel := self newLabel.
 	serversList := self newList
 		               display: [ :server | self labelFor: server ];
 		               displayIcon: [ :server | self dotFor: server ];
@@ -111,7 +104,7 @@ PharoMCPServersPresenter >> initializePresenters [
 		              yourself.
 	serversList contextMenu: [ self serverMenuFor: serversList selectedItem ].
 	self whenBuiltDo: [ self allowListToShowOneRow ].
-	self isMCPLoaded ifTrue: [ self listServers ]
+	self refresh
 ]
 
 { #category : 'accessing' }
@@ -136,7 +129,14 @@ PharoMCPServersPresenter >> labelFor: aServer [
 PharoMCPServersPresenter >> listServers [
 	"Listing the servers costs a full garbage collection, see the class comment."
 
-	serversList items: self mcpClass allServers
+	serversList items: (self isMCPLoaded
+			 ifTrue: [ self mcpClass allServers ]
+			 ifFalse: [ #(  ) ])
+]
+
+{ #category : 'accessing' }
+PharoMCPServersPresenter >> loadButton [
+	^ loadButton
 ]
 
 { #category : 'actions' }
@@ -153,14 +153,22 @@ PharoMCPServersPresenter >> mcpClass [
 	^ self class environment at: #MCP ifAbsent: [ nil ]
 ]
 
+{ #category : 'accessing' }
+PharoMCPServersPresenter >> portInput [
+	^ portInput
+]
+
 { #category : 'actions' }
 PharoMCPServersPresenter >> refresh [
-	"MCP may have been loaded since I was built, so the layout is chosen again."
+	"MCP may have been loaded or its servers may have changed since I was built. The layout is never replaced, since a built layout is not rebuilt, so my widgets are updated in place."
 
-	self isMCPLoaded ifFalse: [ ^ self ].
-	self listServers.
-	self layout: self defaultLayout.
-	self allowListToShowOneRow
+	statusLabel label: (self isMCPLoaded
+			 ifTrue: [ '' ]
+			 ifFalse: [ 'MCP is not loaded in this image.' ]).
+	loadButton enabled: self isMCPLoaded not.
+	portInput enabled: self isMCPLoaded.
+	startButton enabled: self isMCPLoaded.
+	self listServers
 ]
 
 { #category : 'menu' }
@@ -214,4 +222,9 @@ PharoMCPServersPresenter >> stateOf: aServer [
 	^ aServer isListening
 		  ifTrue: [ 'running' ]
 		  ifFalse: [ 'running, socket not listening' ]
+]
+
+{ #category : 'accessing' }
+PharoMCPServersPresenter >> statusLabel [
+	^ statusLabel
 ]
