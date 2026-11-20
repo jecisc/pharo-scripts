@@ -10,7 +10,8 @@
 - Do not wrap in the middle of a line before 200 character. We now have wide screens, let's use it
 - Do not wrap messages (commit messages, pull request descriptions, chat messages) or comments. Return to a new line only for a new sentence, a list item or a new paragraph, never in the middle of a sentence
 - If you update code, check that class comments are still up to date
-- Unless I say otherwise, when you suggest a commit message, keep it short and without too many details
+- Every time you finish a task you think requires a commit, end your final message with a suggested commit message, even if I did not ask for one. Do it without waiting to be asked, and do not commit yourself unless I say so. If the change is on a branch that will become a PR, also suggest a PR title and description when it makes sense once all changes are done
+- Always write commit messages, PR titles and PR descriptions with the `clear-commit-messages` skill. Invoke it before writing them, never write them from your own habits
 - I am personaly using fish as shell
 
 ## Python 
