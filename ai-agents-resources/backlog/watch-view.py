@@ -81,13 +81,13 @@ def mark_in_file(path, identifier, status, today):
 	return True
 
 
-def mark_status(identifier, status, generator):
+def mark_status(identifier, status):
 	today = datetime.date.today().isoformat()
 	with write_lock:
 		for name in SOURCE_FILES:
 			if mark_in_file(os.path.join(BACKLOG_DIRECTORY, name), identifier, status, today):
 				subprocess.run([sys.executable, ARCHIVE_SCRIPT_PATH], cwd=BACKLOG_DIRECTORY, check=True, capture_output=True)
-				generator.write_page()
+				load_generator().write_page()
 				return True
 	return False
 
@@ -125,11 +125,11 @@ def set_tag_in_file(path, identifier, tag, enabled):
 	return True
 
 
-def set_today(identifier, enabled, generator):
+def set_today(identifier, enabled):
 	with write_lock:
 		for name in SOURCE_FILES:
 			if set_tag_in_file(os.path.join(BACKLOG_DIRECTORY, name), identifier, TODAY_TAG, enabled):
-				generator.write_page()
+				load_generator().write_page()
 				return True
 	return False
 
@@ -185,14 +185,14 @@ class StatusHandler(BaseHTTPRequestHandler):
 			if status not in ALLOWED_STATUSES:
 				self.send_json(400, {"error": "need a status open, in-progress, waiting-review, done or wontfix"}, origin)
 				return
-			found = mark_status(identifier, status, self.generator)
+			found = mark_status(identifier, status)
 			body = {"ok": True, "id": identifier, "status": status}
 		else:
 			enabled = request.get("today")
 			if not isinstance(enabled, bool):
 				self.send_json(400, {"error": "need today true or false"}, origin)
 				return
-			found = set_today(identifier, enabled, self.generator)
+			found = set_today(identifier, enabled)
 			body = {"ok": True, "id": identifier, "today": enabled}
 		if found:
 			self.send_json(200, body, origin)
@@ -217,7 +217,7 @@ def main():
 		current = signature(watched_files(generator))
 		if current != previous:
 			with write_lock:
-				generator.write_page()
+				load_generator().write_page()
 			previous = current
 			print("rebuilt view.html at " + time.strftime("%H:%M:%S"), flush=True)
 		time.sleep(POLL_SECONDS)
