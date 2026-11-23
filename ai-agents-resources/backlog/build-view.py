@@ -420,6 +420,26 @@ function setStatus(identifier, status, message) {
 	});
 }
 
+const todayAddress = "http://127.0.0.1:8765/today";
+
+function setToday(entry, enabled, message) {
+	message.textContent = "Saving...";
+	fetch(todayAddress, {
+		method: "POST",
+		headers: { "Content-Type": "application/json" },
+		body: JSON.stringify({ id: entry.id, today: enabled })
+	}).then(response => response.json().then(body => {
+		if (!response.ok) throw new Error(body.error || "request failed");
+		const tags = splitTags(entry).filter(tag => tag !== "today");
+		if (enabled) tags.push("today");
+		entry.tags = tags.join(", ");
+		message.textContent = entry.id + (enabled ? " added to today." : " removed from today.");
+		render();
+	})).catch(error => {
+		message.textContent = "Not saved: " + error.message + ". Is the watcher running (launch agent com.cyril.backlog-view)?";
+	});
+}
+
 function actionRow(entry) {
 	const actions = document.createElement("div");
 	actions.className = "actions";
@@ -433,6 +453,12 @@ function actionRow(entry) {
 		button.addEventListener("click", () => setStatus(entry.id, status, message));
 		actions.appendChild(button);
 	});
+	const isToday = splitTags(entry).includes("today");
+	const todayButton = document.createElement("button");
+	todayButton.className = "action";
+	todayButton.textContent = isToday ? "Remove from today" : "Add to today";
+	todayButton.addEventListener("click", () => setToday(entry, !isToday, message));
+	actions.appendChild(todayButton);
 	actions.appendChild(message);
 	return actions;
 }

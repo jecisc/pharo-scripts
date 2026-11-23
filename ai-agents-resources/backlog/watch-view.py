@@ -92,6 +92,48 @@ def mark_status(identifier, status, generator):
 	return False
 
 
+TODAY_TAG = "today"
+
+
+def set_tag_in_file(path, identifier, tag, enabled):
+	with open(path, encoding="utf-8") as file:
+		lines = file.read().split("\n")
+	heading = "## " + identifier + " "
+	start = next((index for index, line in enumerate(lines) if line.startswith(heading)), None)
+	if start is None:
+		return False
+	end = start + 1
+	while end < len(lines) and lines[end].startswith("- **"):
+		end += 1
+	fields = lines[start + 1:end]
+	prefix = "- **Tags:**"
+	position = next((index for index, line in enumerate(fields) if line.startswith(prefix)), None)
+	tags = []
+	if position is not None:
+		tags = [part.strip() for part in fields[position][len(prefix):].split(",") if part.strip()]
+	if enabled and tag not in tags:
+		tags.append(tag)
+	if not enabled:
+		tags = [existing for existing in tags if existing != tag]
+	if position is not None:
+		del fields[position]
+	if tags:
+		fields.append(prefix + " " + ", ".join(tags))
+	lines[start + 1:end] = fields
+	with open(path, "w", encoding="utf-8") as file:
+		file.write("\n".join(lines))
+	return True
+
+
+def set_today(identifier, enabled, generator):
+	with write_lock:
+		for name in SOURCE_FILES:
+			if set_tag_in_file(os.path.join(BACKLOG_DIRECTORY, name), identifier, TODAY_TAG, enabled):
+				generator.write_page()
+				return True
+	return False
+
+
 class StatusHandler(BaseHTTPRequestHandler):
 	generator = None
 
@@ -126,7 +168,7 @@ class StatusHandler(BaseHTTPRequestHandler):
 		if not self.origin_is_allowed():
 			self.send_json(403, {"error": "origin not allowed"}, None)
 			return
-		if self.path != "/status":
+		if self.path not in ("/status", "/today"):
 			self.send_json(404, {"error": "unknown path"}, origin)
 			return
 		try:
@@ -135,12 +177,25 @@ class StatusHandler(BaseHTTPRequestHandler):
 			self.send_json(400, {"error": "body is not JSON"}, origin)
 			return
 		identifier = request.get("id", "")
-		status = request.get("status", "")
-		if not IDENTIFIER_PATTERN.match(identifier) or status not in ALLOWED_STATUSES:
-			self.send_json(400, {"error": "need an id like U-012 and a status open, in-progress, waiting-review, done or wontfix"}, origin)
+		if not IDENTIFIER_PATTERN.match(identifier):
+			self.send_json(400, {"error": "need an id like U-012"}, origin)
 			return
-		if mark_status(identifier, status, self.generator):
-			self.send_json(200, {"ok": True, "id": identifier, "status": status}, origin)
+		if self.path == "/status":
+			status = request.get("status", "")
+			if status not in ALLOWED_STATUSES:
+				self.send_json(400, {"error": "need a status open, in-progress, waiting-review, done or wontfix"}, origin)
+				return
+			found = mark_status(identifier, status, self.generator)
+			body = {"ok": True, "id": identifier, "status": status}
+		else:
+			enabled = request.get("today")
+			if not isinstance(enabled, bool):
+				self.send_json(400, {"error": "need today true or false"}, origin)
+				return
+			found = set_today(identifier, enabled, self.generator)
+			body = {"ok": True, "id": identifier, "today": enabled}
+		if found:
+			self.send_json(200, body, origin)
 		else:
 			self.send_json(404, {"error": identifier + " not found"}, origin)
 
