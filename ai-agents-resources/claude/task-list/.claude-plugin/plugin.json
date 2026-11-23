@@ -1,6 +1,6 @@
 {
   "name": "task-list",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Three side panes: session tasks (numbered), cross-session tasks and Claude tasks. /backlog opens them all and reloads the backlog files",
   "types": "./types/index.d.ts"
 }

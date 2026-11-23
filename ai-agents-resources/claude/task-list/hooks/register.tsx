@@ -83,6 +83,26 @@ const withNumbers = (list: Task[]): Task[] => numbered(
 
 type PaneOpener = { ui: { open: (pane: { id: string; title: string }) => Promise<unknown> } }
 
+type Engine = Parameters<typeof update>[0]
+
+const BACKLOG_FILES = [CROSS_SESSION_FILE, CLAUDE_FILE]
+const BACKLOG_POLL_MS = 2000
+// The modification times of the backlog files at the last load: a poll reloads only when they change.
+let loadedSignature = ''
+
+// Reads the backlog files into the panes when they changed since the last load. Answers whether it loaded.
+const loadBacklogs = async ($: Engine, force = false): Promise<boolean> => {
+  const stats = await Promise.all(BACKLOG_FILES.map(file => $.fs.stat(file)))
+  const signature = stats.map(stat => stat.mtimeMs).join(',')
+  if (!force && signature === loadedSignature) return false
+  const crossSession = parseEntries(await $.fs.read(CROSS_SESSION_FILE))
+  const claude = parseEntries(await $.fs.read(CLAUDE_FILE))
+  await update($, crossSessionItems, () => crossSession)
+  await update($, claudeItems, () => claude)
+  loadedSignature = signature
+  return true
+}
+
 const openAllPanes = async ($: PaneOpener) => {
   await $.ui.open({ id: SESSION_PANE, title: 'Session tasks' })
   await $.ui.open({ id: CROSS_SESSION_PANE, title: 'Cross-session tasks' })
@@ -117,23 +137,22 @@ export const register: Register = on => {
     }
     await openAllPanes($)
     try {
-      const crossSession = parseEntries(await $.fs.read(CROSS_SESSION_FILE))
-      const claude = parseEntries(await $.fs.read(CLAUDE_FILE))
-      await update($, crossSessionItems, () => crossSession)
-      await update($, claudeItems, () => claude)
+      await loadBacklogs($, true)
     } catch (reason) {
       $.ui.toast(`Backlog not read: ${(reason as Error).message}`)
     }
+    $.clock.every(BACKLOG_POLL_MS, () => {
+      loadBacklogs($).catch(() => undefined)
+    })
 
     return next(e)
   })
 
   on('command.run', { command: BACKLOG_COMMAND }, async $ => {
-    const crossSession = parseEntries(await $.fs.read(CROSS_SESSION_FILE))
-    const claude = parseEntries(await $.fs.read(CLAUDE_FILE))
-    await update($, crossSessionItems, () => crossSession)
-    await update($, claudeItems, () => claude)
+    await loadBacklogs($, true)
     await openAllPanes($)
+    const crossSession = await read($, crossSessionItems)
+    const claude = await read($, claudeItems)
 
     return { text: `Cross-session tasks: ${crossSession.length} items. Claude tasks: ${claude.length} findings.` }
   })
