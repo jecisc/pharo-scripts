@@ -49,6 +49,7 @@
 - Do not do `self assert: a == b` but `self assert: a identicalTo: b`
 - Do not write tests for simple getters and setters
 - When comparing if a collection is empty or not, favor #assertEmpty: and #denyEmpty:
+- Put `setUp` and `tearDown` in the `running` protocol. `setUp` starts with `super setUp` when possible, and `tearDown` ends with `super tearDown`
 
 ## Don't
 - Don't use emoji if it does not bring value

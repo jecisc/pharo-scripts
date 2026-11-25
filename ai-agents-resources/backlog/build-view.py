@@ -216,6 +216,7 @@ const entries = window.backlogEntries || [];
 const tabNames = ["Cross-session tasks", "Claude tasks", "Archive"];
 const filterIdentifiers = ["search", "source", "status", "tag", "priority", "difficulty"];
 const savedFilterKey = "backlog-view-filters";
+const savedSortKey = "backlog-view-sort";
 const allValue = "";
 const rankings = {
 	priority: { low: 1, medium: 2, high: 3 },
@@ -234,7 +235,10 @@ const tagColors = {
 	telescope: "#1f9aa0"
 };
 const fallbackColors = ["#0f9fb0", "#a8862b", "#b5472b", "#6b8e23", "#7a5c3e", "#c24f8a"];
-let sortState = { key: "id", direction: "asc" };
+// The default order: by ID, ascending. A third click on a column header returns to it.
+const unsortedState = { key: "id", direction: "asc" };
+let sortState = { ...unsortedState };
+const isUnsorted = () => sortState.key === unsortedState.key && sortState.direction === unsortedState.direction;
 let expandedIds = new Set();
 let collapsedIds = new Set();
 let savedScroll = null;
@@ -607,12 +611,23 @@ function loadSavedFilters() {
 }
 
 function saveFilters() {
-	const saved = { sort: sortState, expanded: [...expandedIds], collapsed: [...collapsedIds], scroll: window.scrollY };
+	const saved = { expanded: [...expandedIds], collapsed: [...collapsedIds], scroll: window.scrollY };
 	filterIdentifiers.forEach(identifier => saved[identifier] = document.getElementById(identifier).value);
 	try {
 		localStorage.setItem(savedFilterKey, JSON.stringify(saved));
+		sessionStorage.setItem(savedSortKey, JSON.stringify(sortState));
 	} catch (error) {
 		return;
+	}
+}
+
+// The sort is kept per tab only, so the page starts ID ascending in a new tab and keeps the chosen sort across the 5-second refresh.
+function loadSavedSort() {
+	try {
+		const saved = JSON.parse(sessionStorage.getItem(savedSortKey));
+		return saved && saved.key ? saved : null;
+	} catch (error) {
+		return null;
 	}
 }
 
@@ -623,7 +638,8 @@ function restoreFilters() {
 			document.getElementById(identifier).value = saved[identifier];
 		}
 	});
-	if (saved.sort && saved.sort.key) sortState = saved.sort;
+	const savedSort = loadSavedSort();
+	if (savedSort) sortState = savedSort;
 	if (Array.isArray(saved.expanded)) expandedIds = new Set(saved.expanded);
 	if (Array.isArray(saved.collapsed)) collapsedIds = new Set(saved.collapsed);
 	if (typeof saved.scroll === "number") savedScroll = saved.scroll;
