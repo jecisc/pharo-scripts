@@ -118,6 +118,7 @@ info "     /plugin install gitkraken-hooks@gitkraken        (or install GitKrake
 info "     then /reload-plugins and /restart"
 info "2. opencode: GitKraken plugin gk-hooks.js in ~/.config/opencode/plugins/ comes from GitKraken."
 info "3. Pharo repo: clone your pharo repo to ~/Library/Preferences/pharo so that $REPO exists."
+info "4. Pharo MCP skills: clone Evref-BL/MCP to ~/Library/Preferences/pharo/GitRepositories/Evref-BL/MCP, then rerun $REPO/scripts/link-skills.sh."
 
 echo
 ok "Setup finished. Check the [!!] lines above."
